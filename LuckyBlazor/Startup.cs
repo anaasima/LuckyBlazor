@@ -29,7 +29,8 @@ namespace LuckyBlazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            Console.Write("Anaaaazz");
+
+            Console.Write("Ana are mere");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
