@@ -22,36 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="Ana">
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Component.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Model/ComponentList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/WeatherForecast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/WeatherForecastService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Counter.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/FetchData.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Index.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/SurveyPrompt.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" afterDir="false" />
-    </list>
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="Proof of concept Tier1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +35,10 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/University/DNP/LuckyBlazor/LuckyBlazor/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/University/DNP/LuckyBlazor/LuckyBlazor/Startup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -81,8 +56,8 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Component.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/ComponentList.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
       </list>
     </option>
   </component>
@@ -153,6 +128,7 @@
       <workItem from="1604752591825" duration="2449000" />
       <workItem from="1605020366489" duration="749000" />
       <workItem from="1605021810427" duration="4980000" />
+      <workItem from="1605031112013" duration="296000" />
     </task>
     <task id="LOCAL-00001" summary="Ana">
       <created>1603890769954</created>
@@ -175,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603891180287</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Proof of concept Tier1">
+      <created>1605031243806</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605031243806</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +182,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="pleasee" />
     <MESSAGE value="Ana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ana" />
+    <MESSAGE value="Proof of concept Tier1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proof of concept Tier1" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1493" height="515" key="GridCell.Tab.0.bottom" timestamp="1605028486576">
