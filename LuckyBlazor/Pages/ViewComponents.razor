@@ -1,0 +1,100 @@
+@page "/ViewComponents"
+@using LuckyBlazor.Model
+<h3>ViewComponents</h3>
+
+@if (_components == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!_components.Any())
+{
+    <p>
+        <em>No adults in the list. Please add some.</em>
+    </p>
+}
+else
+{
+@*     <table class="table"> *@
+@*         <thead> *@
+@*         <tr> *@
+@*             <th>Name</th> *@
+@*             <th>Brand</th> *@
+@*             <th>Type</th> *@
+@*             <th>Release Year</th> *@
+@*             <th>Aditional Information</th> *@
+@*         </tr> *@
+@*         </thead> *@
+@*         <tbody> *@
+@*         @foreach (var item in _componentsToShow) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td>@item.Name</td> *@
+@*                 <td>@item.Brand</td> *@
+@*                 <td>@item.Type</td> *@
+@*                 <td>@item.ReleaseYear</td> *@
+@*                 <td>@item.AdditionalInformation</td> *@
+@*             </tr> *@
+@*         } *@
+@*         </tbody> *@
+@*     </table> *@
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Release Year</th>
+            <th>Aditional Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in _componentsToShow)
+        {
+            <tr>
+                 <td>@item.Name</td>
+                               <td>@item.Brand</td>
+                               <td>@item.Type</td>
+                               <td>@item.ReleaseYear</td>
+                               <td>@item.AdditionalInformation</td>
+                @* <td> *@
+                @*     <button @onclick="@(() => RemoveAdult(item.Id))"> *@
+                @*         <i class="oi oi-trash" style="color:red"/> *@
+                @*     </button> *@
+                @* </td> *@
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+
+
+
+
+@code {
+    private ComponentList componentList;
+    private IList<Component> _components;
+    private IList<Component> _componentsToShow; //TODO: this will later have filters
+
+    //TODO: reminder for filters
+
+    protected override async Task OnInitializedAsync()
+    {
+        componentList = new ComponentList();
+        _components = new List<Component>();
+        _componentsToShow = new List<Component>();
+        
+        
+        componentList = await Service.GetAllComponentsAsync();
+        for (int i = 0; i < componentList.Size(); i++)
+        {
+            _components.Add(componentList.GetComponent(i));
+        }
+        _componentsToShow = _components;
+    }
+
+}
