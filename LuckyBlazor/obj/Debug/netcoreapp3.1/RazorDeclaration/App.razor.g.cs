@@ -71,6 +71,13 @@ using LuckyBlazor;
 #nullable disable
 #nullable restore
 #line 9 "C:\University\DNP\LuckyBlazor\LuckyBlazor\_Imports.razor"
+using LuckyBlazor.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\University\DNP\LuckyBlazor\LuckyBlazor\_Imports.razor"
 using LuckyBlazor.Shared;
 
 #line default
@@ -83,6 +90,7 @@ using LuckyBlazor.Shared;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IComponentService Service { get; set; }
     }
 }
 #pragma warning restore 1591
