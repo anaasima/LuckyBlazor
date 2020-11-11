@@ -70,11 +70,6 @@ else
     </table>
 }
 
-
-
-
-
-
 @code {
     private ComponentList componentList;
     private IList<Component> _components;
@@ -87,8 +82,6 @@ else
         componentList = new ComponentList();
         _components = new List<Component>();
         _componentsToShow = new List<Component>();
-        
-        
         componentList = await Service.GetAllComponentsAsync();
         for (int i = 0; i < componentList.Size(); i++)
         {
