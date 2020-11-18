@@ -31,11 +31,17 @@
         </e>
         <e p="LuckyBlazor.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
-          <e p="Account.cs" t="Include" />
-          <e p="Build.cs" t="Include" />
-          <e p="BuildList.cs" t="Include" />
-          <e p="Component.cs" t="Include" />
-          <e p="ComponentList.cs" t="Include" />
+          <e p="Accounts" t="Include">
+            <e p="Account.cs" t="Include" />
+          </e>
+          <e p="Builds" t="Include">
+            <e p="Build.cs" t="Include" />
+            <e p="BuildList.cs" t="Include" />
+          </e>
+          <e p="Components" t="Include">
+            <e p="Component.cs" t="Include" />
+            <e p="ComponentList.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
