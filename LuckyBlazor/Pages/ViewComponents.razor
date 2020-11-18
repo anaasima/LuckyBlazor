@@ -89,7 +89,7 @@ else
         _componentsToShow = new List<Component>();
         
         
-        componentList = await Service.GetAllComponentsAsync();
+        componentList = await ComponentService.GetAllComponentsAsync();
         for (int i = 0; i < componentList.Size(); i++)
         {
             _components.Add(componentList.GetComponent(i));

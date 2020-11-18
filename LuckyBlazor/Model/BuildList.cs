@@ -38,5 +38,15 @@ namespace LuckyBlazor.Model
         {
             Builds.Add(build);
         }
+
+        public int GetUserId()
+        {
+            if (Builds != null)
+            {
+                return GetBuild(0).UserId;
+            }
+
+            return -1;
+        }
     }
 }

@@ -22,12 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="blala">
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Build.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Model/BuildList.cs" afterDir="false" />
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="Tier1 - My account View">
+      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Account.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/BuildList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/BuildList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +54,6 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Index.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/IComponentService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Startup.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/MainLayout.razor" />
@@ -58,18 +63,21 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/ComponentList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Authentication/CustomAuthenticationStateProvider.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/User.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Account.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/UsersService/IUserService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Component.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Build.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/BuildList.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Account.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" />
       </list>
     </option>
   </component>

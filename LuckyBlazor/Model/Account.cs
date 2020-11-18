@@ -8,19 +8,16 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("userid")]
         [Required]
         public int UserId { get; set; }
-        [JsonPropertyName("name")]
-        [Required]
+
+        [JsonPropertyName("name")] [Required] 
         public string Name { get; set; }
+
         [JsonPropertyName("username")]
         [Required]
-        public string Username
-        {
-            get;
-            set;
-        }
+        public string Username { get; set; }
+
         [JsonPropertyName("password")]
         [Required]
         public string Password { get; set; }
-
-}
+    }
 }

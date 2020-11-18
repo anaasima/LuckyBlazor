@@ -1,4 +1,5 @@
 @page "/MyAccount"
+@using LuckyBlazor.Model
 <h3>My Account</h3>
 
 <label> Name of the build </label>
@@ -15,19 +16,19 @@
     </thead>
     
     <tbody>
-    @foreach (var item in _builds)
+    @foreach (var VARIABLE in _builds)
     {
-        foreach (var VARIABLE in item)
+        for (int i = 0; i < VARIABLE.ComponentList.Size(); i++)
         {
             <tr>
-                <td>@VARIABLE.Type</td>
-                <td>@VARIABLE.Brand</td>
-                <td>@VARIABLE.Name</td>
-                <td>@VARIABLE.ReleaseYear</td>
-                <td>@VARIABLE.AdditionalInformation</td>
+                <td>@VARIABLE.ComponentList.GetComponent(i).Type</td>
+                <td>@VARIABLE.ComponentList.GetComponent(i).Brand</td>
+                <td>@VARIABLE.ComponentList.GetComponent(i).Name</td>
+                <td>@VARIABLE.ComponentList.GetComponent(i).ReleaseYear</td>
+                <td>@VARIABLE.ComponentList.GetComponent(i).AdditionalInformation</td>
             </tr>
-        }
         
+        }
     }
     </tbody>
 </table>
@@ -37,13 +38,15 @@
 @code {
     private BuildList _buildList;
     private IList<Build> _builds;
+    private int _userId;
 
     protected async override Task OnInitializedAsync()
     {
-        _buildList = Service.GetAllBuilds();
-        foreach (var VARIABLE in _buildList)
+        _buildList = await BuildService.GetAllBuildsAsync(_userId);
+        for (int i = 0; i < _buildList.Size(); i++)
         {
-            _builds.Add(VARIABLE);
+            _userId = _buildList.GetUserId();
+            _builds.Add(_buildList.GetBuild(i));
         }
     }
 
