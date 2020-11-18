@@ -1,0 +1,50 @@
+@page "/MyAccount"
+<h3>My Account</h3>
+
+<label> Name of the build </label>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Name</th>
+        <th>Release Year</th>
+        <th>Aditional Information</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    @foreach (var item in _builds)
+    {
+        foreach (var VARIABLE in item)
+        {
+            <tr>
+                <td>@VARIABLE.Type</td>
+                <td>@VARIABLE.Brand</td>
+                <td>@VARIABLE.Name</td>
+                <td>@VARIABLE.ReleaseYear</td>
+                <td>@VARIABLE.AdditioanlInformation</td>
+            </tr>
+        }
+        
+    }
+    </tbody>
+</table>
+
+
+
+@code {
+    private BuildList _buildList;
+    private IList<Build> _builds;
+
+    protected async override Task OnInitializedAsync()
+    {
+        _buildList = Service.GetAllBuilds();
+        foreach (var VARIABLE in _buildList)
+        {
+            _builds.Add(VARIABLE);
+        }
+    }
+
+}

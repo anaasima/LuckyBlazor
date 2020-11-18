@@ -29,6 +29,7 @@
         </e>
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
+          <e p="MyAccount (ViewBuilds).razor" t="Include" />
           <e p="ViewComponents.razor" t="Include" />
           <e p="WelcomingPage.razor" t="Include" />
         </e>
