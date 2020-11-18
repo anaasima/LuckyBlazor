@@ -11,21 +11,11 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("userid")]
         [Required]
         public int UserId { get; set; }
-        [JsonPropertyName("type")]
-        [Required]
-        public string Type { get; set; }
-        [JsonPropertyName("brand")]
-        [Required]
-        public string Brand { get; set; }
         [JsonPropertyName("name")]
         [Required]
         public string Name { get; set; }
-        [JsonPropertyName("releaseYear")]
+        [JsonPropertyName("componentList")]
         [Required]
-        public int ReleaseYear { get; set; }
-        [JsonPropertyName("additionalInformation")]
-        [Required]
-        public string AdditionalInformation { get; set; }
-        
-    }
+        public ComponentList ComponentList { get; set; }
+        }
 }
