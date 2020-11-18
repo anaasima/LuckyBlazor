@@ -1,4 +1,6 @@
 using LuckyBlazor.Data;
+using LuckyBlazor.Data.AccountsService;
+using LuckyBlazor.Data.BuildService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,8 @@ namespace LuckyBlazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<IComponentService, ComponentService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IBuildService, BuildService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

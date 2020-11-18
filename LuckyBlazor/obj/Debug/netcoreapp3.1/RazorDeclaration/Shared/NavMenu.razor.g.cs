@@ -78,6 +78,20 @@ using LuckyBlazor.Data;
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\eatcl\RiderProjects\LuckyBlazor\LuckyBlazor\_Imports.razor"
+using LuckyBlazor.Data.AccountsService;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\eatcl\RiderProjects\LuckyBlazor\LuckyBlazor\_Imports.razor"
+using LuckyBlazor.Data.BuildService;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\eatcl\RiderProjects\LuckyBlazor\LuckyBlazor\_Imports.razor"
 using LuckyBlazor.Shared;
 
 #line default
@@ -106,7 +120,9 @@ using LuckyBlazor.Shared;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IComponentService Service { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAccountService AccountService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IBuildService BuildService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IComponentService ComponentService { get; set; }
     }
 }
 #pragma warning restore 1591

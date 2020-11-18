@@ -21,6 +21,7 @@ namespace LuckyBlazor.Data.AccountsService
                 );
             
             HttpResponseMessage responseMessage = await httpClient.PostAsync("https://localhost:5001/accounts", content);
+            
         }
 
         public async Task<Account> ValidateAccount(string Username, string Password)

@@ -1,0 +1,53 @@
+@page "/RegisterAccount"
+@using LuckyBlazor.Model
+@inject IAccountService service
+@inject NavigationManager NavigationManager
+<h3>RegisterAccount</h3>
+
+<h3>RegisterAdult</h3>
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" placeholder="name" @bind-value="name"/>
+    </div>
+<div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="password" @bind-value="password"/>
+    </div>
+    <div class="form-group">
+                        <label>User name:</label>
+                        <input type="text" placeholder="user name" @bind-value="username"/>
+                    </div>
+                <div style="color:red">@errorMessage</div>
+        
+                <a href="" @onclick="CreateAccount">
+                    Create
+                </a>
+@code {
+    private string username;
+    private string name;
+    private string password;
+    private string errorMessage;
+
+    public async Task CreateAccount()
+    {
+        errorMessage = "";
+        try
+        {
+            Account newAccount = new Account
+            {
+                Username = username,
+                Name = name,
+                Password = password
+            };
+            service.RegisterAccount(newAccount);
+            username = "";
+            name = "";
+            password = "";
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message;
+        }
+    }
+}
