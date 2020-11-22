@@ -1,53 +1,53 @@
 @page "/RegisterAccount"
 @using LuckyBlazor.Model
-@inject IAccountService service
+@inject IAccountService AccountService
 @inject NavigationManager NavigationManager
-<h3>RegisterAccount</h3>
+<h3>Register Account</h3>
 
 <h3>RegisterAdult</h3>
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" placeholder="name" @bind-value="name"/>
+        <input type="text" placeholder="name" @bind-value="_name"/>
     </div>
 <div class="form-group">
         <label>Password</label>
-        <input type="password" placeholder="password" @bind-value="password"/>
+        <input type="password" placeholder="password" @bind-value="_password"/>
     </div>
     <div class="form-group">
                         <label>User name:</label>
-                        <input type="text" placeholder="user name" @bind-value="username"/>
+                        <input type="text" placeholder="user name" @bind-value="_username"/>
                     </div>
-                <div style="color:red">@errorMessage</div>
+                <div style="color:red">@_errorMessage</div>
         
                 <a href="" @onclick="CreateAccount">
                     Create
                 </a>
 @code {
-    private string username;
-    private string name;
-    private string password;
-    private string errorMessage;
+    private string _username;
+    private string _name;
+    private string _password;
+    private string _errorMessage;
 
-    public async Task CreateAccount()
+    private async Task CreateAccount()
     {
-        errorMessage = "";
+        _errorMessage = "";
         try
         {
             Account newAccount = new Account
             {
-                Username = username,
-                Name = name,
-                Password = password
+                Username = _username,
+                Name = _name,
+                Password = _password
             };
-            service.RegisterAccount(newAccount);
-            username = "";
-            name = "";
-            password = "";
+            await AccountService.RegisterAccount(newAccount);
+            _username = "";
+            _name = "";
+            _password = "";
             NavigationManager.NavigateTo("/");
         }
         catch (Exception e)
         {
-            errorMessage = e.Message;
+            _errorMessage = e.Message;
         }
     }
 }

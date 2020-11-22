@@ -23,7 +23,7 @@ else
 @*             <th>Brand</th> *@
 @*             <th>Type</th> *@
 @*             <th>Release Year</th> *@
-@*             <th>Aditional Information</th> *@
+@*             <th>Additional Information</th> *@
 @*         </tr> *@
 @*         </thead> *@
 @*         <tbody> *@
@@ -76,7 +76,7 @@ else
 
 
 @code {
-    private ComponentList componentList;
+    private ComponentList _componentList;
     private IList<Component> _components;
     private IList<Component> _componentsToShow; //TODO: this will later have filters
 
@@ -84,15 +84,15 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        componentList = new ComponentList();
+        _componentList = new ComponentList();
         _components = new List<Component>();
         _componentsToShow = new List<Component>();
         
         
-        componentList = await ComponentService.GetAllComponentsAsync();
-        for (int i = 0; i < componentList.Size(); i++)
+        _componentList = await ComponentService.GetAllComponentsAsync();
+        for (int i = 0; i < _componentList.Size(); i++)
         {
-            _components.Add(componentList.GetComponent(i));
+            _components.Add(_componentList.GetComponent(i));
         }
         _componentsToShow = _components;
     }
