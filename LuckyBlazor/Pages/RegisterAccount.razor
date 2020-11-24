@@ -2,26 +2,35 @@
 @using LuckyBlazor.Model
 @inject IAccountService AccountService
 @inject NavigationManager NavigationManager
-<h3>Register Account</h3>
 
-<h3>RegisterAdult</h3>
-    <div class="form-group">
-        <label>Name:</label>
-        <input type="text" placeholder="name" @bind-value="_name"/>
-    </div>
-<div class="form-group">
-        <label>Password</label>
-        <input type="password" placeholder="password" @bind-value="_password"/>
-    </div>
-    <div class="form-group">
-                        <label>User name:</label>
-                        <input type="text" placeholder="user name" @bind-value="_username"/>
-                    </div>
-                <div style="color:red">@_errorMessage</div>
-        
-                <a href="" @onclick="CreateAccount">
-                    Create
-                </a>
+<div class="loginForm">
+    <h3>Create a new account</h3>
+    <input type="text" placeholder="Name..." @bind-value="_name">
+    <input type="text" placeholder="Username..." @bind-value="_username">
+    <br>
+    <input type="password" placeholder="Password.." @bind-value="_password">
+    <br>
+    <div style="color:red">@_errorMessage</div>
+    <br>
+    <input type="submit" value="Login" @onclick="CreateAccount">
+</div>
+@* <div class="form-group"> *@
+@*         <label>Name:</label> *@
+@*         <input type="text" placeholder="name" @bind-value="_name"/> *@
+@*     </div> *@
+@* <div class="form-group"> *@
+@*         <label>Password</label> *@
+@*         <input type="password" placeholder="password" @bind-value="_password"/> *@
+@*     </div> *@
+@*     <div class="form-group"> *@
+@*                         <label>User name:</label> *@
+@*                         <input type="text" placeholder="user name" @bind-value="_username"/> *@
+@*                     </div> *@
+@*                 <div style="color:red">@_errorMessage</div> *@
+@*          *@
+@*                 <a href="" @onclick="CreateAccount"> *@
+@*                     Create *@
+@*                 </a> *@
 @code {
     private string _username;
     private string _name;

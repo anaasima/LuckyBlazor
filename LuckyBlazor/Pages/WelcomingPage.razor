@@ -7,19 +7,36 @@
 <h1>Hello, world!</h1>
 <AuthorizeView>
     <NotAuthorized>
-        <div class="form-group">
-            <label>User name:</label>
-            <input type="text" placeholder="user name" @bind-value="_username"/>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" placeholder="password" @bind-value="_password"/>
-        </div>
-        <div style="color:red">@_errorMessage</div>
-
-        <a href="" @onclick="PerformLogin">
-            Login
-        </a>
+        <div class="loginForm">
+            <input type="text" placeholder="Username" @bind-value="_username">
+        	<br>
+            <input type="password" placeholder="Password" @bind-value="_password">
+            <br>
+            <div style="color:red">@_errorMessage</div>
+            <br>
+            <input type="submit" value="Login" @onclick="PerformLogin">
+            <br>
+            <div>
+            <a href="" @onclick="GoToRegisterPage">Don't have an account? Click here to register!
+            </a>
+            <br>
+            <a href="" @onclick="GoToViewComponents">Continue as guest
+            </a>
+            </div>
+            </div>
+        @* <div class="form-group"> *@
+        @*     <label>User name:</label> *@
+        @*     <input type="text" placeholder="user name" @bind-value="_username"/> *@
+        @* </div> *@
+        @* <div class="form-group"> *@
+        @*     <label>Password</label> *@
+        @*     <input type="password" placeholder="password" @bind-value="_password"/> *@
+        @* </div> *@
+        @* <div style="color:red">@_errorMessage</div> *@
+        @* *@
+        @* <a href="" @onclick="PerformLogin"> *@
+        @*     Login *@
+        @* </a> *@
     </NotAuthorized>
     <Authorized>
         <a href="" @onclick="PerformLogout">
@@ -40,18 +57,18 @@
     private async Task PerformLogin()
     {
         _errorMessage = "";
-        try
-        {
-            Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
-            UserId = account.UserId;
-            _username = "";
-            _password = "";
-            NavigationManager.NavigateTo("/MyAccount/" + UserId);
-        }
-        catch (Exception e)
-        {
-            _errorMessage = e.Message;
-        }
+         try
+         {
+             Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+             UserId = account.UserId;
+             _username = "";
+             _password = "";
+             NavigationManager.NavigateTo("/MyAccount/" + UserId);
+         }
+         catch (Exception e)
+         {
+             _errorMessage = e.Message;
+         }
     }
 
     public async Task PerformLogout()
@@ -68,5 +85,15 @@
         {
             Console.WriteLine(e.Message);
         }
+    }
+
+    public async Task GoToRegisterPage()
+    {
+        NavigationManager.NavigateTo("/RegisterAccount");
+    }
+
+    public async Task GoToViewComponents()
+    {
+        NavigationManager.NavigateTo("/ViewComponents");
     }
 }
