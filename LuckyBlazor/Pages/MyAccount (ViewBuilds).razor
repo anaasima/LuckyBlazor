@@ -1,4 +1,4 @@
-@page "/MyAccount"
+@page "/MyAccount/{UserId}"
 @using LuckyBlazor.Model
 <h3>My Account</h3>
 
@@ -14,38 +14,38 @@
         <th>Aditional Information</th>
     </tr>
     </thead>
-    
+
     <tbody>
-    @foreach (var VARIABLE in _builds)
+    @foreach (var variable in _builds)
     {
-        for (int i = 0; i < VARIABLE.ComponentList.Size(); i++)
+        for (int i = 0; i < variable.ComponentList.Size(); i++)
         {
             <tr>
-                <td>@VARIABLE.ComponentList.GetComponent(i).Type</td>
-                <td>@VARIABLE.ComponentList.GetComponent(i).Brand</td>
-                <td>@VARIABLE.ComponentList.GetComponent(i).Name</td>
-                <td>@VARIABLE.ComponentList.GetComponent(i).ReleaseYear</td>
-                <td>@VARIABLE.ComponentList.GetComponent(i).AdditionalInformation</td>
+                <td>@variable.ComponentList.GetComponent(i).Type</td>
+                <td>@variable.ComponentList.GetComponent(i).Brand</td>
+                <td>@variable.ComponentList.GetComponent(i).Name</td>
+                <td>@variable.ComponentList.GetComponent(i).ReleaseYear</td>
+                <td>@variable.ComponentList.GetComponent(i).AdditionalInformation</td>
             </tr>
-        
         }
     }
     </tbody>
 </table>
 
 
-
 @code {
     private BuildList _buildList;
     private IList<Build> _builds;
-    private int _userId;
+    [Parameter] 
+    public static int UserId { get; set; } //TODO: Ana a zis ca s-ar putea sa fie o problema
 
-    protected async override Task OnInitializedAsync()
+    private static readonly int CachedUserId = UserId;
+
+    protected override async Task OnInitializedAsync()
     {
-        _buildList = await BuildService.GetAllBuildsAsync(_userId);
+        _buildList = await BuildService.GetAllBuildsAsync(CachedUserId);
         for (int i = 0; i < _buildList.Size(); i++)
         {
-            _userId = _buildList.GetUserId();
             _builds.Add(_buildList.GetBuild(i));
         }
     }

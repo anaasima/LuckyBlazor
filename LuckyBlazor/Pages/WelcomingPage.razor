@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using LuckyBlazor.Authentication
+@using LuckyBlazor.Model
 
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
@@ -8,14 +9,14 @@
     <NotAuthorized>
         <div class="form-group">
             <label>User name:</label>
-            <input type="text" placeholder="user name" @bind-value="username"/>
+            <input type="text" placeholder="user name" @bind-value="_username"/>
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" placeholder="password" @bind-value="password"/>
+            <input type="password" placeholder="password" @bind-value="_password"/>
         </div>
-        <div style="color:red">@errorMessage</div>
-    
+        <div style="color:red">@_errorMessage</div>
+
         <a href="" @onclick="PerformLogin">
             Login
         </a>
@@ -29,31 +30,35 @@
 
 @code
 {
-    private string username;
-    private string password;
-    private string errorMessage;
+    private string _username;
+    private string _password;
+    private string _errorMessage;
 
-    public async Task PerformLogin()
+    [Parameter]
+    public static int UserId { get; set; } //TODO: si aici a zis ana ca nu stie daca "merge cu staticu asta"
+
+    private async Task PerformLogin()
     {
-        errorMessage = "";
+        _errorMessage = "";
         try
         {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
-            username = "";
-            password = "";
-            NavigationManager.NavigateTo("/");
+            Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+            UserId = account.UserId;
+            _username = "";
+            _password = "";
+            NavigationManager.NavigateTo("/MyAccount/" + UserId);
         }
         catch (Exception e)
         {
-            errorMessage = e.Message;
+            _errorMessage = e.Message;
         }
     }
 
     public async Task PerformLogout()
     {
-        errorMessage = "";
-        username = "";
-        password = "";
+        _errorMessage = "";
+        _username = "";
+        _password = "";
         try
         {
             ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();

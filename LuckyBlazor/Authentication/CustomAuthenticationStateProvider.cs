@@ -14,7 +14,6 @@ namespace LuckyBlazor.Authentication
     {
         private readonly IJSRuntime jsRuntime;
         private readonly IAccountService accountService;
-
         private Account cachedUser;
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IAccountService accountService)
@@ -58,7 +57,7 @@ namespace LuckyBlazor.Authentication
                 user = await accountService.ValidateAccount(username, password);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
             catch (Exception e)
@@ -78,7 +77,7 @@ namespace LuckyBlazor.Authentication
             jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
         }
-
+        
         private ClaimsIdentity SetupClaimsForUser(Account user)
         {
             List<Claim> claims = new List<Claim>();
