@@ -19,5 +19,18 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("password")]
         [Required]
         public string Password { get; set; }
+
+        public Account(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
+        public Account(string username, string password, string name)
+        {
+            Username = username;
+            Password = password;
+            Name = name;
+        }
     }
 }

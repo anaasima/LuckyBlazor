@@ -42,12 +42,7 @@
         _errorMessage = "";
         try
         {
-            Account newAccount = new Account
-            {
-                Username = _username,
-                Name = _name,
-                Password = _password
-            };
+            Account newAccount = new Account(_username, _password, _name);
             await AccountService.RegisterAccount(newAccount);
             _username = "";
             _name = "";

@@ -59,7 +59,7 @@
         _errorMessage = "";
          try
          {
-             Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+             Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(new Account(_username, _password));
              UserId = account.UserId;
              _username = "";
              _password = "";

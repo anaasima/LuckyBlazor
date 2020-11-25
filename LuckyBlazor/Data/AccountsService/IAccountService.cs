@@ -6,7 +6,7 @@ namespace LuckyBlazor.Data.AccountsService
     public interface IAccountService
     {
         Task RegisterAccount(Account account);
-        Task<Account> ValidateAccount(string username, string password);
+        Task<Account> ValidateAccount(Account account);
 
     }
 }

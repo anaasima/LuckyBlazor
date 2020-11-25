@@ -21,17 +21,17 @@ namespace LuckyBlazor.Data.AccountsService
                 "application/json"
                 );
             
-            HttpResponseMessage responseMessage = await httpClient.PostAsync("https://localhost:8080/accounts", content);
+            HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/accounts", content);
             Console.WriteLine(responseMessage);
         }
 
-        public async Task<Account> ValidateAccount(string username, string password)
+        public async Task<Account> ValidateAccount(Account account)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "https://localhost:8080/accounts";
-            string message = await httpClient.GetStringAsync(uri + $"?UserName={username}&Password={password}");
-            Account account = JsonSerializer.Deserialize<Account>(message);
-            return account;
+            string uri = "http://localhost:8080/accounts";
+            string message = await httpClient.GetStringAsync(uri + $"?Username={account.Username}");
+            Account dummy = JsonSerializer.Deserialize<Account>(message);
+            return dummy;
         }
     }
 }

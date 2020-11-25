@@ -44,16 +44,17 @@ namespace LuckyBlazor.Authentication
             return await Task.FromResult(new AuthenticationState(cachedClaimsPrincipal));
         }
 
-        public async Task ValidateLogin(string username, string password)
+        public async Task<Account> ValidateLogin(Account account)
         {
+            Account user;
             Console.WriteLine("Validating log in");
-            if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
-            if (string.IsNullOrEmpty(password)) throw new Exception("Enter password");
+            if (string.IsNullOrEmpty(account.Username)) throw new Exception("Enter username");
+            if (string.IsNullOrEmpty(account.Password)) throw new Exception("Enter password");
 
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
-                Account user = await accountService.ValidateAccount(username, password);
+                user = await accountService.ValidateAccount(account);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
@@ -66,6 +67,7 @@ namespace LuckyBlazor.Authentication
 
             NotifyAuthenticationStateChanged(
                 Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
+            return user; //TODO: Remember this
         }
         
         public void Logout()
