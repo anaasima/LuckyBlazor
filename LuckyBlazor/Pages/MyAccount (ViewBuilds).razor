@@ -1,5 +1,6 @@
 @page "/MyAccount/{UserId}"
 @using LuckyBlazor.Model
+@using System.ComponentModel
 <h3>My Account</h3>
 
 <label> Name of the build </label>
@@ -34,16 +35,16 @@
 
 
 @code {
-    private BuildList _buildList;
-    private IList<Build> _builds;
+    private BuildList _buildList = new BuildList();
+    private IList<Build> _builds = new List<Build>();
     [Parameter] 
-    public static int UserId { get; set; } //TODO: Ana a zis ca s-ar putea sa fie o problema
+    public string UserId { get; set; } //TODO: Ana a zis ca s-ar putea sa fie o problema
 
-    private static readonly int CachedUserId = UserId;
+    // private int CachedUserId = UserId;
 
     protected override async Task OnInitializedAsync()
     {
-        _buildList = await BuildService.GetAllBuildsAsync(CachedUserId);
+        _buildList = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
         for (int i = 0; i < _buildList.Size(); i++)
         {
             _builds.Add(_buildList.GetBuild(i));

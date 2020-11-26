@@ -5,7 +5,7 @@ namespace LuckyBlazor.Model
 {
     public class Account
     {
-        [JsonPropertyName("userId")]
+        [JsonPropertyName("id")]
         [Required]
         public int UserId { get; set; }
 
@@ -31,6 +31,11 @@ namespace LuckyBlazor.Model
             Username = username;
             Password = password;
             Name = name;
+        }
+
+        public Account()
+        {
+            
         }
     }
 }

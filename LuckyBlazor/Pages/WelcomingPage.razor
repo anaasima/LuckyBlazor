@@ -52,7 +52,7 @@
     private string _errorMessage;
 
     [Parameter]
-    public static int UserId { get; set; } //TODO: si aici a zis ana ca nu stie daca "merge cu staticu asta"
+    public string UserId { get; set; } //TODO: si aici a zis ana ca nu stie daca "merge cu staticu asta"
 
     private async Task PerformLogin()
     {
@@ -60,9 +60,12 @@
          try
          {
              Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(new Account(_username, _password));
-             UserId = account.UserId;
+             UserId = String.Concat(account.UserId);
              _username = "";
              _password = "";
+
+             Console.WriteLine(UserId);
+             
              NavigationManager.NavigateTo("/MyAccount/" + UserId);
          }
          catch (Exception e)

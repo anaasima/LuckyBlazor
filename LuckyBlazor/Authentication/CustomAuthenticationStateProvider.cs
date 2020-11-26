@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using LuckyBlazor.Data.AccountsService;
 using LuckyBlazor.Model;
@@ -55,6 +56,8 @@ namespace LuckyBlazor.Authentication
             try
             {
                 user = await accountService.ValidateAccount(account);
+                Console.WriteLine(user.UserId);
+                
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
@@ -67,7 +70,7 @@ namespace LuckyBlazor.Authentication
 
             NotifyAuthenticationStateChanged(
                 Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
-            return user; //TODO: Remember this
+            return cachedUser; //TODO: Remember this
         }
         
         public void Logout()
