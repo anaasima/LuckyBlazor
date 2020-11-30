@@ -4,7 +4,12 @@
 
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-<h1>Hello, world!</h1>
+<style>
+.sidebar
+{
+display: none !important;
+}
+</style>
 <AuthorizeView>
     <NotAuthorized>
         <div class="loginForm">
