@@ -27,5 +27,16 @@ namespace LuckyBlazor.Model
         
         [JsonPropertyName("additionalInformation")]
         public string AdditionalInformation { get; set; }
+
+        public Component(string name, string type, string releaseYear, string brand, string additionalInformation)
+        {
+            Name = name;
+            Type = type;
+            ReleaseYear = releaseYear;
+            Brand = brand;
+            AdditionalInformation = additionalInformation;
+        }
     }
+    
+
 }

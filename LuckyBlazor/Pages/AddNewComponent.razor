@@ -1,0 +1,44 @@
+@page "/AddNewComponent"
+@using LuckyBlazor.Model
+@inject IComponentService ComponentService
+<h3>AddNewComponent</h3>
+<div class="loginForm">
+    <h3>Add new component</h3>
+    <input type="text" placeholder="Name..." @bind-value="Name">
+    <input type="text" placeholder="Type..." @bind-value="Type">
+    <br>
+    <input type="text" placeholder="Release year..." @bind-value="ReleaseYear">
+    <br>
+    <input type="text" placeholder="Brand..." @bind-value="Brand">
+    <br>
+    <input type="text" placeholder="Additional Information..." @bind-value="AdditionalInformation">
+    <br>
+    <input type="submit" value="Save" @onclick="CreateComponent">
+
+</div>
+@code {
+    private string Name;
+    private string Type;
+    private string ReleaseYear;
+    private string Brand;
+    private string AdditionalInformation;
+
+    private void CreateComponent()
+    {
+        try
+        {
+            Component newComponent = new Component(Name, Type, ReleaseYear, Brand, AdditionalInformation);
+            ComponentService.AddNewComponentAsync(newComponent);
+            Name = "";
+            Type = "";
+            ReleaseYear = "";
+            Brand = "";
+            AdditionalInformation = "";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+}

@@ -65,6 +65,8 @@
         </e>
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
+          <e p="AddNewComponent.razor" t="Include" />
+          <e p="Forum.razor" t="Include" />
           <e p="MyAccount (ViewBuilds).razor" t="Include" />
           <e p="mypage" t="Include">
             <e p="EditProfile.razor" t="Include" />

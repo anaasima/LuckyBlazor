@@ -2,6 +2,7 @@ using LuckyBlazor.Authentication;
 using LuckyBlazor.Data;
 using LuckyBlazor.Data.AccountsService;
 using LuckyBlazor.Data.BuildService;
+using LuckyBlazor.Data.ForumService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace LuckyBlazor
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IBuildService, BuildService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            services.AddScoped<IForumService, ForumService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
