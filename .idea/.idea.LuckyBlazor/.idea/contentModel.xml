@@ -24,6 +24,10 @@
             <e p="ComponentService.cs" t="Include" />
             <e p="IComponentService.cs" t="Include" />
           </e>
+          <e p="ForumService" t="Include">
+            <e p="ForumService.cs" t="Include" />
+            <e p="IForumService.cs" t="Include" />
+          </e>
         </e>
         <e p="LuckyBlazor.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
@@ -37,6 +41,14 @@
           <e p="Components" t="Include">
             <e p="Component.cs" t="Include" />
             <e p="ComponentList.cs" t="Include" />
+          </e>
+          <e p="Forum" t="Include">
+            <e p="Comments" t="Include">
+              <e p="Comment.cs" t="Include" />
+              <e p="CommentList.cs" t="Include" />
+            </e>
+            <e p="Post.cs" t="Include" />
+            <e p="PostList.cs" t="Include" />
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">

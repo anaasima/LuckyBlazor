@@ -46,5 +46,29 @@ namespace LuckyBlazor.Data.AccountsService
             Console.WriteLine("asdasdasdads" + accountdummy.UserId + " " + accountdummy.Username);
             return JsonSerializer.Deserialize<Account>(s);
         }
+
+        public async Task DeleteAccount(int userId)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage responseMessage = await client.DeleteAsync("https://localhost:8080/accounts/" + userId);
+            Console.WriteLine(responseMessage.StatusCode.ToString());
+        }
+
+        public async Task<Account> EditAccount(Account account)
+        {
+            HttpClient client = new HttpClient();
+            
+            string accountSerialized = JsonSerializer.Serialize(account);
+            
+            StringContent content = new StringContent(
+                accountSerialized,
+                Encoding.UTF8,
+                "application/json"
+            );
+            
+            HttpResponseMessage responseMessage = await client.PatchAsync("https://localhost:5001/adults/" + account.UserId , content);
+            Console.WriteLine(responseMessage.StatusCode.ToString());
+            return account;    //Check later
+        }
     }
 }

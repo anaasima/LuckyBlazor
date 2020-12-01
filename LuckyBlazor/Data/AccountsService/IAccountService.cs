@@ -8,5 +8,8 @@ namespace LuckyBlazor.Data.AccountsService
         Task RegisterAccount(Account account);
         Task<Account> ValidateAccount(Account account);
 
+        Task DeleteAccount(int userId);
+
+        Task<Account> EditAccount(Account account);
     }
 }
