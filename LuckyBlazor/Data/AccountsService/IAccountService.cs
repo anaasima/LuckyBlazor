@@ -10,6 +10,6 @@ namespace LuckyBlazor.Data.AccountsService
 
         Task DeleteAccount(int userId);
 
-        Task<Account> EditAccount(Account account);
+        Task EditAccount(Account account);
     }
 }

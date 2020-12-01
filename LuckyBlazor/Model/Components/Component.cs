@@ -36,6 +36,11 @@ namespace LuckyBlazor.Model
             Brand = brand;
             AdditionalInformation = additionalInformation;
         }
+
+        public Component()
+        {
+            
+        }
     }
     
 

@@ -23,6 +23,8 @@ namespace LuckyBlazor.Data
         {
             HttpClient httpClient = new HttpClient();
             string componentSerialized = JsonSerializer.Serialize(component);
+
+            Console.WriteLine(componentSerialized);
             
             StringContent content = new StringContent(
                 componentSerialized,
@@ -31,7 +33,7 @@ namespace LuckyBlazor.Data
                 );
 
             HttpResponseMessage responseMessage =
-                await httpClient.PostAsync("https://localhost:8080/components", content);
+                await httpClient.PostAsync("http://localhost:8080/components", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
     }

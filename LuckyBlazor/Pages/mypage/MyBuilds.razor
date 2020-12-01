@@ -46,6 +46,7 @@
         _buildList = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
         for (int i = 0; i < _buildList.Size(); i++)
         {
+            Console.WriteLine("AAAA" + _buildList.GetBuild(i));
             _builds.Add(_buildList.GetBuild(i));
         }
     }

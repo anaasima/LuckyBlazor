@@ -29,6 +29,7 @@
         {
             Component newComponent = new Component(Name, Type, ReleaseYear, Brand, AdditionalInformation);
             ComponentService.AddNewComponentAsync(newComponent);
+            Console.WriteLine(newComponent);
             Name = "";
             Type = "";
             ReleaseYear = "";

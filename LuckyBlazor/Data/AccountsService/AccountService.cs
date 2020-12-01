@@ -41,20 +41,20 @@ namespace LuckyBlazor.Data.AccountsService
             var responseInfo = response.GetAwaiter().GetResult();
             string s = await responseInfo.Content.ReadAsStringAsync();
 
-            Console.WriteLine(s);
-            Account accountdummy = JsonSerializer.Deserialize<Account>(s);
-            Console.WriteLine("asdasdasdads" + accountdummy.UserId + " " + accountdummy.Username);
+            // Console.WriteLine(s);
+            // Account accountdummy = JsonSerializer.Deserialize<Account>(s);
+            // Console.WriteLine("asdasdasdads" + accountdummy.UserId + " " + accountdummy.Username);
             return JsonSerializer.Deserialize<Account>(s);
         }
 
         public async Task DeleteAccount(int userId)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage responseMessage = await client.DeleteAsync("https://localhost:8080/accounts/" + userId);
+            HttpResponseMessage responseMessage = await client.DeleteAsync("http://localhost:8080/accounts/" + userId);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
-        public async Task<Account> EditAccount(Account account)
+        public async Task EditAccount(Account account)
         {
             HttpClient client = new HttpClient();
             
@@ -66,9 +66,9 @@ namespace LuckyBlazor.Data.AccountsService
                 "application/json"
             );
             
-            HttpResponseMessage responseMessage = await client.PatchAsync("https://localhost:5001/adults/" + account.UserId , content);
+            HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/accounts", content);
+            Console.WriteLine("USERID in account service" + account.UserId);
             Console.WriteLine(responseMessage.StatusCode.ToString());
-            return account;    //Check later
         }
     }
 }
