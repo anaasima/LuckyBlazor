@@ -1,5 +1,6 @@
 @page "/ViewComponents"
 @using LuckyBlazor.Model
+@inject NavigationManager NavigationManager
 <h3>ViewComponents</h3>
 
 @if (_components == null)
@@ -54,11 +55,11 @@ else
         @foreach (var item in _componentsToShow)
         {
             <tr>
-                 <td>@item.Name</td>
-                               <td>@item.Brand</td>
-                               <td>@item.Type</td>
-                               <td>@item.ReleaseYear</td>
-                               <td>@item.AdditionalInformation</td>
+                <td>@item.Name</td>
+                <td>@item.Brand</td>
+                <td>@item.Type</td>
+                <td>@item.ReleaseYear</td>
+                <td>@item.AdditionalInformation</td>
                 @* <td> *@
                 @*     <button @onclick="@(() => RemoveAdult(item.Id))"> *@
                 @*         <i class="oi oi-trash" style="color:red"/> *@
@@ -68,6 +69,7 @@ else
         }
         </tbody>
     </table>
+
 }
 
 

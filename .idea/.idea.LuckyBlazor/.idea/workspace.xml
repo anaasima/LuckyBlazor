@@ -22,23 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="design for register and login">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="Fully working version Tier1 after Sprint 2">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Authentication/CustomAuthenticationStateProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Authentication/CustomAuthenticationStateProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,24 +65,25 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/BuildList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Build.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Account.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Startup.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/MainLayout.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/App.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Authentication/CustomAuthenticationStateProvider.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/RegisterAccount.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyAccount (ViewBuilds).razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Authentication/CustomAuthenticationStateProvider.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
       </list>
     </option>
   </component>
@@ -169,6 +164,8 @@
       <workItem from="1606417581691" duration="216000" />
       <workItem from="1606735155555" duration="1242000" />
       <workItem from="1606757854497" duration="11000" />
+      <workItem from="1606757892482" duration="1198000" />
+      <workItem from="1606807151486" duration="3532000" />
     </task>
     <task id="LOCAL-00001" summary="Ana">
       <created>1603890769954</created>
@@ -212,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606295308753</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fully working version Tier1 after Sprint 2">
+      <created>1606758177757</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606758177757</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,33 +243,34 @@
     <MESSAGE value="Proof of concept Tier1" />
     <MESSAGE value="blala" />
     <MESSAGE value="Sprint 2 - day 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprint 2 - day 3" />
+    <MESSAGE value="Fully working version Tier1 after Sprint 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully working version Tier1 after Sprint 2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2005" height="194" key="GridCell.Tab.0.bottom" timestamp="1606723486836">
+    <state width="2005" height="194" key="GridCell.Tab.0.bottom" timestamp="1606809868854">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606494659718" />
     <state width="2005" height="229" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606303315584" />
-    <state width="2005" height="194" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1606723486836" />
-    <state width="2005" height="194" key="GridCell.Tab.0.center" timestamp="1606723486836">
+    <state width="2005" height="194" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1606809868854" />
+    <state width="2005" height="194" key="GridCell.Tab.0.center" timestamp="1606809868854">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606494659718" />
     <state width="2005" height="229" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606303315584" />
-    <state width="2005" height="194" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1606723486836" />
-    <state width="2005" height="194" key="GridCell.Tab.0.left" timestamp="1606723486836">
+    <state width="2005" height="194" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1606809868854" />
+    <state width="2005" height="194" key="GridCell.Tab.0.left" timestamp="1606809868854">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606494659717" />
     <state width="2005" height="229" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606303315584" />
-    <state width="2005" height="194" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1606723486836" />
-    <state width="2005" height="194" key="GridCell.Tab.0.right" timestamp="1606723486836">
+    <state width="2005" height="194" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1606809868854" />
+    <state width="2005" height="194" key="GridCell.Tab.0.right" timestamp="1606809868854">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606494659718" />
     <state width="2005" height="229" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606303315584" />
-    <state width="2005" height="194" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1606723486836" />
+    <state width="2005" height="194" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1606809868854" />
     <state x="911" y="105" key="RiderGenerateDialog" timestamp="1605689308806">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -278,11 +283,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1605694249893" />
-    <state x="481" y="132" key="Vcs.Push.Dialog.v2" timestamp="1606295310298">
+    <state x="481" y="132" key="Vcs.Push.Dialog.v2" timestamp="1606758181872">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605689706352" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606295310298" />
+    <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1606758181872" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606720356169">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

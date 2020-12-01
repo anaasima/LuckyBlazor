@@ -48,10 +48,5 @@ namespace LuckyBlazor.Model
 
             return -1;
         }
-
-        // public IList<System.ComponentModel.Component> GetComponents()
-        // {
-        //     return 
-        // }
     }
 }

@@ -15,7 +15,7 @@ namespace LuckyBlazor.Authentication
     {
         private readonly IJSRuntime jsRuntime;
         private readonly IAccountService accountService;
-        private Account cachedUser;
+        public Account cachedUser { get; set; }
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IAccountService accountService)
         {
@@ -56,8 +56,6 @@ namespace LuckyBlazor.Authentication
             try
             {
                 user = await accountService.ValidateAccount(account);
-                Console.WriteLine(user.UserId);
-                
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);

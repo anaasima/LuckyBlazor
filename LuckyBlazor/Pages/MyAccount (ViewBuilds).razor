@@ -44,9 +44,7 @@ display: none !important;
     private BuildList _buildList = new BuildList();
     private IList<Build> _builds = new List<Build>();
     [Parameter] 
-    public string UserId { get; set; } //TODO: Ana a zis ca s-ar putea sa fie o problema
-
-    // private int CachedUserId = UserId;
+    public string UserId { get; set; } 
 
     protected override async Task OnInitializedAsync()
     {

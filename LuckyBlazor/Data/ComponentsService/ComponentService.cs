@@ -14,9 +14,7 @@ namespace LuckyBlazor.Data
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/components"; 
             string message = await httpClient.GetStringAsync(uri);
-            Console.WriteLine(message);
             ComponentList result = JsonSerializer.Deserialize<ComponentList>(message) ;
-            Console.WriteLine(result);
             return result;
         }
     }

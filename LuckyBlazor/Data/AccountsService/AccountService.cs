@@ -39,19 +39,6 @@ namespace LuckyBlazor.Data.AccountsService
 
             var response = httpClient.SendAsync(request).ConfigureAwait(false);
             var responseInfo = response.GetAwaiter().GetResult();
-
-            // HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/accounts", content);
-            //
-            // if (responseMessage.IsSuccessStatusCode)
-            // {
-            //     Account dummy = httpClient.
-            //     return dummy;
-            // }
-            // else
-            // {
-            //     Console.WriteLine(
-            //         responseMessage.StatusCode);
-            // }
             string s = await responseInfo.Content.ReadAsStringAsync();
 
             Console.WriteLine(s);

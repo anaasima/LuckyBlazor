@@ -13,13 +13,7 @@ namespace LuckyBlazor.Data.BuildService
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/builds?UserId=" + $"{userId}";
             string message = await httpClient.GetStringAsync(uri);
-
-            Console.WriteLine(message);
-            
             BuildList result = JsonSerializer.Deserialize<BuildList>(message);
-            
-            
-            
             return result;
         }
     }
