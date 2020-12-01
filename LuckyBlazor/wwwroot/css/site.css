@@ -176,6 +176,52 @@ a{
     font-size: 15px;
     margin: auto;
 }
+/*.split {*/
+/*    height: 100%;*/
+/*    position: fixed;*/
+/*    z-index: 1;*/
+/*    top: 0;*/
+/*    overflow-x: hidden;*/
+/*    padding-top: 20px;*/
+
+/*}*/
+
+/*.left {*/
+/*    left: 0;*/
+/*    width:30%;*/
+/*    background-image: linear-gradient(180deg, rgb(15, 120, 116) 0%, #080647 70%);*/
+/*}*/
+
+/*.right {*/
+/*    right: 0;*/
+/*    width:70%;*/
+/*    background-color: white;*/
+/*}*/
+
+/*.centered {*/
+/*    position: absolute;*/
+/*    top: 30%;*/
+/*    left:50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    text-align: center;*/
+/*}*/
+/*.profileButtons*/
+/*{*/
+/*    color: black;*/
+/*    border: 0px solid;*/
+/*    transition-duration: 0.4s;*/
+/*    height: 50px;*/
+/*    background-color: transparent;*/
+/*    padding-top: 10px;*/
+/*    padding-bottom: 10px;*/
+/*    padding-left: 500px;*/
+/*    padding-right: 500px;*/
+/*    white-space: nowrap;*/
+/*}*/
+/*.profileButtons:hover{*/
+/*    background-color: rgba(255,255,255,0.1);*/
+/*    color: white;*/
+/*}*/
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;

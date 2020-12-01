@@ -37,5 +37,13 @@ namespace LuckyBlazor.Model
         {
             
         }
+
+        public Account(int id, string username, string password, string name)
+        {
+            UserId = id;
+            Username = username;
+            Password = password;
+            Name = name;
+        }
     }
 }

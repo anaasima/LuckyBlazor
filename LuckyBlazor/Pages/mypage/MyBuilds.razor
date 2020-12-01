@@ -1,0 +1,52 @@
+@page "/MyBuilds/{UserId}"
+@using LuckyBlazor.Model
+<h3>MyBuilds</h3>
+
+<label> Name of the build </label>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Name</th>
+        <th>Release Year</th>
+        <th>Aditional Information</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var variable in _builds)
+    {
+        for (int i = 0; i < variable.ComponentList.Size(); i++)
+        {
+            <tr>
+                <td>@variable.ComponentList.GetComponent(i).Type</td>
+                <td>@variable.ComponentList.GetComponent(i).Brand</td>
+                <td>@variable.ComponentList.GetComponent(i).Name</td>
+                <td>@variable.ComponentList.GetComponent(i).ReleaseYear</td>
+                <td>@variable.ComponentList.GetComponent(i).AdditionalInformation</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+
+
+@code {
+    private BuildList _buildList = new BuildList();
+    private IList<Build> _builds = new List<Build>();
+
+    [Parameter]
+    public string UserId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _buildList = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
+        for (int i = 0; i < _buildList.Size(); i++)
+        {
+            _builds.Add(_buildList.GetBuild(i));
+        }
+    }
+
+}

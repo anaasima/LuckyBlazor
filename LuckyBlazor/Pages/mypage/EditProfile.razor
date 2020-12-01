@@ -1,0 +1,59 @@
+@page "/EditProfile/{UserId}"
+@using LuckyBlazor.Model
+@inject AccountService AccountService
+<h3>EditProfile</h3>
+
+<div class="loginForm">
+    <h3>Create a new account</h3>
+    <input type="text" placeholder="Name..." @bind-value="_name">
+    <input type="text" placeholder="Username..." @bind-value="_username">
+    <br>
+    <input type="password" placeholder="Password.." @bind-value="_password">
+    <br>
+    <div style="color:red">@_errorMessage</div>
+    <br>
+    <input type="submit" value="Login" @onclick="UpdateAccount">
+    <p>Do you want to delete your account?</p>
+    <a href="" @onclick="DeleteAccount">Delete account</a>
+
+</div>
+@code {
+    private string _username;
+    private string _name;
+    private string _password;
+    private string _errorMessage;
+
+    [Parameter]
+    public string UserId { get; set; }
+    private async Task UpdateAccount()
+    {
+        _errorMessage = "";
+        try
+        {
+            Account account = new Account(Int32.Parse(UserId), _username, _password, _name);
+            await AccountService.EditAccount(account);
+            _username = "";
+            _name = "";
+            _password = "";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            _errorMessage = e.Message;
+            throw;
+        }
+    }
+
+    public async Task DeleteAccount()
+    {
+        try
+        {
+            await AccountService.DeleteAccount(Int32.Parse(UserId));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+}
