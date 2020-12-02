@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using LuckyBlazor.Model.Forum;
 
 namespace LuckyBlazor.Model
 {
@@ -19,6 +20,9 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("password")]
         [Required]
         public string Password { get; set; }
+        
+        [JsonPropertyName("PostList")]
+        public PostList PostList { get; set; }
 
         public Account(string username, string password)
         {
