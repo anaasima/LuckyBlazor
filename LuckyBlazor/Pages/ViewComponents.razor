@@ -16,30 +16,6 @@ else if (!_components.Any())
 }
 else
 {
-@*     <table class="table"> *@
-@*         <thead> *@
-@*         <tr> *@
-@*             <th>Name</th> *@
-@*             <th>Brand</th> *@
-@*             <th>Type</th> *@
-@*             <th>Release Year</th> *@
-@*             <th>Additional Information</th> *@
-@*         </tr> *@
-@*         </thead> *@
-@*         <tbody> *@
-@*         @foreach (var item in _componentsToShow) *@
-@*         { *@
-@*             <tr> *@
-@*                 <td>@item.Name</td> *@
-@*                 <td>@item.Brand</td> *@
-@*                 <td>@item.Type</td> *@
-@*                 <td>@item.ReleaseYear</td> *@
-@*                 <td>@item.AdditionalInformation</td> *@
-@*             </tr> *@
-@*         } *@
-@*         </tbody> *@
-@*     </table> *@
-
     <table class="table">
         <thead>
         <tr>
@@ -59,11 +35,6 @@ else
                 <td>@item.Type</td>
                 <td>@item.ReleaseYear</td>
                 <td>@item.AdditionalInformation</td>
-                @* <td> *@
-                @*     <button @onclick="@(() => RemoveAdult(item.Id))"> *@
-                @*         <i class="oi oi-trash" style="color:red"/> *@
-                @*     </button> *@
-                @* </td> *@
             </tr>
         }
         </tbody>

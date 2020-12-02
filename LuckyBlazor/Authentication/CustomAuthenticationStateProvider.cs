@@ -15,7 +15,7 @@ namespace LuckyBlazor.Authentication
     {
         private readonly IJSRuntime jsRuntime;
         private readonly IAccountService accountService;
-        public Account cachedUser { get; set; }
+        public Account CachedUser { get; set; }
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IAccountService accountService)
         {
@@ -26,19 +26,19 @@ namespace LuckyBlazor.Authentication
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var identity = new ClaimsIdentity();
-            if (cachedUser == null)
+            if (CachedUser == null)
             {
                 string userAsJson = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
                 if (!string.IsNullOrEmpty(userAsJson))
                 {
-                    cachedUser = JsonSerializer.Deserialize<Account>(userAsJson);
+                    CachedUser = JsonSerializer.Deserialize<Account>(userAsJson);
 
-                    identity = SetupClaimsForUser(cachedUser);
+                    identity = SetupClaimsForUser(CachedUser);
                 }
             }
             else
             {
-                identity = SetupClaimsForUser(cachedUser);
+                identity = SetupClaimsForUser(CachedUser);
             }
 
             ClaimsPrincipal cachedClaimsPrincipal = new ClaimsPrincipal(identity);
@@ -59,7 +59,7 @@ namespace LuckyBlazor.Authentication
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
-                cachedUser = user;
+                CachedUser = user;
             }
             catch (Exception e)
             {
@@ -68,12 +68,12 @@ namespace LuckyBlazor.Authentication
 
             NotifyAuthenticationStateChanged(
                 Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
-            return cachedUser; //TODO: Remember this
+            return CachedUser; //TODO: Remember this
         }
         
         public void Logout()
         {
-            cachedUser = null;
+            CachedUser = null;
             var user = new ClaimsPrincipal(new ClaimsIdentity());
             jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));

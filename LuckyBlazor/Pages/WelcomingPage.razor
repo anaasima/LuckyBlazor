@@ -29,19 +29,6 @@ display: none !important;
             </a>
             </div>
             </div>
-        @* <div class="form-group"> *@
-        @*     <label>User name:</label> *@
-        @*     <input type="text" placeholder="user name" @bind-value="_username"/> *@
-        @* </div> *@
-        @* <div class="form-group"> *@
-        @*     <label>Password</label> *@
-        @*     <input type="password" placeholder="password" @bind-value="_password"/> *@
-        @* </div> *@
-        @* <div style="color:red">@_errorMessage</div> *@
-        @* *@
-        @* <a href="" @onclick="PerformLogin"> *@
-        @*     Login *@
-        @* </a> *@
     </NotAuthorized>
     <Authorized>
         <a href="" @onclick="PerformLogout">
@@ -76,7 +63,7 @@ display: none !important;
          }
          catch (Exception e)
          {
-             _errorMessage = e.Message;
+             _errorMessage = "Incorrect credentials";
          }
     }
 

@@ -4,42 +4,49 @@
 <h3>AddNewComponent</h3>
 <div class="loginForm">
     <h3>Add new component</h3>
-    <input type="text" placeholder="Name..." @bind-value="Name">
-    <input type="text" placeholder="Type..." @bind-value="Type">
+    <input type="text" placeholder="Name..." @bind-value="_name">
+    <input type="text" placeholder="Type..." @bind-value="_type">
     <br>
-    <input type="text" placeholder="Release year..." @bind-value="ReleaseYear">
+    <input type="text" placeholder="Release year..." @bind-value="_releaseYear">
     <br>
-    <input type="text" placeholder="Brand..." @bind-value="Brand">
+    <input type="text" placeholder="Brand..." @bind-value="_brand">
     <br>
-    <input type="text" placeholder="Additional Information..." @bind-value="AdditionalInformation">
+    <input type="text" placeholder="Additional Information..." @bind-value="_additionalInformation">
     <br>
+    <div style="color:red">@_errorMessage</div>
     <input type="submit" value="Save" @onclick="CreateComponent">
 
 </div>
 @code {
-    private string Name;
-    private string Type;
-    private string ReleaseYear;
-    private string Brand;
-    private string AdditionalInformation;
+    private string _name;
+    private string _type;
+    private string _releaseYear;
+    private string _brand;
+    private string _additionalInformation;
+
+    private string _errorMessage;
 
     private void CreateComponent()
     {
         try
         {
-            Component newComponent = new Component(Name, Type, ReleaseYear, Brand, AdditionalInformation);
+            if (!_name.Any() || !_brand.Any() || !_type.Any() || !_releaseYear.Any())
+            {
+                return;
+            }
+            Component newComponent = new Component(_name, _type, _releaseYear, _brand, _additionalInformation);
             ComponentService.AddNewComponentAsync(newComponent);
             Console.WriteLine(newComponent);
-            Name = "";
-            Type = "";
-            ReleaseYear = "";
-            Brand = "";
-            AdditionalInformation = "";
+            _name = "";
+            _type = "";
+            _releaseYear = "";
+            _brand = "";
+            _additionalInformation = "";
+            _errorMessage = "The component has been added.";
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _errorMessage = "Please fill in all fields.";
         }
     }
 }

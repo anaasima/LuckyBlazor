@@ -23,9 +23,6 @@ namespace LuckyBlazor.Data
         {
             HttpClient httpClient = new HttpClient();
             string componentSerialized = JsonSerializer.Serialize(component);
-
-            Console.WriteLine(componentSerialized);
-            
             StringContent content = new StringContent(
                 componentSerialized,
                 Encoding.UTF8,

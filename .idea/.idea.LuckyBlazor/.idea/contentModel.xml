@@ -47,8 +47,10 @@
               <e p="Comment.cs" t="Include" />
               <e p="CommentList.cs" t="Include" />
             </e>
-            <e p="Post.cs" t="Include" />
-            <e p="PostList.cs" t="Include" />
+            <e p="Posts" t="Include">
+              <e p="Post.cs" t="Include" />
+              <e p="PostList.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -63,7 +65,6 @@
           <e p="_Host.cshtml" t="Include" />
           <e p="AddNewComponent.razor" t="Include" />
           <e p="Forum.razor" t="Include" />
-          <e p="MyAccount (ViewBuilds).razor" t="Include" />
           <e p="mypage" t="Include">
             <e p="EditProfile.razor" t="Include" />
             <e p="MyBuilds.razor" t="Include" />

@@ -10,7 +10,7 @@ namespace LuckyBlazor.Data.AccountsService
 {
     public class AccountService : IAccountService
     {
-        public async Task RegisterAccount(Account account)
+        public async Task<string> RegisterAccount(Account account)
         {
             HttpClient httpClient = new HttpClient();
             string accountSerialized = JsonSerializer.Serialize(account);
@@ -20,9 +20,26 @@ namespace LuckyBlazor.Data.AccountsService
                 Encoding.UTF8,
                 "application/json"
             );
+            
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("http://localhost:8080/login"),
+                Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
+            };
 
-            HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/register", content);
-            Console.WriteLine(responseMessage);
+            var response = httpClient.SendAsync(request).ConfigureAwait(false);
+            var responseInfo = response.GetAwaiter().GetResult();
+            string s = await responseInfo.Content.ReadAsStringAsync();
+            Account dummy = JsonSerializer.Deserialize<Account>(s);
+            if(!dummy.Username.Equals(account.Username) || !dummy.Name.Equals(account.Name))
+            {
+                HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/register", content);
+                Console.WriteLine(responseMessage.StatusCode);
+                return responseMessage.StatusCode.ToString();
+            }
+
+            return "Account already exists.";
         }
 
         public async Task<Account> ValidateAccount(Account account)
@@ -40,10 +57,6 @@ namespace LuckyBlazor.Data.AccountsService
             var response = httpClient.SendAsync(request).ConfigureAwait(false);
             var responseInfo = response.GetAwaiter().GetResult();
             string s = await responseInfo.Content.ReadAsStringAsync();
-
-            // Console.WriteLine(s);
-            // Account accountdummy = JsonSerializer.Deserialize<Account>(s);
-            // Console.WriteLine("asdasdasdads" + accountdummy.UserId + " " + accountdummy.Username);
             return JsonSerializer.Deserialize<Account>(s);
         }
 
@@ -67,7 +80,6 @@ namespace LuckyBlazor.Data.AccountsService
             );
             
             HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/accounts", content);
-            Console.WriteLine("USERID in account service" + account.UserId);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
     }
