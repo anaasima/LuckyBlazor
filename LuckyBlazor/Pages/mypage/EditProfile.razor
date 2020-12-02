@@ -30,8 +30,20 @@
         _errorMessage = "";
         try
         {
+            if (!_name.Any() || !_username.Any() || !_password.Any())
+            {
+                return;
+            }
             Account account = new Account(Int32.Parse(UserId), _username, _password, _name);
-            await AccountService.EditAccount(account);
+            String result = await AccountService.EditAccount(account);
+            if (result.Equals("\"Account already exists\""))
+            {
+                _errorMessage = result;
+                _username = "";
+                _name = "";
+                _password = "";
+                return;
+            }
             _username = "";
             _name = "";
             _password = "";

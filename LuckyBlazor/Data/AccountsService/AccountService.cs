@@ -60,24 +60,37 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task DeleteAccount(int userId)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage responseMessage = await client.DeleteAsync("http://localhost:8080/accounts/" + userId);
+            HttpResponseMessage responseMessage = await client.DeleteAsync("http://localhost:8080/delete/" + userId);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
-        public async Task EditAccount(Account account)
+        public async Task<string> EditAccount(Account account)
         {
-            HttpClient client = new HttpClient();
+            HttpClient httpClient = new HttpClient();
             
             string accountSerialized = JsonSerializer.Serialize(account);
             
-            StringContent content = new StringContent(
-                accountSerialized,
-                Encoding.UTF8,
-                "application/json"
-            );
+            // StringContent content = new StringContent(
+            //     accountSerialized,
+            //     Encoding.UTF8,
+            //     "application/json"
+            // );
+            //
+            // HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/accounts", content);
+            // Console.WriteLine(responseMessage.StatusCode.ToString());
             
-            HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/accounts", content);
-            Console.WriteLine(responseMessage.StatusCode.ToString());
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("http://localhost:8080/update"),
+                Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
+            };
+
+            var response = httpClient.SendAsync(request).ConfigureAwait(false);
+            var responseInfo = response.GetAwaiter().GetResult();
+            string s = await responseInfo.Content.ReadAsStringAsync();
+            Console.WriteLine(s);
+            return s;
         }
     }
 }
