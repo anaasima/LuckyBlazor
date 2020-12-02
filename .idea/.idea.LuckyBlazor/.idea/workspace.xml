@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="my new version">
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" afterDir="false" />
-    </list>
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="hope it works" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,8 +89,8 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/RegisterAccount.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
       </list>
     </option>
@@ -265,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606907530221</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="hope it works">
+      <created>1606908808246</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606908808246</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,11 +298,11 @@
     <MESSAGE value="Sprint 2 - day 3" />
     <MESSAGE value="Fully working version Tier1 after Sprint 2" />
     <MESSAGE value="Sprint 3 - day 2" />
-    <MESSAGE value="hope it works" />
     <MESSAGE value="God help us all" />
     <MESSAGE value="Register Tier1 with naming convention" />
     <MESSAGE value="my new version" />
-    <option name="LAST_COMMIT_MESSAGE" value="my new version" />
+    <MESSAGE value="hope it works" />
+    <option name="LAST_COMMIT_MESSAGE" value="hope it works" />
   </component>
   <component name="WindowStateProjectService">
     <state width="2005" height="244" key="GridCell.Tab.0.bottom" timestamp="1606905207046">
@@ -342,10 +346,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1605694249893" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1606907532290">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1606909031485">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606907532290" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606909031485" />
     <state x="-1559" y="508" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1606838430640" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606904201827" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1606811084237" />
