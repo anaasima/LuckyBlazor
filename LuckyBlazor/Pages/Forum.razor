@@ -1,5 +1,6 @@
 @page "/Forum"
 @inject IForumService ForumService
+@inject NavigationManager NavigationManager
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Data.ForumService
 <h3>Forum</h3>
@@ -8,6 +9,7 @@
     @foreach (var variable in _posts)
     {
         <tr>
+            <td><a href="" @onclick="@(() =>goToUserProfile(@variable.Username))"></a> @variable.Username</td>
             <td>@variable.Content</td>
         </tr>
     }
@@ -24,5 +26,10 @@
         {
             _posts.Add(_postList.GetPost(i));
         }
+    }
+
+    public void goToUserProfile(string username)
+    {
+        NavigationManager.NavigateTo("/UserProfile/" + username);
     }
 }
