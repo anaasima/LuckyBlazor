@@ -1,10 +1,36 @@
 @page "/UserProfile{username}"
+@using LuckyBlazor.Model
+@using LuckyBlazor.Model.Forum
+@inject IAccountService AccountService
 <h3>UserProfile</h3>
-
-
+<label></label>
+<p>@username's posts are</p>
+<br>
+<table class="table">
+    @foreach (var VARIABLE in _posts)
+    {
+        <tr>
+            <td>@username</td>
+            <td>@VARIABLE.Content</td>
+        </tr>
+    }
+</table>
+<br>
 @code {
+    private Account currentAccount;
+    private PostList _postList = new PostList();
+    private IList<Post> _posts = new List<Post>();
     [Parameter]
     public string username { get; set; }
-    
+
+    protected override async void OnInitialized()
+    {
+        currentAccount = await AccountService.GetUserByUsername(username);
+        _postList = currentAccount.PostList;
+        for (int i = 0; i < _postList.Size(); i++)
+        {
+            _posts.Add(_postList.GetPost(i));
+        }
+    }
     
 }
