@@ -6,5 +6,6 @@ namespace LuckyBlazor.Data.ForumService
     public interface IForumService
     {
         Task<PostList> GetAllPosts();
+        Task<PostList> GetPostsByUserId(int userId);
     }
 }

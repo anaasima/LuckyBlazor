@@ -16,5 +16,14 @@ namespace LuckyBlazor.Data.ForumService
             PostList result = JsonSerializer.Deserialize<PostList>(message) ;
             return result;
         }
+
+        public async Task<PostList> GetPostsByUserId(int userId)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = "http://localhost:8080/posts?userId=" + userId;
+            string message = await httpClient.GetStringAsync(uri);
+            PostList result = JsonSerializer.Deserialize<PostList>(message);
+            return result;
+        }
     }
 }
