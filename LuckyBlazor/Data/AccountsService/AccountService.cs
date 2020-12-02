@@ -15,31 +15,28 @@ namespace LuckyBlazor.Data.AccountsService
             HttpClient httpClient = new HttpClient();
             string accountSerialized = JsonSerializer.Serialize(account);
 
-            StringContent content = new StringContent(
-                accountSerialized,
-                Encoding.UTF8,
-                "application/json"
-            );
+            // StringContent content = new StringContent(
+            //     accountSerialized,
+            //     Encoding.UTF8,
+            //     "application/json"
+            // );
+            //
+            // HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/register", content);
+            // Console.WriteLine(responseMessage.StatusCode);
+            // return responseMessage.StatusCode.ToString();
             
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:8080/login"),
+                RequestUri = new Uri("http://localhost:8080/register"),
                 Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
             };
 
             var response = httpClient.SendAsync(request).ConfigureAwait(false);
             var responseInfo = response.GetAwaiter().GetResult();
             string s = await responseInfo.Content.ReadAsStringAsync();
-            Account dummy = JsonSerializer.Deserialize<Account>(s);
-            if(!dummy.Username.Equals(account.Username) || !dummy.Name.Equals(account.Name))
-            {
-                HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/register", content);
-                Console.WriteLine(responseMessage.StatusCode);
-                return responseMessage.StatusCode.ToString();
-            }
-
-            return "Account already exists.";
+            Console.WriteLine(s);
+            return s;
         }
 
         public async Task<Account> ValidateAccount(Account account)
