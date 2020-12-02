@@ -9,7 +9,7 @@
     @foreach (var variable in _posts)
     {
         <tr>
-            <td><a href="" @onclick="@(() =>goToUserProfile(@variable.Username))"></a> @variable.Username</td>
+            <td><a href="" @onclick="@(() =>goToUserProfile(@variable.Username))">@variable.Username</a></td>
             <td>@variable.Content</td>
         </tr>
     }
