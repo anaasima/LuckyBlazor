@@ -39,8 +39,9 @@ display: none !important;
             }
             Account newAccount = new Account(_username, _password, _name);
             String result = await AccountService.RegisterAccount(newAccount);
-            if (result.Equals("Account already exists."))
+            if (result.Equals("\"Account already exists\""))
             {
+                _errorMessage = result;
                 _username = "";
                 _name = "";
                 _password = "";
