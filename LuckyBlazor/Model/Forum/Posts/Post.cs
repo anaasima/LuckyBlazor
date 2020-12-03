@@ -10,11 +10,13 @@ namespace LuckyBlazor.Model.Forum
         public string Content { get; set; }
         [JsonPropertyName("userId")]
         public int UserId { get; set; }
-        [JsonPropertyName("upVotes")]
+        [JsonPropertyName("upVote")]
         public int UpVotes { get; set; }
-        [JsonPropertyName("downVotes")]
+        [JsonPropertyName("downVote")]
         public int DownVotes { get; set; }
         [JsonPropertyName("username")]
         public string Username { get; set; }
+        [JsonPropertyName("CommentList")]
+        public CommentList CommentList { get; set; }
     }
 }

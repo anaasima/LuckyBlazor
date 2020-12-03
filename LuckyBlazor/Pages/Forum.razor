@@ -11,6 +11,10 @@
         <tr>
             <td><a href="" @onclick="@(() =>goToUserProfile(@variable.Username))">@variable.Username</a></td>
             <td>@variable.Content</td>
+            @for (int i = 0; i < variable.CommentList.Size();i++)
+            {
+                <td>@variable.CommentList.Get(i)</td>
+            }
         </tr>
     }
     </tbody>

@@ -27,10 +27,15 @@
     {
         currentAccount = await AccountService.GetUserByUsername(username);
         _postList = currentAccount.PostList;
+        Console.WriteLine(currentAccount.Username);
+
         for (int i = 0; i < _postList.Size(); i++)
         {
+            Console.WriteLine("AA    "+_postList.GetPost(i));
             _posts.Add(_postList.GetPost(i));
         }
+
+       
     }
     
 }
