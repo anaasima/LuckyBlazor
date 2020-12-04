@@ -21,11 +21,8 @@ namespace LuckyBlazor.Model
         [Required]
         public string Password { get; set; }
         
-        [JsonPropertyName("Posts")]
+        [JsonPropertyName("posts")]
         public PostList PostList { get; set; }
-        
-        // [JsonPropertyName("Comments")]
-        // public CommentList CommentList { get; set; }
 
         public Account(string username, string password)
         {

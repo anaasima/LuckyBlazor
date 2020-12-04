@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
+using System.Text.Json.Serialization;
 
 namespace LuckyBlazor.Model
 {
     public class BuildList
     {
+        [JsonPropertyName("builds")]
         public List<Build> Builds { get; set; }
 
         public BuildList()

@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace LuckyBlazor.Model.Forum
 {
     public class CommentList
     {
+        [JsonPropertyName("comments")]
         public IList<Comment> Comments { get; set; }
         
         
