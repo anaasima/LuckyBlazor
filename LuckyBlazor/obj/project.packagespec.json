@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\University\\DNP\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
+    "projectUniqueName": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
     "projectName": "LuckyBlazor",
-    "projectPath": "C:\\University\\DNP\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
-    "outputPath": "C:\\University\\DNP\\LuckyBlazor\\LuckyBlazor\\obj\\",
+    "projectPath": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
+    "outputPath": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -43,7 +43,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Users\\Windows 10\\.dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
     }
   }
 }

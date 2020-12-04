@@ -1,0 +1,133 @@
+@page "/CreateBuild/{UserId}"
+<h3>CreateBuild</h3>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-6">
+    <p>List of components</p>
+      <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Release year</th>
+        <th>Brand</th>
+        <th>Additional information</th>
+        <th>Checked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Intel i5</td>
+        <td>2019</td>
+        <td>Gigabyte</td>
+         <td> <label for="I'm the first component">I'm the first component</label></td>
+      <td><input type="radio" id="I'm the first component" name="Component" value="I'm the first component"></td>
+       
+      </tr>
+      <tr>
+        <td>Intel i5</td>
+        <td>2019</td>
+        <td>Gigabyte</td>
+        <td> <label for="I'm the second component">I'm the second component</label></td>
+        <td><input type="radio" id="I'm the second component" name="Component" value="I'm the second component"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="check()">Check "Red"</button>
+<button onclick="uncheck()">Uncheck "Red"</button>
+    </div>
+    <div class="col-lg-6">
+    <p>Your build</p>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Release year</th>
+        <th>Brand</th>
+        <th>Additional information</th>
+        <th>Checked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Intel i5</td>
+        <td>2019</td>
+        <td>Gigabyte</td>
+        <td> <label for="I'm the second component">I'm the second component</label></td>
+        <td><input type="radio" id="I'm the second component" name="Component" value="I'm the second component"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="check()">Check "Red"</button>
+<button onclick="uncheck()">Uncheck "Red"</button>
+    </div>
+  </div>
+</div>
+@* *@
+@* COMPONENT VARIABLE<input type="checkbox" id="myCheck"> *@
+@* anotther component variable<input type="checkbox" id="myCheck1"> *@
+@* *@
+@* <button onclick='myFunction("myCheck1")'>Try it</button> *@
+@* *@
+@* <p id="demo"></p> *@
+@* *@
+@* <script> *@
+@* function myFunction(id) { *@
+@*   var x = document.getElementById(id).checked; *@
+@*   document.getElementById("demo").innerHTML = x; *@
+@* } *@
+@* </script> *@
+@* *@
+@* <body> *@
+@* //for the id of the checkbox I will just do a loop that will go from 0 until it reaches the size of the list of existing components *@
+@* <div class="container"> *@
+@*   <h2>List of components to choose from</h2>       *@
+@*   <table class="table"> *@
+@*     <thead> *@
+@*       <tr> *@
+@*         <th>Name</th> *@
+@*         <th>Release year</th> *@
+@*         <th>Brand</th> *@
+@*         <th>Additional information</th> *@
+@*         <th>Checked</th> *@
+@*       </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*       <tr> *@
+@*         <td>Intel i5</td> *@
+@*         <td>2019</td> *@
+@*         <td>Gigabyte</td> *@
+@*          <td> <label for="I'm the first component">I'm the first component</label></td> *@
+@*       <td><input type="radio" id="I'm the first component" name="Component" value="I'm the first component"></td> *@
+@*         *@
+@*       </tr> *@
+@*       <tr> *@
+@*         <td>Intel i5</td> *@
+@*         <td>2019</td> *@
+@*         <td>Gigabyte</td> *@
+@*         <td> <label for="I'm the second component">I'm the second component</label></td> *@
+@*         <td><input type="radio" id="I'm the second component" name="Component" value="I'm the second component"></td> *@
+@*       </tr> *@
+@*     </tbody> *@
+@*   </table> *@
+@*   <button onclick="check()">Check "Red"</button> *@
+@* <button onclick="uncheck()">Uncheck "Red"</button> *@
+@* <script> *@
+@* function check() { *@
+@*   document.getElementById("I'm the second component").checked = true; *@
+@*   window.alert(document.getElementById("I'm the second component").value) *@
+@* } *@
+@* function uncheck() { *@
+@*   document.getElementById("red").checked = false; *@
+@* } *@
+@* </script> *@
+@* *@
+@* </div> *@
+@* *@
+@* </body> *@
+
+@code {
+    [Parameter]
+    public string UserId { get; set; }
+}

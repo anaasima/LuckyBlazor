@@ -3,6 +3,7 @@
 <h3>MyPage</h3>
 <button @onclick="GoToEditProfile">Edit profile</button>
 <button @onclick="GoToMyBuilds">My Builds</button>
+<button @onclick="GoToCreateMyBuilds">Create build</button>
 @code {
     [Parameter]
     public string UserId { get; set; }
@@ -15,5 +16,10 @@
     private void GoToMyBuilds()
     {
         NavigationManager.NavigateTo("/MyBuilds/" + UserId);
+    }
+
+    private void GoToCreateMyBuilds()
+    {
+        NavigationManager.NavigateTo("/CreateBuild/" + UserId);
     }
 }
