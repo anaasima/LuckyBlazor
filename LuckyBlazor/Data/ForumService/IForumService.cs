@@ -7,5 +7,6 @@ namespace LuckyBlazor.Data.ForumService
     {
         Task<PostList> GetAllPosts();
         Task<PostList> GetPostsByUserId(int userId);
+        Task CreatePost(Post post);
     }
 }

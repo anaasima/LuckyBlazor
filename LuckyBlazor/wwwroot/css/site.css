@@ -194,7 +194,80 @@ a{
     right: 0.75rem;
     top: 0.5rem;
 }
+/*TABLES FOR CREATING BUILDSS!!!!*/
+.selection {
+    width: 180px;
+    margin: 100px auto 60px;
+    position: relative;
+}
 
+.selection:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+    transform: rotate(45deg);
+}
+
+#select-programme {
+    padding: 10px;
+    border: 1px solid transparent;
+    background-color: #e6e6e6;
+    border-radius: 3px;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+}
+
+table:not(:target) {
+    display: none;
+}
+
+table:target {
+    display: table;
+}
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0px 0px 70px 0px;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+table tr {
+    background-color: #e3cdb5;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em;
+    text-align: center;
+}
+/*#buildTable*/
+/*{*/
+/*    display: none;*/
+/*}*/
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+/*THIS IS WHERE IT ENDS!!!!!!!!!!*/
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;

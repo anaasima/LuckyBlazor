@@ -1,6 +1,7 @@
 @page "/MyBuilds/{UserId}"
 @using LuckyBlazor.Model
 @inject IBuildService BuildService
+@inject NavigationManager NavigationManager
 <h3>MyBuilds</h3>
 
  @foreach (var variable in _builds)
@@ -28,6 +29,15 @@
                  <td>@variable.ComponentList.GetComponent(i).Name</td>
                  <td>@variable.ComponentList.GetComponent(i).ReleaseYear</td>
                  <td>@variable.ComponentList.GetComponent(i).AdditionalInformation</td>
+                 <button @onclick="@(() => DeleteBuild(variable.Id))">
+                     <i class="oi oi-trash" style="color: pink"/>
+                 </button>
+                 <button @onclick="@(() => NavigateToEdit(variable))">
+                     <i class="oi oi-eye" style="color: darkblue"></i>
+                 </button>
+                 <button @onclick="@(() => DeleteBuild(variable.Id))">
+                     <i class="oi oi-delete" style="color: yellow"></i>
+                 </button>
              </tr>
          }
          </tbody>
@@ -39,6 +49,8 @@
     private IList<Build> _builds = new List<Build>();
 
     [Parameter]
+    public string id { get; set; }
+    [Parameter]
     public string UserId { get; set; }
 
     protected override async Task OnInitializedAsync()
@@ -48,6 +60,23 @@
         {
             _builds.Add(_buildList.GetBuild(i));
         }
+    }
+//TODO this might  be a problem. I am not sure about removing it also from _builds
+    public void DeleteBuild(int id)
+    {
+        Build build = new Build();
+        for (int i = 0; i < _buildList.Size(); i++)
+        {
+            if (_buildList.GetBuild(i).Id == id)
+                build = _buildList.GetBuild(i);
+        }
+        BuildService.DeleteBuild(id);
+        _builds.Remove(build);
+    }
+
+    public void NavigateToEdit(Build build)
+    {
+        NavigationManager.NavigateTo("/EditBuild/" + id);
     }
 
 }

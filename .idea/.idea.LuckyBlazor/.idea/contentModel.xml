@@ -69,6 +69,9 @@
           <e p="_Host.cshtml" t="Include" />
           <e p="AddNewComponent.razor" t="Include" />
           <e p="Forum.razor" t="Include" />
+          <e p="manageMyBuilds" t="Include">
+            <e p="EditBuild.razor" t="Include" />
+          </e>
           <e p="mypage" t="Include">
             <e p="CreateBuild.razor" t="Include" />
             <e p="EditProfile.razor" t="Include" />
@@ -96,6 +99,9 @@
             <e p="bootstrap" t="Include">
               <e p="bootstrap.min.css" t="Include" />
               <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="js" t="Include">
+              <e p="myJsFile.js" t="Include" />
             </e>
             <e p="open-iconic" t="Include">
               <e p="font" t="Include">

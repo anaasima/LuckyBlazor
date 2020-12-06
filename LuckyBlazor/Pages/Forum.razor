@@ -4,6 +4,7 @@
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Data.ForumService
 <h3>Forum</h3>
+
 <table class="table">
     <tbody>
     @foreach (var variable in _posts)
@@ -22,6 +23,7 @@
 @code {
     private PostList _postList = new PostList();
     private IList<Post> _posts = new List<Post>();
+    private string _postContent;
 
     protected override async Task OnInitializedAsync()
     {
