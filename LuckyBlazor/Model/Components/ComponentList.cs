@@ -5,7 +5,6 @@ namespace LuckyBlazor.Model
 {
     public class ComponentList
     {
-        [JsonPropertyName("components")]
         public List<Component> Components { get; set; }
 
         public ComponentList()

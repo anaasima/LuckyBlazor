@@ -22,29 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="Sprint 4 - Tier1 broken forum">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="imporvementss">
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Components/ComponentList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Components/ComponentList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/CommentList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/CommentList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/PostList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/PostList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +42,43 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Forum/Comments/CommentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Forum/Comments/CommentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Forum/Comments/CommentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Forum/Comments/CommentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Components/ComponentList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Builds/Build.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eatcl/RiderProjects/LuckyBlazor/LuckyBlazor/Model/Accounts/Account.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -107,15 +125,15 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/mypage/CreateBuild.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/BuildList.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Components/ComponentList.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/CommentList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/PostList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/_Imports.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Components/ComponentList.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/CommentList.cs" />
       </list>
     </option>
   </component>
@@ -334,6 +352,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="hope it works" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607295298676">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607295298676" />
     <state width="1493" height="260" key="GridCell.Tab.0.bottom" timestamp="1607079647092">
       <screen x="-1920" y="376" width="1536" height="824" />
     </state>
