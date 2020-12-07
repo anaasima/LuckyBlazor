@@ -7,34 +7,34 @@
 
 <table class="table">
     <tbody>
-    @foreach (var variable in _posts)
-    {
-        <tr>
-            <td><a href="" @onclick="@(() =>goToUserProfile(@variable.Username))">@variable.Username</a></td>
-            <td>@variable.Content</td>
-            @for (int i = 0; i < variable.CommentList.Size();i++)
-            {
-                <td>@variable.CommentList.Get(i)</td>
-            }
-        </tr>
-    }
+     @foreach (var variable in _posts)
+     {
+         <tr>
+             <td><a href="" @onclick="@(() =>GoToUserProfile(@variable.Username))">@variable.Username</a></td>
+             <td>@variable.Content</td>
+             @for (int i = 0; i < variable.CommentList.Count;i++)
+             {
+                 <td>@variable.CommentList[i]</td>
+             }
+         </tr>
+     }
+    
     </tbody>
 </table>
 @code {
-    private PostList _postList = new PostList();
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
 
     protected override async Task OnInitializedAsync()
     {
-        _postList = await ForumService.GetAllPosts();
-        for (int i = 0; i < _postList.Size(); i++)
-        {
-            _posts.Add(_postList.GetPost(i));
-        }
+        _posts = await ForumService.GetAllPosts();
+        // for (int i = 0; i < _postList.Size(); i++)
+        // {
+        //     _posts.Add(_postList.GetPost(i));
+        // }
     }
 
-    public void goToUserProfile(string username)
+    public void GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
     }

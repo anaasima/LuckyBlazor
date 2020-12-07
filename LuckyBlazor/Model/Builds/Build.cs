@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -14,8 +15,8 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("name")]
         [Required]
         public string Name { get; set; }
-        [JsonPropertyName("ComponentList")]
+        [JsonPropertyName("componentList")]
         [Required]
-        public ComponentList ComponentList { get; set; }
+        public IList<Component> ComponentList { get; set; }
         }
 }

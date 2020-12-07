@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -9,12 +10,12 @@ namespace LuckyBlazor.Data.BuildService
 {
     public class BuildService : IBuildService
     {
-        public async Task<BuildList> GetAllBuildsAsync(int userId)
+        public async Task<IList<Build>> GetAllBuildsAsync(int userId)
         {
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/builds?UserId=" + $"{userId}";
             string message = await httpClient.GetStringAsync(uri);
-            BuildList result = JsonSerializer.Deserialize<BuildList>(message);
+            IList<Build> result = JsonSerializer.Deserialize<IList<Build>>(message);
             return result;
         }
 

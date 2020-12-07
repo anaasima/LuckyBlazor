@@ -48,7 +48,6 @@ else
 
 
 @code {
-    private ComponentList _componentList;
     private IList<Component> _components;
     private IList<Component> _componentsToShow; //TODO: this will later have filters
 
@@ -56,16 +55,15 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _componentList = new ComponentList();
         _components = new List<Component>();
         _componentsToShow = new List<Component>();
         
         
-        _componentList = await ComponentService.GetAllComponentsAsync();
-        for (int i = 0; i < _componentList.Size(); i++)
-        {
-            _components.Add(_componentList.GetComponent(i));
-        }
+        _components = await ComponentService.GetAllComponentsAsync();
+        // for (int i = 0; i < _components.Count; i++)
+        // {
+        //     Console.WriteLine(_components[i].Name);
+        // }
         _componentsToShow = _components;
     }
 

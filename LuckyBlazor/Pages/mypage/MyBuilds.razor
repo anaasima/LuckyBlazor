@@ -21,18 +21,18 @@
 
          <tbody>
 
-         @for (int i = 0; i < variable.ComponentList.Size(); i++)
+         @for (int i = 0; i < variable.ComponentList.Count; i++)
          {
              <tr>
-                 <td>@variable.ComponentList.GetComponent(i).Type</td>
-                 <td>@variable.ComponentList.GetComponent(i).Brand</td>
-                 <td>@variable.ComponentList.GetComponent(i).Name</td>
-                 <td>@variable.ComponentList.GetComponent(i).ReleaseYear</td>
-                 <td>@variable.ComponentList.GetComponent(i).AdditionalInformation</td>
+                 <td>@variable.ComponentList[i].Type</td>
+                 <td>@variable.ComponentList[i].Brand</td>
+                 <td>@variable.ComponentList[i].Name</td>
+                 <td>@variable.ComponentList[i].ReleaseYear</td>
+                 <td>@variable.ComponentList[i].AdditionalInformation</td>
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
                      <i class="oi oi-trash" style="color: pink"/>
                  </button>
-                 <button @onclick="@(() => NavigateToEdit(variable))">
+                 <button @onclick="@(() => NavigateToEdit(variable.Id.ToString()))">
                      <i class="oi oi-eye" style="color: darkblue"></i>
                  </button>
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
@@ -45,38 +45,38 @@
  }
 
 @code {
-    private BuildList _buildList = new BuildList();
     private IList<Build> _builds = new List<Build>();
 
     [Parameter]
-    public string id { get; set; }
+    public string Id { get; set; }
     [Parameter]
     public string UserId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _buildList = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
-        for (int i = 0; i < _buildList.Size(); i++)
+        _builds = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
+        for (int i = 0; i < _builds.Count; i++)
         {
-            _builds.Add(_buildList.GetBuild(i));
+            _builds.Add(_builds[i]);
         }
     }
-//TODO this might  be a problem. I am not sure about removing it also from _builds
+
     public void DeleteBuild(int id)
     {
         Build build = new Build();
-        for (int i = 0; i < _buildList.Size(); i++)
+        for (int i = 0; i < _builds.Count; i++)
         {
-            if (_buildList.GetBuild(i).Id == id)
-                build = _buildList.GetBuild(i);
+            if (_builds[i].Id == id)
+                build = _builds[i];
         }
         BuildService.DeleteBuild(id);
         _builds.Remove(build);
     }
 
-    public void NavigateToEdit(Build build)
+    public void NavigateToEdit(string id)
     {
-        NavigationManager.NavigateTo("/EditBuild/" + id);
+        Id = id;
+        NavigationManager.NavigateTo("/EditBuild/" + Id);
     }
 
 }
