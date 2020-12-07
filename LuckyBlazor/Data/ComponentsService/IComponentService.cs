@@ -6,7 +6,7 @@ namespace LuckyBlazor.Data
 {
     public interface IComponentService
     {
-        Task<ComponentList> GetAllComponentsAsync();
+        Task<IList<Component>> GetAllComponentsAsync();
 
         Task AddNewComponentAsync(Component component);
     }

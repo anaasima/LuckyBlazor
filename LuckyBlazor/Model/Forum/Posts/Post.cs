@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace LuckyBlazor.Model.Forum
@@ -16,7 +17,7 @@ namespace LuckyBlazor.Model.Forum
         public int DownVotes { get; set; }
         [JsonPropertyName("username")]
         public string Username { get; set; }
-        [JsonPropertyName("commentList")]
-        public CommentList CommentList { get; set; }
+        [JsonPropertyName("comments")]
+        public IList<Comment> CommentList { get; set; }
     }
 }

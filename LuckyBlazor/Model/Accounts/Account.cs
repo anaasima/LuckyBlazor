@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using LuckyBlazor.Model.Forum;
@@ -21,8 +22,8 @@ namespace LuckyBlazor.Model
         [Required]
         public string Password { get; set; }
         
-        [JsonPropertyName("Posts")]
-        public PostList PostList { get; set; }
+        [JsonPropertyName("posts")]
+        public IList<Post> PostList { get; set; }
 
         public Account(string username, string password)
         {

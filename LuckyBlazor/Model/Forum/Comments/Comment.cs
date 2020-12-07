@@ -12,9 +12,9 @@ namespace LuckyBlazor.Model.Forum
         public int UserId { get; set; }
         [JsonPropertyName("postId")]
         public int PostId { get; set; }
-        [JsonPropertyName("upVotes")]
+        [JsonPropertyName("upVote")]
         public int UpVotes { get; set; }
-        [JsonPropertyName("downVotes")]
+        [JsonPropertyName("downVote")]
         public int DownVotes { get; set; }
 
 

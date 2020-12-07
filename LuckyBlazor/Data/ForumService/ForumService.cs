@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -10,21 +11,24 @@ namespace LuckyBlazor.Data.ForumService
 {
     public class ForumService : IForumService
     {
-        public async Task<PostList> GetAllPosts()
+        public async Task<IList<Post>> GetAllPosts()
         {
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/posts"; 
             string message = await httpClient.GetStringAsync(uri);
-            PostList result = JsonSerializer.Deserialize<PostList>(message) ;
+
+            Console.WriteLine(message);
+            
+            IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message) ;
             return result;
         }
 
-        public async Task<PostList> GetPostsByUserId(int userId)
+        public async Task<IList<Post>> GetPostsByUserId(int userId)
         {
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/posts?userId=" + userId;
             string message = await httpClient.GetStringAsync(uri);
-            PostList result = JsonSerializer.Deserialize<PostList>(message);
+            IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message);
             return result;
         }
 

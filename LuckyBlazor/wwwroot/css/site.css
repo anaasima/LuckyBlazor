@@ -226,14 +226,14 @@ a{
     box-sizing: border-box;
 }
 
-table:not(:target) {
+tables:not(:target) {
     display: none;
 }
 
-table:target {
+tables:target {
     display: table;
 }
-table {
+tables {
     border: 1px solid #ccc;
     border-collapse: collapse;
     margin: 0px 0px 70px 0px;
@@ -242,19 +242,19 @@ table {
     table-layout: fixed;
 }
 
-table caption {
+tables caption {
     font-size: 1.5em;
     margin: .5em 0 .75em;
 }
 
-table tr {
+tables tr {
     background-color: #e3cdb5;
     border: 1px solid #ddd;
     padding: .35em;
 }
 
-table th,
-table td {
+tables th,
+tables td {
     padding: .625em;
     text-align: center;
 }
@@ -262,7 +262,7 @@ table td {
 /*{*/
 /*    display: none;*/
 /*}*/
-table th {
+tables th {
     font-size: .85em;
     letter-spacing: .1em;
     text-transform: uppercase;

@@ -15,292 +15,302 @@
 
 <div class="container-fluid" id="tablesField">
 <div class="row">
-  <div class="col-lg-12">
-    <div class="selection">
-      <select id="select-programme" onchange="location = this.value;">
-        <option value="@defaultLink" selected>Types of components</option>
-        <option value=@linkToTable1>Motherboards</option>
-        <option value="@linkToTable2">CPUs</option>
-        <option value="@linkToTable3">GPUs</option>
-        <option value="@linkToTable4">RAMs</option>
-        <option value="@linkToTable5">Power supply</option>
-        <option value="@linkToTable6">Storage</option>
-      </select> <span></span> </div>
-    <table class="table" id="x1">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in _components)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-          <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-            <i class="oi oi-plus" style="color: pink"></i>
-          </button></td>
-        </tr>
-      }
-      </tbody>
-    </table>
-    <table class="table" id="x2">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in CPUs)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-                    <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-                      <i class="oi oi-plus" style="color: pink"></i>
-                    </button></td>
-
-        </tr>
-      }
-      </tbody>
-    </table>
-    <table class="table" id="x3">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in GPUs)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-                    <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-                      <i class="oi oi-plus" style="color: pink"></i>
-                    </button></td>
-
-        </tr>
-      }
-      </tbody>
-    </table>
-    <table class="table" id="x4">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in RAMs)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-                    <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-                      <i class="oi oi-plus" style="color: pink"></i>
-                    </button></td>
-        </tr>
-      }
-      </tbody>
-    </table>
-    <table class="table" id="x5">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in supplies)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-                   <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-                     <i class="oi oi-plus" style="color: pink"></i>
-                   </button></td>
-        </tr>
-      }
-      </tbody>
-    </table>
-    <table class="table" id="x6">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-        <th>Add</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in storages)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-          <td><button @onclick="@(() => AddMotherboard(variable.Id))">
-            <i class="oi oi-plus" style="color: pink"></i>
-          </button></td>
-        </tr>
-      }
-      </tbody>
-    </table>
-       <button class="btn btn-primary" @onclick="FinishBuild">Call JS Method</button>
-  </div>
-  </div>
-  </div>
-  <div class="container-fluid" id="buildTable">
-  <div class="row">
     <div class="col-lg-12">
-      <p>Your build</p>
-      <table class="table">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Release year</th>
-          <th>Brand</th>
-          <th>Additional information</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var variable in _myBuild)
-        {
-          <tr>
-            <td>@variable.Name</td>
-            <td>@variable.ReleaseYear</td>
-            <td>@variable.Brand</td>
-            <td>@variable.AdditionalInformation</td>
+        <div class="selection">
+            <select id="select-programme" onchange="location = this.value;">
+                <option value="@defaultLink" selected>Types of components</option>
+                <option value=@linkToTable1>Motherboards</option>
+                <option value="@linkToTable2">CPUs</option>
+                <option value="@linkToTable3">GPUs</option>
+                <option value="@linkToTable4">RAMs</option>
+                <option value="@linkToTable5">Power supply</option>
+                <option value="@linkToTable6">Storage</option>
+            </select> <span></span>
+        </div>
+        <table class="tables" id="x1">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in _components)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <table class="tables" id="x2">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in CPUs)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
 
-          </tr>
-        }
-        </tbody>
-      </table>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <table class="tables" id="x3">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in GPUs)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+        <table class="tables" id="x4">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in RAMs)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <table class="tables" id="x5">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in supplies)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <table class="tables" id="x6">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in storages)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+                    <td>
+                        <button @onclick="@(() => AddMotherboard(variable.Id))">
+                            <i class="oi oi-plus" style="color: pink"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <button class="btn btn-primary" @onclick="FinishBuild">Call JS Method</button>
     </div>
-  </div>
-  </div>
+</div>
+<div class="row" id="buildTable">
+    <div class="col-lg-12">
+        <p>Your build</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release year</th>
+                <th>Brand</th>
+                <th>Additional information</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var variable in _myBuild)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.ReleaseYear</td>
+                    <td>@variable.Brand</td>
+                    <td>@variable.AdditionalInformation</td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
 @code {
-  private ComponentList _componentList = new ComponentList();
-  private IList<Component> _components = new List<Component>();
-  private IList<Component> _myBuild = new List<Component>();
-  private IList<Component> motherBoards = new List<Component>();
-  private IList<Component> GPUs = new List<Component>();
-  private IList<Component> CPUs = new List<Component>();
-  private IList<Component> RAMs = new List<Component>();
-  private IList<Component> supplies = new List<Component>();
-  private IList<Component> storages = new List<Component>();
-  private string linkToTable1;
-  private string linkToTable2;
-  private string linkToTable3;
-  private string linkToTable4;
-  private string linkToTable5;
-  private string linkToTable6;
-  private string defaultLink;
-  private int mB = 0;
-  public Component motherboard =new Component();
-  public Component gpu;
-  public Component cpu;
-  public Component ram;
-  public Component powerSupply;
-  public Component storage;
-  [Parameter]
+    private IList<Component> _components = new List<Component>();
+    private IList<Component> _myBuild = new List<Component>();
+    private IList<Component> motherBoards = new List<Component>();
+    private IList<Component> GPUs = new List<Component>();
+    private IList<Component> CPUs = new List<Component>();
+    private IList<Component> RAMs = new List<Component>();
+    private IList<Component> supplies = new List<Component>();
+    private IList<Component> storages = new List<Component>();
+    private string linkToTable1;
+    private string linkToTable2;
+    private string linkToTable3;
+    private string linkToTable4;
+    private string linkToTable5;
+    private string linkToTable6;
+    private string defaultLink;
+    private int mB = 0;
+    public Component motherboard = new Component();
+    public Component gpu;
+    public Component cpu;
+    public Component ram;
+    public Component powerSupply;
+    public Component storage;
+
+    [Parameter]
     public string UserId { get; set; }
-//TODO this does not work 
-  protected override async Task OnInitializedAsync()
-  {
-    linkToTable1 = $"CreateBuild/{UserId}#x1";
-    linkToTable2= $"CreateBuild/{UserId}#x2";
-    linkToTable3= $"CreateBuild/{UserId}#x3";
-    linkToTable4= $"CreateBuild/{UserId}#x4";
-    linkToTable5= $"CreateBuild/{UserId}#x5";
-    linkToTable6= $"CreateBuild/{UserId}#x6";
-    defaultLink= $"CreateBuild/{UserId}";
-    _componentList = await ComponentService.GetAllComponentsAsync();
-    for (int i = 0; i < _componentList.Size(); i++)
+
+    //TODO this does not work 
+    protected override async Task OnInitializedAsync()
     {
-      _components.Add(_componentList.GetComponent(i));
-      GPUs.Add(_componentList.GetComponent(i));
-      motherBoards.Add(_componentList.GetComponent(i));
-      CPUs.Add(_componentList.GetComponent(i));
-      RAMs.Add(_componentList.GetComponent(i));
-      supplies.Add(_componentList.GetComponent(i));
-      storages.Add(_componentList.GetComponent(i));
-
-    }
-    Console.WriteLine(_components[0].Name);
-    _myBuild = _components;
-  }
-
-//it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
-  public async Task AddMotherboard(int id)
-  {
-    foreach (var VARIABLE in _components)
-      {
-        if (VARIABLE.Id == id)
+        linkToTable1 = $"CreateBuild/{UserId}#x1";
+        linkToTable2 = $"CreateBuild/{UserId}#x2";
+        linkToTable3 = $"CreateBuild/{UserId}#x3";
+        linkToTable4 = $"CreateBuild/{UserId}#x4";
+        linkToTable5 = $"CreateBuild/{UserId}#x5";
+        linkToTable6 = $"CreateBuild/{UserId}#x6";
+        defaultLink = $"CreateBuild/{UserId}";
+        _components = await ComponentService.GetAllComponentsAsync();
+        for (int i = 0; i < _components.Count; i++)
         {
-          if (mB==0)
-          {
-            motherboard = VARIABLE;
-            _myBuild.Add(motherboard);
-            mB++;
-            //TODO This if will be for displaying only lists of compatilble items. Once having selected an item of a type and going to another list, it will be impossible to 
-            //TODO try and go let's say with another socket type. You will have to take th ebuilding from the beginning
-            // if (VARIABLE.Id.Equals(3))
-            // {
-            //   foreach (var var in _components)
-            //   {
-            //     if (var.Id == 2)
-            //     {
-            //       GPUs.Add(var);
-            //     }
-            //   }
-            // }
-          }
-          else if (mB == 1)
-          {
-            _myBuild.Remove(motherboard);
-            motherboard = VARIABLE;
-            _myBuild.Add(motherboard);
-          }
+            GPUs.Add(_components[i]);
+            motherBoards.Add(_components[i]);
+            CPUs.Add(_components[i]);
+            RAMs.Add(_components[i]);
+            supplies.Add(_components[i]);
+            storages.Add(_components[i]);
         }
-      }
-  }
+        _myBuild = _components;
+    }
 
-  public async Task FinishBuild()
-  {
-    await JsRuntime.InvokeVoidAsync("show");
-  }
-  }
-  
+    //it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
+    public async Task AddMotherboard(int id)
+    {
+        foreach (var VARIABLE in _components)
+        {
+            if (VARIABLE.Id == id)
+            {
+                if (mB == 0)
+                {
+                    motherboard = VARIABLE;
+                    _myBuild.Add(motherboard);
+                    mB++;
+    //TODO This if will be for displaying only lists of compatilble items. Once having selected an item of a type and going to another list, it will be impossible to 
+    //TODO try and go let's say with another socket type. You will have to take th ebuilding from the beginning
+    // if (VARIABLE.Id.Equals(3))
+    // {
+    //   foreach (var var in _components)
+    //   {
+    //     if (var.Id == 2)
+    //     {
+    //       GPUs.Add(var);
+    //     }
+    //   }
+    // }
+                }
+                else if (mB == 1)
+                {
+                    _myBuild.Remove(motherboard);
+                    motherboard = VARIABLE;
+                    _myBuild.Add(motherboard);
+                }
+            }
+        }
+    }
+
+    public async Task FinishBuild()
+    {
+        await JsRuntime.InvokeVoidAsync("show");
+    }
+
+}
