@@ -181,34 +181,36 @@
        <button class="btn btn-primary" @onclick="FinishBuild">Call JS Method</button>
   </div>
   </div>
-  <div class="row" id="buildTable">
-  <div class="col-lg-12">
-    <p>Your build</p>
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Release year</th>
-        <th>Brand</th>
-        <th>Additional information</th>
-      </tr>
-      </thead>
-      <tbody>
-      @foreach (var variable in _myBuild)
-      {
-        <tr>
-          <td>@variable.Name</td>
-          <td>@variable.ReleaseYear</td>
-          <td>@variable.Brand</td>
-          <td>@variable.AdditionalInformation</td>
-
-        </tr>
-      }
-      </tbody>
-    </table>
   </div>
-</div>
-</div>
+  <div class="container-fluid" id="buildTable">
+  <div class="row">
+    <div class="col-lg-12">
+      <p>Your build</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Release year</th>
+          <th>Brand</th>
+          <th>Additional information</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var variable in _myBuild)
+        {
+          <tr>
+            <td>@variable.Name</td>
+            <td>@variable.ReleaseYear</td>
+            <td>@variable.Brand</td>
+            <td>@variable.AdditionalInformation</td>
+
+          </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
 @code {
   private ComponentList _componentList = new ComponentList();
   private IList<Component> _components = new List<Component>();
@@ -257,6 +259,7 @@
       storages.Add(_componentList.GetComponent(i));
 
     }
+    Console.WriteLine(_components[0].Name);
     _myBuild = _components;
   }
 
