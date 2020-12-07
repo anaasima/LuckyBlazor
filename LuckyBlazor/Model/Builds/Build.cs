@@ -18,5 +18,17 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("componentList")]
         [Required]
         public IList<Component> ComponentList { get; set; }
+
+        public Build()
+        {
+            
+        }
+
+        public Build(IList<Component> components, int userId, string name)
+        {
+            ComponentList = components;
+            UserId = userId;
+            Name = name;
+        }
         }
 }

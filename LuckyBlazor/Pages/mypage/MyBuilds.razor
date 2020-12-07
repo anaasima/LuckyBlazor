@@ -32,7 +32,7 @@
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
                      <i class="oi oi-trash" style="color: pink"/>
                  </button>
-                 <button @onclick="@(() => NavigateToEdit(variable.Id.ToString()))">
+                 <button @onclick="@(() => NavigateToEdit(String.Concat(@variable.Id)))">
                      <i class="oi oi-eye" style="color: darkblue"></i>
                  </button>
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
@@ -55,10 +55,10 @@
     protected override async Task OnInitializedAsync()
     {
         _builds = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
-        for (int i = 0; i < _builds.Count; i++)
-        {
-            _builds.Add(_builds[i]);
-        }
+        // for (int i = 0; i < _builds.Count; i++)
+        // {
+        //     _builds.Add(_builds[i]);
+        // }
     }
 
     public void DeleteBuild(int id)

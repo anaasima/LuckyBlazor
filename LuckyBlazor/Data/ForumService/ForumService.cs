@@ -36,6 +36,10 @@ namespace LuckyBlazor.Data.ForumService
         {
             HttpClient httpClient = new HttpClient();
             string postSerialized = JsonSerializer.Serialize(post);
+
+            Console.WriteLine("TIER1 FORUM SERVICE" + postSerialized);
+            
+            
             StringContent content = new StringContent(
                 postSerialized,
                 Encoding.UTF8,

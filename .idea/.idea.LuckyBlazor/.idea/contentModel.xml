@@ -66,6 +66,7 @@
           </e>
           <e p="mypage" t="Include">
             <e p="CreateBuild.razor" t="Include" />
+            <e p="EditBuild.razor" t="Include" />
             <e p="EditProfile.razor" t="Include" />
             <e p="MyBuilds.razor" t="Include" />
             <e p="MyPosts.razor" t="Include" />

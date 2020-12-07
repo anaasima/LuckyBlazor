@@ -20,10 +20,27 @@
     {
         document.getElementById("buildTable").style.display = "block";
         document.getElementById("tablesField").style.display = "none";
-        window.alert("please work")
         }
     </script>
-
+    <script>
+    function navigateBack()
+    {
+        document.getElementById("tablesField").style.display="block";
+        document.getElementById("buildTable").style.display="none";
+        }
+    </script>
+    <script>
+    function makeGreen(id)
+    {
+        document.getElementById(id).style.color='green';
+        }
+    </script>
+    <script>
+    function sendAlert()
+    {
+        window.alert("Power supply has been exceeded")
+        }
+    </script>
 </head>
 <body>
 <app>

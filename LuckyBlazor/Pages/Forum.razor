@@ -1,10 +1,14 @@
 @page "/Forum"
 @inject IForumService ForumService
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Data.ForumService
+@using LuckyBlazor.Model
+@using LuckyBlazor.Authentication
 <h3>Forum</h3>
-
+<input type="text" placeholder="Post something..." @bind-value="_postContent"><br><br>
+<input type="submit" value="Submit" @onclick="postOnForum">
 <table class="table">
     <tbody>
      @foreach (var variable in _posts)
@@ -24,9 +28,11 @@
 @code {
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
+    private Account _account = new Account();
 
     protected override async Task OnInitializedAsync()
     {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _posts = await ForumService.GetAllPosts();
         // for (int i = 0; i < _postList.Size(); i++)
         // {
@@ -37,5 +43,11 @@
     public void GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
+    }
+
+    public void postOnForum()
+    {
+        Post post = new Post(_postContent, _account.UserId);
+        ForumService.CreatePost(post);
     }
 }

@@ -19,5 +19,16 @@ namespace LuckyBlazor.Model.Forum
         public string Username { get; set; }
         [JsonPropertyName("comments")]
         public IList<Comment> CommentList { get; set; }
+
+        public Post()
+        {
+            
+        }
+
+        public Post(string content, int userId)
+        {
+            Content = content;
+            UserId = userId;
+        }
     }
 }
