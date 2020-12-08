@@ -34,7 +34,7 @@
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
                      <i class="oi oi-trash" style="color: pink"/>
                  </button>
-                 <button @onclick="@(() => NavigateToEdit(String.Concat(@variable.Id)))">
+                 <button @onclick="@(() => NavigateToEdit(@variable.Id))">
                      <i class="oi oi-eye" style="color: darkblue"></i>
                  </button>
                  <button @onclick="@(() => DeleteBuild(variable.Id))">
@@ -75,11 +75,10 @@
         _builds.Remove(build);
     }
 
-    public void NavigateToEdit(string id)
+    public void NavigateToEdit(int id)
     {
-        Id = id;
-        NavigationManager.NavigateTo("/EditBuild/" + String.Concat(id));
+        Id = String.Concat(id);
+        NavigationManager.NavigateTo("/EditBuild/" + Id);
     }
 
 }
- 

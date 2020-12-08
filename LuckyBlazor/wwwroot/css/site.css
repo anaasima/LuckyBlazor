@@ -1,7 +1,9 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    /*font-family: Garamond, serif;*/
+    font-family: Optima, sans-serif;
 }
 
 a, .btn-link {
@@ -47,7 +49,7 @@ app {
 
 /* top nav menu*/
 .topmenu {
-    height: 3rem;
+    height: 2.5rem;
     display: flex;
     flex-direction: row;
     /*justify-content: space-around;*/
@@ -60,10 +62,13 @@ app {
 .topmenu .menu-item:first-of-type{
     padding-left: 0.5rem;
 }
+.topmenu .nav-link:last-of-type{
+    margin-right: 0px;
+}
 
 .topmenu .nav-link{
     padding-top: 10px;
-    height: 3rem;
+    height: 2.5rem;
     color: ghostwhite;
     /*border-right: 2px solid ghostwhite;*/
     transition-duration: 0.8s;
@@ -78,7 +83,26 @@ app {
     color: white;
 }
 
-
+#mainPageButtons
+{
+    margin-top: 500px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+.mainButtons
+{
+    margin: 20px;
+    background-color: white;
+    color: black;
+    border:2px solid #555555;
+    padding:12px;
+}
+.mainButtons:hover{
+    background-color: #555555;
+    color: white;
+}
 /*.sidebar .nav-gradient{*/
 /*    height: inherit;*/
 /*    background-image: linear-gradient(180deg, rgb(15, 120, 116) 0%, #080647 70%);*/
@@ -240,7 +264,19 @@ a{
     appearance: none;
     box-sizing: border-box;
 }
-
+#comments
+{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+#seeComments
+{
+    padding-left: 35px;
+}
+#postContent
+{
+    width:1420px;
+}
 /*#x1, #x2, #x3, #x4, #x5, #x6:not(:target) {*/
 /*    display: none;*/
 /*}*/

@@ -1,0 +1,31 @@
+@page "/"
+@inject NavigationManager NavigationManager
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" id="mainPageButtons">
+            <button type="button" @onclick="NavigateToLogin" class="mainButtons">Login</button>
+            <button type="button" @onclick="NavigateToViewBuildsComponents" class="mainButtons">Builds & Components</button>
+            <button type="button" @onclick="NavigateToForum" class="mainButtons">Forum</button>
+
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public void NavigateToLogin()
+    {
+        NavigationManager.NavigateTo("/Login");
+    }
+
+    public void NavigateToForum()
+    {
+        NavigationManager.NavigateTo("/Forum");
+    }
+
+    public void NavigateToViewBuildsComponents()
+    {
+        NavigationManager.NavigateTo("/ViewComponents");
+    }
+
+}

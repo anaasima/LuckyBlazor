@@ -72,7 +72,7 @@
                 <tbody>
                 @foreach (var variable in CPUsToShow)
                 {
-                    <tr id="@variable.Id">
+                    <tr>
                         <td>@variable.Name</td>
                         <td>@variable.ReleaseYear</td>
                         <td>@variable.Brand</td>
@@ -101,7 +101,7 @@
                 <tbody>
                 @foreach (var variable in GPUsToShow)
                 {
-                    <tr id="@variable.Id">
+                    <tr>
                         <td>@variable.Name</td>
                         <td>@variable.ReleaseYear</td>
                         <td>@variable.Brand</td>
@@ -130,7 +130,7 @@
                 <tbody>
                 @foreach (var variable in RAMsToShow)
                 {
-                    <tr id="@variable.Id">
+                    <tr>
                         <td>@variable.Name</td>
                         <td>@variable.ReleaseYear</td>
                         <td>@variable.Brand</td>
@@ -158,7 +158,7 @@
                 <tbody>
                 @foreach (var variable in suppliesToShow)
                 {
-                    <tr id="@variable.Id">
+                    <tr>
                         <td>@variable.Name</td>
                         <td>@variable.ReleaseYear</td>
                         <td>@variable.Brand</td>
@@ -186,7 +186,7 @@
                 <tbody>
                 @foreach (var variable in storagesToShow)
                 {
-                    <tr id="@variable.Id">
+                    <tr>
                         <td>@variable.Name</td>
                         <td>@variable.ReleaseYear</td>
                         <td>@variable.Brand</td>
@@ -337,7 +337,6 @@
     //it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
     public async Task AddMotherboard(int id)
     {
-        IList<Component> wrongMotherBoards = new List<Component>();
         foreach (var VARIABLE in motherBoardsToShow)
         {
             if (VARIABLE.Id == id)
@@ -345,6 +344,7 @@
                 if (!mB)
                 {
                     motherboard = VARIABLE;
+                    await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
                     _myBuild.Add(motherboard);
                 }
 
@@ -354,21 +354,17 @@
                     motherboard = VARIABLE;
                     _myBuild.Add(motherboard);
                 }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
+
                 Sort(VARIABLE);
                 mB = true;
-            }
-            else
-            {
-                wrongMotherBoards.Add(VARIABLE);
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                return;
             }
         }
     }
 
     public async Task AddCPU(int id)
     {
-        IList<Component> wrongCPUs = new List<Component>();
         foreach (var VARIABLE in CPUsToShow)
         {
             if (VARIABLE.Id == id)
@@ -384,22 +380,17 @@
                     cpu = VARIABLE;
                     _myBuild.Add(cpu);
                 }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
+
                 Sort(VARIABLE);
                 cpuB = true;
-            
-            }
-            else
-            {
-                wrongCPUs.Add(VARIABLE);
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                return;
             }
         }
     }
 
     public async Task AddGPU(int id)
     {
-        IList<Component> wrongGPUs = new List<Component>();
         foreach (var VARIABLE in GPUsToShow)
         {
             if (VARIABLE.Id == id)
@@ -415,22 +406,17 @@
                     gpu = VARIABLE;
                     _myBuild.Add(gpu);
                 }
-                Console.WriteLine(id);
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
+
                 Sort(VARIABLE);
                 gpuB = true;
-            }
-            else
-            {
-                wrongGPUs.Add(VARIABLE);
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                return;
             }
         }
     }
 
     public async Task AddRAM(int id)
     {
-        IList<Component> wrongRAMs = new List<Component>();
         foreach (var VARIABLE in RAMsToShow)
         {
             if (VARIABLE.Id == id)
@@ -446,23 +432,17 @@
                     ram = VARIABLE;
                     _myBuild.Add(ram);
                 }
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
+
                 Sort(VARIABLE);
                 ramB = true;
-                Console.WriteLine(id);
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
-            }
-            else
-            {
-                wrongRAMs.Add(VARIABLE);
-                // await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));    //TODO: se poate sa dispara tot pt ca nu exista mb compatibila cu nimic si plm, baga DD3 mb
+                return;
             }
         }
-      
     }
 
     public async Task AddStorage(int id)
     {
-        IList<Component> wrongStorage = new List<Component>();
         foreach (var VARIABLE in storagesToShow)
         {
             if (VARIABLE.Id == id)
@@ -479,22 +459,17 @@
                     storage = VARIABLE;
                     _myBuild.Add(storage);
                 }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
 
                 Sort(VARIABLE);
                 storageB = true;
-            }
-            else
-            {
-                wrongStorage.Add(VARIABLE);
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                return;
             }
         }
     }
 
     public async Task AddSupply(int id)
     {
-        IList<Component> wrongSupplies = new List<Component>();
         foreach (var VARIABLE in suppliesToShow)
         {
             if (VARIABLE.Id == id)
@@ -511,18 +486,15 @@
                     powerSupply = VARIABLE;
                     _myBuild.Add(powerSupply);
                 }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                await JsRuntime.InvokeVoidAsync("makeGreen", string.Concat(id));
 
                 Sort(VARIABLE);
                 supplyB = true;
-            }
-            else
-            {
-                wrongSupplies.Add(VARIABLE);
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                return;
             }
         }
     }
+
 
     public async Task FinishBuild()
     {
@@ -535,7 +507,7 @@
             await JsRuntime.InvokeVoidAsync("sendAlert");
         await JsRuntime.InvokeVoidAsync("show");
     }
-    
+
     private void Sort(Component component)
     {
         motherBoardsToShow = new List<Component>();
@@ -551,7 +523,7 @@
         {
             if (motherBoard.SocketType.Contains(typeOfComponent))
             {
-                if(!motherBoardsToShow.Contains(motherBoard))
+                Console.WriteLine("1");
                 motherBoardsToShow.Add(motherBoard);
             }
         }
@@ -562,7 +534,7 @@
             {
                 if (motherBoard.SocketType.Contains(GPU.SocketType))
                 {
-                    if(!GPUsToShow.Contains(GPU))
+                    Console.WriteLine("1.1");
                     GPUsToShow.Add(GPU);
                 }
             }
@@ -574,7 +546,7 @@
             {
                 if (motherBoard.SocketType.Contains(RAM.SocketType))
                 {
-                    if(!RAMsToShow.Contains(RAM))
+                    Console.WriteLine("2");
                     RAMsToShow.Add(RAM);
                 }
             }
@@ -586,7 +558,7 @@
             {
                 if (motherBoard.SocketType.Contains(storage.SocketType))
                 {
-                    if(!storagesToShow.Contains(storage))
+                    Console.WriteLine("3");
                     storagesToShow.Add(storage);
                 }
             }
@@ -598,7 +570,7 @@
             {
                 if (motherBoard.SocketType.Contains(CPU.SocketType))
                 {
-                    if(!CPUsToShow.Contains(CPU))
+                    Console.WriteLine("4");
                     CPUsToShow.Add(CPU);
                 }
             }
@@ -609,11 +581,11 @@
             {
                 if (motherBoard.SocketType.Contains(supply.SocketType))
                 {
-                    if(!suppliesToShow.Contains(supply))
+                    Console.WriteLine("5");
                     suppliesToShow.Add(supply);
                 }
             }
         }
-     }
+    }
 
 }

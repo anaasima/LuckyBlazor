@@ -6,7 +6,7 @@
 <h3>MyPage</h3>
 <button @onclick="GoToEditProfile">Edit profile</button>
 <button @onclick="GoToMyBuilds">My Builds</button>
-<button @onclick="GoToCreateMyBuilds">Create build</button>
+@* <button @onclick="GoToCreateMyBuilds">Create build</button> *@
 @code {
     private Account _account = new Account();
     [Parameter]
@@ -27,8 +27,8 @@
         NavigationManager.NavigateTo("/MyBuilds");
     }
 
-    private void GoToCreateMyBuilds()
-    {
-        NavigationManager.NavigateTo("/CreateBuild");
-    }
+    // private void GoToCreateMyBuilds()
+    // {
+    //     NavigationManager.NavigateTo("/CreateBuild");
+    // }
 }

@@ -7,24 +7,36 @@
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
 <h3>Forum</h3>
-<input type="text" placeholder="Post something..." @bind-value="_postContent"><br><br>
-<input type="submit" value="Submit" @onclick="postOnForum">
-<table class="table">
-    <tbody>
-     @foreach (var variable in _posts)
-     {
-         <tr>
-             <td><a href="" @onclick="@(() =>GoToUserProfile(@variable.Username))">@variable.Username</a></td>
-             <td>@variable.Content</td>
-             @for (int i = 0; i < variable.CommentList.Count;i++)
-             {
-                 <td>@variable.CommentList[i]</td>
-             }
-         </tr>
-     }
-    
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
+        </div>
+        </div>
+<div class="row">
+    <div class="col-3">
+        <input type="submit" value="Submit" @onclick="postOnForum">
+    </div>
+    </div>
+    @foreach (var variable in _posts)
+    {
+        <div class="row">
+            <div class="col-3">
+                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@variable.Username</a>
+            </div>
+        </div>
+        <div class="row" id="comments">
+            <div class="col-12">
+                <p>@variable.Content</p>
+            </div>
+        </div>
+        <div class="row" id="seeComments">
+            <div class="col-4">
+                <a href="">See comments</a>
+            </div>
+        </div>
+    }
+</div>
 @code {
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
@@ -49,5 +61,6 @@
     {
         Post post = new Post(_postContent, _account.UserId);
         ForumService.CreatePost(post);
+        _postContent = "";
     }
 }
