@@ -9,8 +9,6 @@
 <button @onclick="GoToCreateMyBuilds">Create build</button>
 @code {
     private Account _account = new Account();
-    [Parameter]
-    public string UserId { get; set; }
 
     protected override void OnInitialized()
     {
@@ -19,7 +17,7 @@
 
     private void GoToEditProfile()
     {
-        NavigationManager.NavigateTo("/EditProfile/" + UserId);
+        NavigationManager.NavigateTo("/EditProfile/" + _account.UserId);
     }
 
     private void GoToMyBuilds()
