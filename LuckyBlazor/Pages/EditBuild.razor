@@ -1,20 +1,11 @@
-@page "/CreateBuild"
+@page "/EditBuild/{Id}"
 @using LuckyBlazor.Model
-@using System.ComponentModel
 @using LuckyBlazor.Authentication
-@using Component = LuckyBlazor.Model.Component
-@inject IComponentService ComponentService
-@inject IBuildService BuildService
-@inject IJSRuntime JsRuntime
-@inject NavigationManager NavigationManager
+@using System.Threading
 @inject AuthenticationStateProvider AuthenticationStateProvider
-@* <script> *@
-@* function myFunction(id) { *@
-@*   var x = document.getElementById(id).checked; *@
-@*   document.getElementById("demo").innerHTML = x; *@
-@* } *@
-@* </script> *@
-<h3>CreateBuild</h3>
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+<h3>EditBuild</h3>
 
 <div class="container-fluid" id="tablesField">
     <div class="row">
@@ -277,19 +268,36 @@
     public Component storage;
     private string _name;
     private Account _account = new Account();
+    private IList<Build> _allBuilds = new List<Build>();
+    private Build _build = new Build();
+    [Parameter]
+    public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-        linkToTable1 = $"CreateBuild#x1";
-        linkToTable2 = $"CreateBuild#x2";
-        linkToTable3 = $"CreateBuild#x3";
-        linkToTable4 = $"CreateBuild#x4";
-        linkToTable5 = $"CreateBuild#x5";
-        linkToTable6 = $"CreateBuild#x6";
-        defaultLink = $"CreateBuild";
+        linkToTable1 = $"EditBuild/{Id}#x1";
+        linkToTable2 = $"EditBuild/{Id}#x2";
+        linkToTable3 = $"EditBuild/{Id}#x3";
+        linkToTable4 = $"EditBuild/{Id}#x4";
+        linkToTable5 = $"EditBuild/{Id}#x5";
+        linkToTable6 = $"EditBuild/{Id}#x6";
+        defaultLink = $"EditBuild/{Id}";
         _components = await ComponentService.GetAllComponentsAsync();
+        _allBuilds = await BuildService.GetAllBuildsAsync(_account.UserId);
 
+        foreach (var VARIABLE in _allBuilds)
+        {
+            if (VARIABLE.Id == Int32.Parse(Id))
+            {
+                _build = VARIABLE;
+                Console.WriteLine(_build.ComponentList);
+            }
+        }
+
+       
+        
+        _name = _build.Name;
         for (int i = 0; i < _components.Count; i++)
         {
             switch (_components[i].Type)
@@ -314,30 +322,118 @@
                     break;
             }
         }
+        
+        GPUsToShow = GPUs;
+        foreach (var VARIABLE in GPUsToShow)
+        {
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA11 " + VARIABLE.Id);
+                    gpu = VARIABLE;
+                }
+            }
+        }
+        
         GPUsToShow = GPUs;
         CPUsToShow = CPUs;
+        foreach (var VARIABLE in CPUsToShow)
+        {
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA");
+                    cpu = VARIABLE;
+                }
+            }
+        }
         motherBoardsToShow = motherBoards;
+        foreach (var VARIABLE in motherBoardsToShow)
+        {
+            Console.WriteLine("AAAAAAAAAAA");
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA" + VARIABLE.Id);
+                    motherboard = VARIABLE;
+                }
+            }
+        }
         RAMsToShow = RAMs;
+        foreach (var VARIABLE in RAMsToShow)
+        {
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA");
+                    ram = VARIABLE;
+                }
+            }
+        }
         suppliesToShow = supplies;
+        foreach (var VARIABLE in suppliesToShow)
+        {
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA");
+                    powerSupply = VARIABLE;
+                }
+            }
+        }
         storagesToShow = storages;
+        foreach (var VARIABLE in storagesToShow)
+        {
+            for (int i = 0; i < _build.ComponentList.Count; i++)
+            {
+                if (_build.ComponentList[i].Id == (VARIABLE).Id)
+                {
+                    Console.WriteLine("DSA");
+                    storage = VARIABLE;
+                    Console.WriteLine(storage.Name + "fgerrfggf");
+                }
+            }
+        }
+        // await this.OnAfterRenderAsync(true);
     }
-
-    public void createBuild()
-    {
-        Build newBuild = new Build(_myBuild, _account.UserId, _name);
-        BuildService.CreateBuild(newBuild);
-    }
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     if (firstRender)
+    //     {
+    //         foreach (var VARIABLE in GPUsToShow)
+    //         {
+    //             for (int i = 0; i < _build.ComponentList.Count; i++)
+    //             {
+    //                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
+    //                 {
+    //                     Console.WriteLine("DSA11 " + VARIABLE.Id);
+    //                     gpu = VARIABLE;
+    //                     await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(VARIABLE.Id));
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+     public void createBuild()
+     {
+         _build.Name = _name;
+         _build.ComponentList = _myBuild;
+         BuildService.EditBuild(_build);
+     }
 
     public async Task reset()
     {
-        _myBuild = new List<Component>();
-        await JsRuntime.InvokeVoidAsync("navigateBack");
+       NavigationManager.NavigateTo("/MyPage");
     }
 
     //it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
-    public async Task AddMotherboard(int id)
+public async Task AddMotherboard(int id)
     {
-        IList<Component> wrongMotherBoards = new List<Component>();
         foreach (var VARIABLE in motherBoardsToShow)
         {
             if (VARIABLE.Id == id)
@@ -360,7 +456,6 @@
             }
             else
             {
-                wrongMotherBoards.Add(VARIABLE);
                 await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
@@ -368,7 +463,6 @@
 
     public async Task AddCPU(int id)
     {
-        IList<Component> wrongCPUs = new List<Component>();
         foreach (var VARIABLE in CPUsToShow)
         {
             if (VARIABLE.Id == id)
@@ -391,7 +485,6 @@
             }
             else
             {
-                wrongCPUs.Add(VARIABLE);
                 await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
@@ -399,7 +492,6 @@
 
     public async Task AddGPU(int id)
     {
-        IList<Component> wrongGPUs = new List<Component>();
         foreach (var VARIABLE in GPUsToShow)
         {
             if (VARIABLE.Id == id)
@@ -422,7 +514,6 @@
             }
             else
             {
-                wrongGPUs.Add(VARIABLE);
                 await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
@@ -430,7 +521,6 @@
 
     public async Task AddRAM(int id)
     {
-        IList<Component> wrongRAMs = new List<Component>();
         foreach (var VARIABLE in RAMsToShow)
         {
             if (VARIABLE.Id == id)
@@ -453,8 +543,7 @@
             }
             else
             {
-                wrongRAMs.Add(VARIABLE);
-                // await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));    //TODO: se poate sa dispara tot pt ca nu exista mb compatibila cu nimic si plm, baga DD3 mb
+                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
       
@@ -462,7 +551,6 @@
 
     public async Task AddStorage(int id)
     {
-        IList<Component> wrongStorage = new List<Component>();
         foreach (var VARIABLE in storagesToShow)
         {
             if (VARIABLE.Id == id)
@@ -486,7 +574,6 @@
             }
             else
             {
-                wrongStorage.Add(VARIABLE);
                 await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
@@ -494,7 +581,6 @@
 
     public async Task AddSupply(int id)
     {
-        IList<Component> wrongSupplies = new List<Component>();
         foreach (var VARIABLE in suppliesToShow)
         {
             if (VARIABLE.Id == id)
@@ -518,7 +604,6 @@
             }
             else
             {
-                wrongSupplies.Add(VARIABLE);
                 await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
@@ -615,5 +700,6 @@
             }
         }
      }
+
 
 }

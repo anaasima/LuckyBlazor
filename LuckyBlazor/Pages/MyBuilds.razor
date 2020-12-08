@@ -1,7 +1,9 @@
-@page "/MyBuilds/{UserId}"
+@page "/MyBuilds"
 @using LuckyBlazor.Model
+@using LuckyBlazor.Authentication
 @inject IBuildService BuildService
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
 <h3>MyBuilds</h3>
 
  @foreach (var variable in _builds)
@@ -46,15 +48,15 @@
 
 @code {
     private IList<Build> _builds = new List<Build>();
+    private Account _account = new Account();
 
     [Parameter]
     public string Id { get; set; }
-    [Parameter]
-    public string UserId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _builds = await BuildService.GetAllBuildsAsync(Int32.Parse(UserId));
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        _builds = await BuildService.GetAllBuildsAsync(_account.UserId);
         // for (int i = 0; i < _builds.Count; i++)
         // {
         //     _builds.Add(_builds[i]);
@@ -76,7 +78,7 @@
     public void NavigateToEdit(string id)
     {
         Id = id;
-        NavigationManager.NavigateTo("/EditBuild/" + Id);
+        NavigationManager.NavigateTo("/EditBuild/" + String.Concat(id));
     }
 
 }

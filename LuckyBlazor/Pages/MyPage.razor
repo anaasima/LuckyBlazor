@@ -1,12 +1,21 @@
-@page "/MyPage/{UserId}"
+@page "/MyPage"
+@using LuckyBlazor.Model
+@using LuckyBlazor.Authentication
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
 <h3>MyPage</h3>
 <button @onclick="GoToEditProfile">Edit profile</button>
 <button @onclick="GoToMyBuilds">My Builds</button>
 <button @onclick="GoToCreateMyBuilds">Create build</button>
 @code {
+    private Account _account = new Account();
     [Parameter]
     public string UserId { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+    }
 
     private void GoToEditProfile()
     {
@@ -15,7 +24,7 @@
 
     private void GoToMyBuilds()
     {
-        NavigationManager.NavigateTo("/MyBuilds/" + UserId);
+        NavigationManager.NavigateTo("/MyBuilds");
     }
 
     private void GoToCreateMyBuilds()

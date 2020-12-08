@@ -60,15 +60,12 @@
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
           <e p="AddNewComponent.razor" t="Include" />
+          <e p="EditBuild.razor" t="Include" />
           <e p="Forum.razor" t="Include" />
-          <e p="manageMyBuilds" t="Include">
-            <e p="EditBuild.razor" t="Include" />
-          </e>
+          <e p="MyBuilds.razor" t="Include" />
           <e p="mypage" t="Include">
             <e p="CreateBuild.razor" t="Include" />
-            <e p="EditBuild.razor" t="Include" />
             <e p="EditProfile.razor" t="Include" />
-            <e p="MyBuilds.razor" t="Include" />
             <e p="MyPosts.razor" t="Include" />
           </e>
           <e p="MyPage.razor" t="Include" />
