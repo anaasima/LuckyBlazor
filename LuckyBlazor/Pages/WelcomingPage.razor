@@ -55,10 +55,6 @@ display: none !important;
              UserId = String.Concat(account.UserId);
              _username = "";
              _password = "";
-
-             Console.WriteLine(UserId);
-             
-             // NavigationManager.NavigateTo("/MyAccount/" + UserId);
              NavigationManager.NavigateTo("/MyPage");
          }
          catch (Exception e)
@@ -67,7 +63,7 @@ display: none !important;
          }
     }
 
-    public async Task PerformLogout()
+    private void PerformLogout()
     {
         _errorMessage = "";
         _username = "";
@@ -83,12 +79,12 @@ display: none !important;
         }
     }
 
-    public async Task GoToRegisterPage()
+    private void GoToRegisterPage()
     {
         NavigationManager.NavigateTo("/RegisterAccount");
     }
 
-    public async Task GoToViewComponents()
+    private void GoToViewComponents()
     {
         NavigationManager.NavigateTo("/ViewComponents");
     }

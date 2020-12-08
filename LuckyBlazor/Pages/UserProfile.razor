@@ -3,13 +3,13 @@
 @using LuckyBlazor.Model.Forum
 @inject IAccountService AccountService
 <h3>UserProfile</h3>
-<h6>@username's posts are</h6>
+<h6>@Username's posts are</h6>
 <table class="table">
     <tbody>
      @foreach (var variable in _posts)
          {
     <tr>
-        <td>@username</td>
+        <td>@Username</td>
         <td>@variable.Content</td>
     </tr>
     }
@@ -18,21 +18,15 @@
 
 
 @code {            
-    private Account currentAccount;
+    private Account _currentAccount;
     private IList<Post> _posts = new List<Post>();
     [Parameter]
-    public string username { get; set; }
+    public string Username { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        currentAccount = await AccountService.GetUserByUsername(username);
-        _posts= currentAccount.PostList; 
-
-        // for (int i = 0; i < _postList.Size(); i++)
-        // {
-        //     _posts.Add(_postList.GetPost(i));
-        // }
-
+        _currentAccount = await AccountService.GetUserByUsername(Username);
+        _posts= _currentAccount.PostList;
     }
     
 }

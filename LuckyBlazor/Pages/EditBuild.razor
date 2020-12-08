@@ -235,7 +235,7 @@
 @code {
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();
-    private IList<Component> motherBoards = new List<Component>();
+    private IList<Component> _motherBoards = new List<Component>();
     private IList<Component> GPUs = new List<Component>();
     private IList<Component> CPUs = new List<Component>();
     private IList<Component> RAMs = new List<Component>();
@@ -254,12 +254,12 @@
     private string linkToTable5;
     private string linkToTable6;
     private string defaultLink;
-    private bool mB = false;
-    private bool gpuB = false;
-    private bool cpuB = false;
-    private bool ramB = false;
-    private bool storageB = false;
-    private bool supplyB = false;
+    private bool mB;
+    private bool gpuB;
+    private bool cpuB;
+    private bool ramB;
+    private bool storageB;
+    private bool supplyB;
     public Component motherboard = new Component();
     public Component gpu;
     public Component cpu;
@@ -306,7 +306,7 @@
                     GPUs.Add(_components[i]);
                     break;
                 case "Motherboard":
-                    motherBoards.Add(_components[i]);
+                    _motherBoards.Add(_components[i]);
                     break;
                 case "CPU":
                     CPUs.Add(_components[i]);
@@ -349,7 +349,7 @@
                 }
             }
         }
-        motherBoardsToShow = motherBoards;
+        motherBoardsToShow = _motherBoards;
         foreach (var VARIABLE in motherBoardsToShow)
         {
             Console.WriteLine("AAAAAAAAAAA");
@@ -632,7 +632,7 @@ public async Task AddMotherboard(int id)
         
         string typeOfComponent = component.SocketType;
         
-        foreach (var motherBoard in motherBoards.ToList())
+        foreach (var motherBoard in _motherBoards.ToList())
         {
             if (motherBoard.SocketType.Contains(typeOfComponent))
             {
