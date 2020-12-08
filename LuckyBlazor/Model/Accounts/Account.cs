@@ -14,7 +14,7 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("name")] [Required] 
         public string Name { get; set; }
 
-        [JsonPropertyName("username")]
+        [JsonPropertyName("Username")]
         [Required]
         public string Username { get; set; }
 

@@ -14,17 +14,6 @@ namespace LuckyBlazor.Data.AccountsService
         {
             HttpClient httpClient = new HttpClient();
             string accountSerialized = JsonSerializer.Serialize(account);
-
-            // StringContent content = new StringContent(
-            //     accountSerialized,
-            //     Encoding.UTF8,
-            //     "application/json"
-            // );
-            //
-            // HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/register", content);
-            // Console.WriteLine(responseMessage.StatusCode);
-            // return responseMessage.StatusCode.ToString();
-            
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
@@ -35,7 +24,6 @@ namespace LuckyBlazor.Data.AccountsService
             var response = httpClient.SendAsync(request).ConfigureAwait(false);
             var responseInfo = response.GetAwaiter().GetResult();
             string s = await responseInfo.Content.ReadAsStringAsync();
-            Console.WriteLine(s);
             return s;
         }
 
@@ -67,18 +55,7 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task<string> EditAccount(Account account)
         {
             HttpClient httpClient = new HttpClient();
-            
             string accountSerialized = JsonSerializer.Serialize(account);
-            
-            // StringContent content = new StringContent(
-            //     accountSerialized,
-            //     Encoding.UTF8,
-            //     "application/json"
-            // );
-            //
-            // HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/accounts", content);
-            // Console.WriteLine(responseMessage.StatusCode.ToString());
-            
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
@@ -89,7 +66,6 @@ namespace LuckyBlazor.Data.AccountsService
             var response = httpClient.SendAsync(request).ConfigureAwait(false);
             var responseInfo = response.GetAwaiter().GetResult();
             string s = await responseInfo.Content.ReadAsStringAsync();
-            Console.WriteLine(s);
             return s;
         }
 
@@ -97,13 +73,7 @@ namespace LuckyBlazor.Data.AccountsService
         {
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/accounts?Username=" + username;
-
-            Console.WriteLine(uri);
-            
             string message = await httpClient.GetStringAsync(uri);
-
-            Console.WriteLine(message);
-            
             Account result = JsonSerializer.Deserialize<Account>(message);
             return result;
         }
