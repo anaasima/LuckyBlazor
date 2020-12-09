@@ -84,14 +84,14 @@ namespace LuckyBlazor.Data.ForumService
                 Encoding.UTF8,
                 "application/json"
                 );
-            HttpResponseMessage responseMessage = await httpClient.PostAsync($"http://localhost:8080/savedPosts?UserId={userId}", content);
+            HttpResponseMessage responseMessage = await httpClient.PostAsync($"http://localhost:8080/savedPosts/{userId}", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
         public async Task DeletePost(int id)
         {
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage responseMessage = await httpClient.DeleteAsync($"http://localhost:8080/posts?Id={id}");
+            HttpResponseMessage responseMessage = await httpClient.DeleteAsync($"http://localhost:8080/posts/{id}");
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 

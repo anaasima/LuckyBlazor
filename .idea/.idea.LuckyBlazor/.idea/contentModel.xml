@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\eatcl\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\eatcl\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_LuckyBlazor.-1536515170.00" t="ExcludeRecursive" />
-    <e p="C:\Users\eatcl\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\eatcl\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\eatcl\RiderProjects\LuckyBlazor" t="IncludeFlat">
+    <e p="C:\University\DNP\LuckyBlazor" t="IncludeFlat">
       <e p="LuckyBlazor" t="IncludeRecursive">
         <e p="_Imports.razor" t="Include" />
         <e p="App.razor" t="Include" />
@@ -131,5 +127,9 @@
       <e p="LuckyBlazor.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Windows 10\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Windows 10\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_LuckyBlazor.-1005708267.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Windows 10\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Windows 10\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
   </component>
 </project>

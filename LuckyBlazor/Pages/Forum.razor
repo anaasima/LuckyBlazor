@@ -61,6 +61,12 @@
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _posts = await ForumService.GetAllPosts();
+
+        foreach (var VARIABLE in _posts)
+        {
+            Console.WriteLine(VARIABLE);
+        }
+        
     }
 
     private void GoToUserProfile(string username)

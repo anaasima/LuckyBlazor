@@ -50,7 +50,7 @@ else
                 </button></th>
                 <th><button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 5))">5
                 </button></th>
-                <th @bind-value="_componentAverageRating"></th>
+                <th>@_componentAverageRating</th>
             </tr>
         }
         </tbody>
@@ -144,18 +144,20 @@ else
 
     private void averageStarRatingComponents(int componentId)
     {
-        Component component = new Component();
         double sum = 0;
         foreach (var VARIABLE in _components)
         {
             if (VARIABLE.Id == componentId)
             {
-                component = VARIABLE;
+                Console.WriteLine(VARIABLE.RatingComponents.Count);
+                _ratingComponents = VARIABLE.RatingComponents;
+                break;
             }
         }
-        _ratingComponents = component.RatingComponents;
         foreach (var VARIABLE in _ratingComponents)
         {
+            Console.WriteLine(VARIABLE.score);
+            Console.WriteLine(VARIABLE.componentId);
             sum += VARIABLE.score;
         }
         _componentAverageRating = sum/_ratingComponents.Count;

@@ -45,6 +45,10 @@
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+
+        Console.WriteLine(_account.Username);
+        
+        
         _posts = await ForumService.GetPostsByUserId(_account.UserId);
     }
 
@@ -67,5 +71,13 @@
     private async Task deletePost(int postId)
     {
         await ForumService.DeletePost(postId);
+        foreach (var VARIABLE in _posts)
+        {
+            if (VARIABLE.PostId == postId)
+            {
+                _posts.Remove(VARIABLE);
+                break;
+            }
+        }
     }
 }
