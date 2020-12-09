@@ -7,32 +7,28 @@
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Model.Forum.Report
-<h3>Forum</h3>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-11 d-flex justify-content-center">
             <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
-            <input type="submit" value="Submit" @onclick="postOnForum">
+        <div class="col-1 d-flex justify-content-center align-items-center">
+            <button class="buttons" @onclick="postOnForum">Post</button>
         </div>
     </div>
     @foreach (var variable in _posts)
     {
         <div class="row">
-            <div class="col-3">
-                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@variable.Username</a>
+            <div class="col-2">
+                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@@variable.Username</a>
             </div>
-            <div class="col-3">
-                <button @onclick="@(() => reportPost(variable.PostId))">
-                    <i class="oi-warning" style="color: red"></i>
+            @* <div class="col-8"></div> *@
+            <div class="col-1">
+                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
+                    <i class="oi oi-warning" style="color: #555555"></i>
                 </button>
-            </div>
-            <div class="col-3">
-                <button @onclick="@(() => savePost(variable))">
-                    <i class="oi-warning" style="color: red"></i>
+                <button class="forumButtons" @onclick="@(() => savePost(variable))">
+                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
                 </button>
             </div>
         </div>

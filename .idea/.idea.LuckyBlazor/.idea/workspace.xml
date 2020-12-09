@@ -23,27 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="design">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +48,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -84,7 +72,6 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/CommentList.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/MainLayout.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/mypage/MyBuilds.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/mypage/EditBuild.razor" />
@@ -109,14 +96,15 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Report/Report.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/IForumService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingComponent.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingBuild.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
       </list>
     </option>
   </component>
@@ -386,34 +374,34 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607295298676" />
-    <state width="2005" height="255" key="GridCell.Tab.0.bottom" timestamp="1607532915083">
-      <screen x="0" y="0" width="2048" height="824" />
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1607555803140">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607470051350" />
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607555803140" />
     <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607520635746" />
     <state width="1493" height="611" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="255" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1607532915083" />
-    <state width="2005" height="255" key="GridCell.Tab.0.center" timestamp="1607532915083">
-      <screen x="0" y="0" width="2048" height="824" />
+    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1607555803139">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607470051350" />
+    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607555803139" />
     <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607520635746" />
     <state width="1493" height="611" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="255" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1607532915083" />
-    <state width="2005" height="255" key="GridCell.Tab.0.left" timestamp="1607532915083">
-      <screen x="0" y="0" width="2048" height="824" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1607555803139">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607470051350" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607555803139" />
     <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607520635746" />
     <state width="1493" height="611" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="255" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1607532915083" />
-    <state width="2005" height="255" key="GridCell.Tab.0.right" timestamp="1607532915083">
-      <screen x="0" y="0" width="2048" height="824" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1607555803139">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607470051350" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607555803139" />
     <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607520635746" />
     <state width="1493" height="611" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />

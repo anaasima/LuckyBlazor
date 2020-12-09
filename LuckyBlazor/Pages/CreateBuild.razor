@@ -9,22 +9,22 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<div class="container-fluid">
-    <div class="row"></div>
-    <div class="col-3">
-        <input type="radio" id="beginner" name="gender" value="beginner">
-        <label for="beginner">Beginner</label>
-    </div>
-    <div class="col-3">
-        <input type="radio" id="advanced" name="gender" value="advanced">
-        <label for="advanced">Advanced</label><br>
-    </div>
-    <div class="col-3">
-        <button @onclick="DisplayLevelOfSearch">See results</button>
-    </div>
-</div>
-@if (display)
-{
+@* <div class="container-fluid"> *@
+@*     <div class="row"></div> *@
+@*     <div class="col-3"> *@
+@*         <input type="radio" id="beginner" name="gender" value="beginner"> *@
+@*         <label for="beginner">Beginner</label> *@
+@*     </div> *@
+@*     <div class="col-3"> *@
+@*         <input type="radio" id="advanced" name="gender" value="advanced"> *@
+@*         <label for="advanced">Advanced</label><br> *@
+@*     </div> *@
+@*     <div class="col-3"> *@
+@*         <button @onclick="DisplayLevelOfSearch">See results</button> *@
+@*     </div> *@
+@* </div> *@
+@* @if (display) *@
+@* { *@
     <div class="container-fluid" id="tablesField">
         <div class="row">
             <div class="col-lg-12">
@@ -42,7 +42,7 @@
 
                 <table id="x1">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -59,8 +59,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddMotherboard(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddMotherboard(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
                         </tr>
@@ -70,7 +70,7 @@
 
                 <table id="x2">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -87,8 +87,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddCPU(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddCPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
 
@@ -99,7 +99,7 @@
 
                 <table id="x3">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -116,8 +116,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddGPU(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddGPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
 
@@ -128,7 +128,7 @@
 
                 <table id="x4">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -145,8 +145,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddRAM(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddRAM(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
                         </tr>
@@ -156,7 +156,7 @@
 
                 <table id="x5">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -173,8 +173,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddSupply(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddSupply(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
                         </tr>
@@ -184,7 +184,7 @@
 
                 <table id="x6">
                     <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Name</th>
                         <th>Release year</th>
                         <th>Brand</th>
@@ -201,8 +201,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button @onclick="@(() => AddStorage(variable.Id))">
-                                    <i class="oi oi-plus" style="color: pink"></i>
+                                <button class="forumButtons" @onclick="@(() => AddStorage(variable.Id))">
+                                    <i class="oi oi-plus" style="color: black"></i>
                                 </button>
                             </td>
                         </tr>
@@ -249,44 +249,44 @@
             </div>
         </div>
     </div>
-}
-else if (!display)
-{
-    @foreach (var variable in _preBuilds)
-    {
-        <label> @variable.Name </label>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Type</th>
-                <th>Brand</th>
-                <th>Name</th>
-                <th>Release Year</th>
-                <th>Aditional Information</th>
-                <th><button class="btn btn-primary" @onclick="@(() => addPreBuild(variable))">
-                    <i class="oi oi-plus"></i>
-                </button></th>
-            </tr>
-            </thead>
-
-            <tbody>
-
-            @for (int i = 0; i < variable.ComponentList.Count; i++)
-            {
-                <tr>
-                    <td>@variable.ComponentList[i].Type</td>
-                    <td>@variable.ComponentList[i].Brand</td>
-                    <td>@variable.ComponentList[i].Name</td>
-                    <td>@variable.ComponentList[i].ReleaseYear</td>
-                    <td>@variable.ComponentList[i].AdditionalInformation</td>
-                </tr>
-            }
-            </tbody>
-        </table>
-    }
-
-}
+@* } *@
+@* else if (!display) *@
+@* { *@
+@*     @foreach (var variable in _preBuilds) *@
+@*     { *@
+@*         <label> @variable.Name </label> *@
+@* *@
+@*         <table class="table"> *@
+@*             <thead> *@
+@*             <tr> *@
+@*                 <th>Type</th> *@
+@*                 <th>Brand</th> *@
+@*                 <th>Name</th> *@
+@*                 <th>Release Year</th> *@
+@*                 <th>Aditional Information</th> *@
+@*                 <th><button class="btn btn-primary" @onclick="@(() => addPreBuild(variable))"> *@
+@*                     <i class="oi oi-plus"></i> *@
+@*                 </button></th> *@
+@*             </tr> *@
+@*             </thead> *@
+@* *@
+@*             <tbody> *@
+@* *@
+@*             @for (int i = 0; i < variable.ComponentList.Count; i++) *@
+@*             { *@
+@*                 <tr> *@
+@*                     <td>@variable.ComponentList[i].Type</td> *@
+@*                     <td>@variable.ComponentList[i].Brand</td> *@
+@*                     <td>@variable.ComponentList[i].Name</td> *@
+@*                     <td>@variable.ComponentList[i].ReleaseYear</td> *@
+@*                     <td>@variable.ComponentList[i].AdditionalInformation</td> *@
+@*                 </tr> *@
+@*             } *@
+@*             </tbody> *@
+@*         </table> *@
+@*     } *@
+@* *@
+@* } *@
 @code {
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();

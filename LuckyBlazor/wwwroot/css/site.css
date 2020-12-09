@@ -204,7 +204,16 @@ input[type=submit]:hover {
 a{
     color:#0b6e4d;
 }
-
+a{
+    color: #7154c7;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #5b7fd9;
+    background-color: transparent;
+    text-decoration: none;
+}
 .loginForm {
     border-radius: 10px;
     background-color: #f2f2f2;
@@ -235,7 +244,7 @@ a{
 }
 /*TABLES FOR CREATING BUILDSS!!!!*/
 .selection {
-    width: 200px;
+    width: 15%;
     margin: 100px auto 60px;
     position: relative;
 }
@@ -272,10 +281,34 @@ a{
 #seeComments
 {
     padding-left: 35px;
+    margin-top: -10px; 
 }
 #postContent
 {
-    width:1420px;
+    width:100%;
+    border-radius: 0px;
+}
+.forumButtons
+{
+    background-color: white;
+    border: 0px;
+}
+/*.forumButtons:hover*/
+/*{*/
+/*    background-color: black;*/
+/*}*/
+.buttons
+{
+    background-color: white;
+    color:black;
+    border:2px solid #292929;
+    transition-duration: 0.4s;
+    width:90%;
+    height:80%;
+}
+.buttons:hover{
+    background-color: #292929;
+    color: white;
 }
 /*#x1, #x2, #x3, #x4, #x5, #x6:not(:target) {*/
 /*    display: none;*/
@@ -333,26 +366,52 @@ a{
     display:table;
 }
 #x1, #x2, #x3, #x4, #x5, #x6 {
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
+    /*font-size: 15px; !important;*/
     border-collapse: collapse;
     margin: 0px 0px 70px 0px;
     padding: 0;
     width: 100%;
     table-layout: fixed;
-}
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
 
+}
+.head
+{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
+    background-color: #403f3f;
+    color:white;
+    padding: .625em;
+    text-align: center;
+}
+#x1, #x2, #x3, #x4, #x5, #x6 td
+{
+    background-color: white;
+    color: black;
+}
 #x1, #x2, #x3, #x4, #x5, #x6 caption {
-    font-size: 1.5em;
+    font-size: 1em;
     margin: .5em 0 .75em;
 }
 
 #x1, #x2, #x3, #x4, #x5, #x6 tr {
-    background-color: #e3cdb5;
-    border: 1px solid #ddd;
+    /*background-color: black;*/
     padding: .35em;
 }
 
-#x1, #x2, #x3, #x4, #x5, #x6 th,
+/*#x1, #x2, #x3, #x4, #x5, #x6 th{*/
+/*    background-color: black;*/
+
+/*}*/
+/*#x1, #x2, #x3, #x4, #x5, #x6 thead*/
+/*{*/
+/*    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);*/
+/*}*/
+/*#x1, #x2, #x3, #x4, #x5, #x6 tbody*/
+/*{*/
+/*    background-color: white;*/
+/*    color: black;*/
+/*}*/
 #x1, #x2, #x3, #x4, #x5, #x6 td {
     padding: .625em;
     text-align: center;
@@ -362,7 +421,8 @@ a{
     display: none;
 }
 tables th {
-    font-size: .85em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: 2em;
     letter-spacing: .1em;
     text-transform: uppercase;
 }
