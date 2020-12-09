@@ -16,6 +16,12 @@
     <link href="css/site.css" rel="stylesheet"/>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>
+    function check(id, result)
+    {
+        result = document.getElementById(id).checked;
+        }
+    </script>
+    <script>
     function show()
     {
         document.getElementById("buildTable").style.display = "block";
@@ -33,12 +39,6 @@
     function makeGreen(id)
     {        
         document.getElementById(id).style.color='green';
-        }
-    </script>
-    <script>
-    function ana()
-    {
-        window.alert("hey");
         }
     </script>
     <script>

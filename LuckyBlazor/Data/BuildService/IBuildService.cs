@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using LuckyBlazor.Model;
+using LuckyBlazor.Model.Rating;
 
 namespace LuckyBlazor.Data.BuildService
 {
@@ -10,5 +11,6 @@ namespace LuckyBlazor.Data.BuildService
         Task CreateBuild(Build build);
         Task EditBuild(Build build);
         Task DeleteBuild(int id);
+        Task LeaveRating(RatingBuild ratingBuild);
     }
 }

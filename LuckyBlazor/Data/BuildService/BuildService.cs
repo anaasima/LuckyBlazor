@@ -5,6 +5,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using LuckyBlazor.Model;
+using LuckyBlazor.Model.Rating;
+using Microsoft.AspNetCore.Http;
 
 namespace LuckyBlazor.Data.BuildService
 {
@@ -49,6 +51,19 @@ namespace LuckyBlazor.Data.BuildService
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage responseMessage = await client.DeleteAsync("http://localhost:8080/builds/" + id);
+            Console.WriteLine(responseMessage.StatusCode.ToString());
+        }
+
+        public async Task LeaveRating(RatingBuild ratingBuild)
+        {
+            HttpClient client = new HttpClient();
+            string ratingSerialized = JsonSerializer.Serialize(ratingBuild);
+            StringContent content = new StringContent(
+                ratingSerialized,
+                Encoding.UTF8,
+                "application/json"
+                );
+            HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/buildRating", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
     }

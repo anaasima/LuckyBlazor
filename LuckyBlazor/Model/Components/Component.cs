@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using LuckyBlazor.Model.Rating;
 
 namespace LuckyBlazor.Model
 {
@@ -24,6 +26,8 @@ namespace LuckyBlazor.Model
 
         [JsonPropertyName("energyConsumption")]
         public int EnergyConsumption { get; set; }
+        [JsonPropertyName("ratingComponents")]
+        public IList<RatingComponent> RatingComponents { get; set; }
 
         public Component(string name, string type, string releaseYear, string brand, string additionalInformation)
         {

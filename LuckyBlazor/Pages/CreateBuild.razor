@@ -8,239 +8,285 @@
 @inject IJSRuntime JsRuntime
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
-@* <script> *@
-@* function myFunction(id) { *@
-@*   var x = document.getElementById(id).checked; *@
-@*   document.getElementById("demo").innerHTML = x; *@
-@* } *@
-@* </script> *@
-<h3>CreateBuild</h3>
 
-<div class="container-fluid" id="tablesField">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="selection">
-                <select id="select-programme" onchange="location = this.value;">
-                    <option value="@defaultLink" selected>Types of components</option>
-                    <option value=@linkToTable1>Motherboards</option>
-                    <option value="@linkToTable2">CPUs</option>
-                    <option value="@linkToTable3">GPUs</option>
-                    <option value="@linkToTable4">RAMs</option>
-                    <option value="@linkToTable5">Power supply</option>
-                    <option value="@linkToTable6">Storage</option>
-                </select> <span></span>
+<div class="container-fluid">
+    <div class="row"></div>
+    <div class="col-3">
+        <input type="radio" id="beginner" name="gender" value="beginner">
+        <label for="beginner">Beginner</label>
+    </div>
+    <div class="col-3">
+        <input type="radio" id="advanced" name="gender" value="advanced">
+        <label for="advanced">Advanced</label><br>
+    </div>
+    <div class="col-3">
+        <button @onclick="DisplayLevelOfSearch">See results</button>
+    </div>
+</div>
+@if (display)
+{
+    <div class="container-fluid" id="tablesField">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="selection">
+                    <select id="select-programme" onchange="location = this.value;">
+                        <option value="@defaultLink" selected>Types of components</option>
+                        <option value=@linkToTable1>Motherboards</option>
+                        <option value="@linkToTable2">CPUs</option>
+                        <option value="@linkToTable3">GPUs</option>
+                        <option value="@linkToTable4">RAMs</option>
+                        <option value="@linkToTable5">Power supply</option>
+                        <option value="@linkToTable6">Storage</option>
+                    </select> <span></span>
+                </div>
+
+                <table id="x1">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in motherBoardsToShow)
+                    {
+                        <tr id="@variable.Id">
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddMotherboard(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <table id="x2">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in CPUsToShow)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddCPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <table id="x3">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in GPUsToShow)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddGPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <table id="x4">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in RAMsToShow)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddRAM(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <table id="x5">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in suppliesToShow)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddSupply(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <table id="x6">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in storagesToShow)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+                            <td>
+                                <button @onclick="@(() => AddStorage(variable.Id))">
+                                    <i class="oi oi-plus" style="color: pink"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+                <button class="btn btn-primary" @onclick="FinishBuild">Finish build</button>
             </div>
-
-            <table id="x1">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in motherBoardsToShow)
-                {
-                    <tr id="@variable.Id">
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddMotherboard(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <table id="x2">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in CPUsToShow)
-                {
-                    <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddCPU(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <table id="x3">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in GPUsToShow)
-                {
-                    <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddGPU(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <table id="x4">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in RAMsToShow)
-                {
-                    <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddRAM(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <table id="x5">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in suppliesToShow)
-                {
-                    <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddSupply(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <table id="x6">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                    <th>Add</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in storagesToShow)
-                {
-                    <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-                        <td>
-                            <button @onclick="@(() => AddStorage(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-
-            <button class="btn btn-primary" @onclick="FinishBuild">Finish build</button>
         </div>
     </div>
-</div>
 
-<div class="container-fluid" id="buildTable">
-    <div class="row">
-        <div class="col-lg-12">
-            <p>Your build</p>
-            <input type="text" placeholder="Post something..." @bind-value="_name"><br><br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Release year</th>
-                    <th>Brand</th>
-                    <th>Additional information</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var variable in _myBuild)
-                {
+    <div class="container-fluid" id="buildTable">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Your build</p>
+                <input type="text" placeholder="Post something..." @bind-value="_name"><br><br>
+                <table class="table">
+                    <thead>
                     <tr>
-                        <td>@variable.Name</td>
-                        <td>@variable.ReleaseYear</td>
-                        <td>@variable.Brand</td>
-                        <td>@variable.AdditionalInformation</td>
-
+                        <th>Name</th>
+                        <th>Release year</th>
+                        <th>Brand</th>
+                        <th>Additional information</th>
                     </tr>
-                }
-                </tbody>
-            </table>
-            <button class="btn btn-primary" @onclick="createBuild">Save build</button>
-            <button class="btn btn-primary" @onclick="reset">Reset build</button>
+                    </thead>
+                    <tbody>
+                    @foreach (var variable in _myBuild)
+                    {
+                        <tr>
+                            <td>@variable.Name</td>
+                            <td>@variable.ReleaseYear</td>
+                            <td>@variable.Brand</td>
+                            <td>@variable.AdditionalInformation</td>
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" @onclick="createBuild">Save build</button>
+                <button class="btn btn-primary" @onclick="reset">Reset build</button>
 
 
+            </div>
         </div>
     </div>
-</div>
+}
+else if (!display)
+{
+    @foreach (var variable in _preBuilds)
+    {
+        <label> @variable.Name </label>
 
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Type</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Release Year</th>
+                <th>Aditional Information</th>
+                <th><button class="btn btn-primary" @onclick="@(() => addPreBuild(variable))">
+                    <i class="oi oi-plus"></i>
+                </button></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            @for (int i = 0; i < variable.ComponentList.Count; i++)
+            {
+                <tr>
+                    <td>@variable.ComponentList[i].Type</td>
+                    <td>@variable.ComponentList[i].Brand</td>
+                    <td>@variable.ComponentList[i].Name</td>
+                    <td>@variable.ComponentList[i].ReleaseYear</td>
+                    <td>@variable.ComponentList[i].AdditionalInformation</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
+}
 @code {
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();
@@ -256,6 +302,10 @@
     private IList<Component> RAMsToShow = new List<Component>();
     private IList<Component> suppliesToShow = new List<Component>();
     private IList<Component> storagesToShow = new List<Component>();
+    private IList<Build> _preBuilds = new List<Build>();
+    private bool checkBeginner;
+    private bool checkAdvanced;
+    private bool display;//if it is true display advanced if it is false display beginner
     private string linkToTable1;
     private string linkToTable2;
     private string linkToTable3;
@@ -289,6 +339,7 @@
         linkToTable6 = $"CreateBuild#x6";
         defaultLink = $"CreateBuild";
         _components = await ComponentService.GetAllComponentsAsync();
+        // _preBuilds = await BuildService.GetAllBuildsAsync(45); //TODO don't forget to check what is the actual admin id
 
         for (int i = 0; i < _components.Count; i++)
         {
@@ -322,6 +373,25 @@
         storagesToShow = storages;
     }
 
+    public async Task DisplayLevelOfSearch()
+    {
+        await JsRuntime.InvokeVoidAsync("check", "beginner", checkBeginner);
+        await JsRuntime.InvokeVoidAsync("check", "advanced", checkAdvanced);
+        if (checkBeginner == true && checkAdvanced == false)
+        {
+            display = false;
+        }
+        else if (checkBeginner == false && checkAdvanced == true)
+        {
+            display = true;
+        }
+    }
+
+    public void addPreBuild(Build build)
+    {
+        Build newBuild = new Build(build.ComponentList, _account.UserId, build.Name);
+        BuildService.CreateBuild(newBuild);
+    }
     public void createBuild()
     {
         Build newBuild = new Build(_myBuild, _account.UserId, _name);

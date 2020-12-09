@@ -51,6 +51,14 @@
             <e p="Posts" t="Include">
               <e p="Post.cs" t="Include" />
             </e>
+            <e p="Report" t="Include">
+              <e p="Report.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Rating" t="Include">
+            <e p="RatingBuild.cs" t="Include" />
+            <e p="RatingComponent.cs" t="Include" />
+            <e p="RatingPost.cs" t="Include" />
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -71,9 +79,9 @@
           <e p="MyBuilds.razor" t="Include" />
           <e p="mypage" t="Include">
             <e p="EditProfile.razor" t="Include" />
-            <e p="MyPosts.razor" t="Include" />
           </e>
           <e p="MyPage.razor" t="Include" />
+          <e p="PostPage.razor" t="Include" />
           <e p="RegisterAccount.razor" t="Include" />
           <e p="UserProfile.razor" t="Include" />
           <e p="ViewComponents.razor" t="Include" />

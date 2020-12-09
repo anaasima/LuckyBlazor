@@ -45,6 +45,7 @@ namespace LuckyBlazor.Data.AccountsService
             return JsonSerializer.Deserialize<Account>(s);
         }
 
+        //TODO put it on the page
         public async Task DeleteAccount(int userId)
         {
             HttpClient client = new HttpClient();

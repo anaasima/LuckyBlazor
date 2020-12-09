@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using LuckyBlazor.Model.Rating;
 
 namespace LuckyBlazor.Model.Forum
 {
@@ -19,6 +20,8 @@ namespace LuckyBlazor.Model.Forum
         public string Username { get; set; }
         [JsonPropertyName("comments")]
         public IList<Comment> CommentList { get; set; }
+        [JsonPropertyName("ratingPosts")]
+        public IList<RatingPost> RatingPosts { get; set; }
 
         public Post()
         {

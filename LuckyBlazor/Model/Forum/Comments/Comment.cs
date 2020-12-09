@@ -17,7 +17,16 @@ namespace LuckyBlazor.Model.Forum
         [JsonPropertyName("downVote")]
         public int DownVotes { get; set; }
 
+        public Comment()
+        {
+            
+        }
 
+        public Comment(string content, int userId)
+        {
+            Content = content;
+            UserId = userId;
+        }
         public override string ToString()
         {
             return Content;

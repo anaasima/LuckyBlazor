@@ -4,6 +4,7 @@
 @inject IAccountService AccountService
 <h3>UserProfile</h3>
 <h6>@Username's posts are</h6>
+
 <table class="table">
     <tbody>
      @foreach (var variable in _posts)
@@ -26,7 +27,6 @@
     protected override async Task OnInitializedAsync()
     {
         _currentAccount = await AccountService.GetUserByUsername(Username);
-        _posts= _currentAccount.PostList;
+        _posts = _currentAccount.PostList;
     }
-    
 }

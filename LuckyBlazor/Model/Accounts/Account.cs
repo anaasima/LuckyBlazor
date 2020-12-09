@@ -14,7 +14,7 @@ namespace LuckyBlazor.Model
         [JsonPropertyName("name")] [Required] 
         public string Name { get; set; }
 
-        [JsonPropertyName("username")]
+        [JsonPropertyName("Username")]
         [Required]
         public string Username { get; set; }
 
@@ -24,7 +24,8 @@ namespace LuckyBlazor.Model
         
         [JsonPropertyName("posts")]
         public IList<Post> PostList { get; set; }
-
+        [JsonPropertyName("savedPosts")]
+        public List<Post> SavedPosts { get; set; }
         public Account(string username, string password)
         {
             Username = username;

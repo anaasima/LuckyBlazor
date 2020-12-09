@@ -4,12 +4,6 @@
 
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-<style>
-.sidebar
-{
-display: none !important;
-}
-</style>
 <AuthorizeView>
     <NotAuthorized>
         <div class="loginForm">
@@ -42,9 +36,9 @@ display: none !important;
     private string _username;
     private string _password;
     private string _errorMessage;
+    //TODO finish this and add custom authentication for it
+    private Account _account;
 
-    [Parameter]
-    public string UserId { get; set; } 
 
     private async Task PerformLogin()
     {
@@ -52,7 +46,6 @@ display: none !important;
          try
          {
              Account account = await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(new Account(_username, _password));
-             UserId = String.Concat(account.UserId);
              _username = "";
              _password = "";
              NavigationManager.NavigateTo("/MyPage");

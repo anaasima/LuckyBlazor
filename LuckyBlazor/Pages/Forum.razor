@@ -6,23 +6,34 @@
 @using LuckyBlazor.Data.ForumService
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
+@using LuckyBlazor.Model.Forum.Report
 <h3>Forum</h3>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
             <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
         </div>
-        </div>
-<div class="row">
-    <div class="col-3">
-        <input type="submit" value="Submit" @onclick="postOnForum">
     </div>
+    <div class="row">
+        <div class="col-3">
+            <input type="submit" value="Submit" @onclick="postOnForum">
+        </div>
     </div>
     @foreach (var variable in _posts)
     {
         <div class="row">
             <div class="col-3">
                 <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@variable.Username</a>
+            </div>
+            <div class="col-3">
+                <button @onclick="@(() => reportPost(variable.PostId))">
+                    <i class="oi-warning" style="color: red"></i>
+                </button>
+            </div>
+            <div class="col-3">
+                <button @onclick="@(() => savePost(variable))">
+                    <i class="oi-warning" style="color: red"></i>
+                </button>
             </div>
         </div>
         <div class="row" id="comments">
@@ -32,15 +43,19 @@
         </div>
         <div class="row" id="seeComments">
             <div class="col-4">
-                <a href="">See comments</a>
+                <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
             </div>
         </div>
     }
 </div>
+
 @code {
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
     private Account _account = new Account();
+
+    [Parameter]
+    public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -59,4 +74,22 @@
         ForumService.CreatePost(post);
         _postContent = "";
     }
+
+    private void GoToPostPage(int postId)
+    {
+        Id = String.Concat(postId);
+        NavigationManager.NavigateTo("/PostPage/" + Id);
+    }
+
+    private async Task reportPost(int postId)
+    {
+        Report newReport = new Report(_account.UserId, postId);
+        await ForumService.ReportPost(newReport);
+    }
+
+    private async Task savePost(Post post)
+    {
+        await ForumService.SavePosts(post, _account.UserId);
+    }
+
 }
