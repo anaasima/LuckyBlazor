@@ -20,7 +20,7 @@
     {
         <div class="row">
             <div class="col-2">
-                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@@variable.Username</a>
+                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
             </div>
             @* <div class="col-8"></div> *@
             <div class="col-1">

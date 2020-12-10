@@ -22,10 +22,11 @@ namespace LuckyBlazor.Model.Forum
             
         }
 
-        public Comment(string content, int userId)
+        public Comment(string content, int userId, int postId)
         {
             Content = content;
             UserId = userId;
+            PostId = postId;
         }
         public override string ToString()
         {

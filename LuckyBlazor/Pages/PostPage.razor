@@ -3,38 +3,96 @@
 @using LuckyBlazor.Model
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Authentication
+@using LuckyBlazor.Model.Forum.Report
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IForumService ForumService
 @inject NavigationManager NavigationManager
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3">
-            <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@_post.Username</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-9 d-flex justify-content-center">
-            <input type="text" placeholder="Comment something..." @bind-value="_content">
-        </div>
-        <div class="col-3 d-flex justify-content-center">
-            <input type="submit" value="Submit" @onclick="createComment">
-        </div>
-    </div>
-    @foreach (var variable in _post.CommentList)
-    {
-        <div class="row" id="comments">
-            <div class="col-12">
-                <p>@variable.Content</p>
+@if (_post.CommentList == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!_post.CommentList.Any())
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
+            </div>
+            @* <div class="col-8"></div> *@
+            <div class="col-1">
+                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
+                    <i class="oi oi-warning" style="color: #555555"></i>
+                </button>
+                <button class="forumButtons" @onclick="@(() => savePost(_post))">
+                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                </button>
             </div>
         </div>
-    }
-</div>
+        <div class="row" id="comments">
+                    <div class="col-12">
+                        <p>@_post.Content</p>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-9 d-flex justify-content-center">
+                <input type="text" placeholder="Comment something..." @bind-value="_content">
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <input type="submit" value="Submit" @onclick="createComment">
+            </div>
+        </div>
+        
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
+            </div>
+            @* <div class="col-8"></div> *@
+            <div class="col-1">
+                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
+                    <i class="oi oi-warning" style="color: #555555"></i>
+                </button>
+                <button class="forumButtons" @onclick="@(() => savePost(_post))">
+                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                </button>
+            </div>
+        </div>
+                <div class="row" id="comments">
+                    <div class="col-12">
+                        <p>@_post.Content</p>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-9 d-flex justify-content-center">
+                <input type="text" placeholder="Comment something..." @bind-value="_content">
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <input type="submit" value="Submit" @onclick="createComment">
+            </div>
+        </div>
+
+        @foreach (var variable in _post.CommentList)
+        {
+            <div class="row" id="comments">
+                <div class="col-12">
+                    <p>@variable.Content</p>
+                </div>
+            </div>
+        }
+    </div>
+}
 
 @code {
-    private Account _account;
-    private IList<Post> _list;
+    private Account _account = new Account();
+    private IList<Post> _list = new List<Post>();
     private string _content;
-    private Post _post;
+    private Post _post = new Post();
 
     [Parameter]
     public string Id { get; set; }
@@ -48,6 +106,7 @@
             if (VARIABLE.PostId == Int32.Parse(Id))
             {
                 _post = VARIABLE;
+                break;
             }
         }
     }
@@ -59,8 +118,19 @@
 
     public void createComment()
     {
-        Comment newComment = new Comment(_content, _account.UserId);
+        Comment newComment = new Comment(_content, _account.UserId, Int32.Parse(Id));
         ForumService.CreateComment(newComment);
+    }
+
+    private async Task reportPost(int postId)
+    {
+        Report newReport = new Report(_account.UserId, postId);
+        await ForumService.ReportPost(newReport);
+    }
+
+    private async Task savePost(Post post)
+    {
+        await ForumService.SavePosts(post, _account.UserId);
     }
 
 }

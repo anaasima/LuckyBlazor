@@ -75,6 +75,9 @@ namespace LuckyBlazor.Data.AccountsService
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/accounts?Username=" + username;
             string message = await httpClient.GetStringAsync(uri);
+
+            Console.WriteLine("ASDASDASD" + message);
+            
             Account result = JsonSerializer.Deserialize<Account>(message);
             return result;
         }

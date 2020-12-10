@@ -20,6 +20,7 @@ namespace LuckyBlazor.Data.ForumService
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/posts"; 
             string message = await httpClient.GetStringAsync(uri);
+            Console.WriteLine("mesaj:   " + message);
             IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message) ;
             return result;
         }

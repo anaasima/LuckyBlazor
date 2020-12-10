@@ -38,6 +38,18 @@ namespace LuckyBlazor.Model
             AdditionalInformation = additionalInformation;
         }
 
+        public double AverageRating()
+        {
+            double sum = 0;
+            foreach (var VARIABLE in RatingComponents)
+            {
+                sum += VARIABLE.score;
+            }
+
+            double avg = sum / RatingComponents.Count;
+            return avg;
+        }
+        
         public Component()
         {
         }
