@@ -6,45 +6,60 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IForumService ForumService
-<h3>MyPage</h3>
-<button @onclick="GoToEditProfile">Edit profile</button>
-<button @onclick="GoToMyBuilds">My Builds</button>
-<div class="container-fluid">
-@foreach (var variable in _posts)
-    {
-        <div class="row">
-            <div class="col-3">
-                <p>@variable.Username</p>
+<AuthorizeView>
+    <Authorized>
+        <div class="container-fluid">
+            <div class="row" id="rowMain">
+                <div class="col-3" id="myPageUser">
+                    <h3>@String.Concat("@")@myUsername</h3>
+                </div>
+                <div class="col-3 justify-content-center align-content-center" id="myPageUser">
+                    <button class="myPageButtons" @onclick="GoToEditProfile">Edit profile</button>
+                    <button class="myPageButtons" @onclick="@(() => GoToSavedPosts(userId))">Saved posts</button>
+                </div>
             </div>
-            <div class="col-3">
-                <button @onclick="@(() => deletePost(variable.PostId))">
-                    <i class="oi-warning" style="color: red"></i>
-                </button>
-            </div>
-        </div>
-        <div class="row" id="comments">
-            <div class="col-12">
-                <p>@variable.Content</p>
-            </div>
-        </div>
-        <div class="row" id="seeComments">
-            <div class="col-4">
-                <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
-            </div>
-        </div>
-    }
-</div>
 
+        @* <button class="buttons" @onclick="GoToMyBuilds">My Builds</button> *@
+        @* <div class="container-fluid"> *@
+        @foreach (var variable in _posts)
+        {
+            <div class="row">
+                <div class="col-2">
+                    @String.Concat("@")@variable.Username
+                    <button class="forumButtons" id="reportButton" @onclick="@(() => deletePost(variable.PostId))">
+                                            <i class="oi oi-trash" style="color: #555555"></i>
+                                        </button>
+                </div>
+            </div>
+                <div class="row" id="comments">
+                    <div class="col-12">
+                        <p>@variable.Content</p>
+                    </div>
+                </div>
+                <div class="row" id="seeComments">
+                    <div class="col-4">
+                        <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                    </div>
+                </div>
+        }
+        </div>
+    </Authorized>
+</AuthorizeView>
 @code {
     private Account _account = new Account();
     private IList<Post> _posts = new List<Post>();
+    private string myUsername;
     
     [Parameter]
     public string Id { get; set; }
+    [Parameter]
+    public string userId { get; set; }
     
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        myUsername = _account.Username;
+        userId = String.Concat(_account.UserId);
 
         Console.WriteLine(_account.Username);
         
@@ -68,6 +83,10 @@
         NavigationManager.NavigateTo("/PostPage/" + Id);
     }
 
+    private void GoToSavedPosts(string userId)
+    {
+        NavigationManager.NavigateTo("/SavedPosts/" + userId);
+    }
     private async Task deletePost(int postId)
     {
         await ForumService.DeletePost(postId);

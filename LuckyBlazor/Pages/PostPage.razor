@@ -20,8 +20,28 @@ else if (!_post.CommentList.Any())
             <div class="col-2">
                 <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
             </div>
-            @* <div class="col-8"></div> *@
-            <div class="col-1">
+        </div>
+        <div class="row" id="comments">
+            <div class="col-12">
+                <p>@_post.Content</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11 d-flex justify-content-center">
+                <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <button class="buttons" @onclick="createComment">Post</button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
                 <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
                     <i class="oi oi-warning" style="color: #555555"></i>
                 </button>
@@ -31,56 +51,26 @@ else if (!_post.CommentList.Any())
             </div>
         </div>
         <div class="row" id="comments">
-                    <div class="col-12">
-                        <p>@_post.Content</p>
-                    </div>
-                </div>
-        <div class="row">
-            <div class="col-9 d-flex justify-content-center">
-                <input type="text" placeholder="Comment something..." @bind-value="_content">
-            </div>
-            <div class="col-3 d-flex justify-content-center">
-                <input type="submit" value="Submit" @onclick="createComment">
+            <div class="col-12">
+                <p>@_post.Content</p>
             </div>
         </div>
-        
-    </div>
-}
-else
-{
-    <div class="container-fluid">
         <div class="row">
-            <div class="col-2">
-                <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
+            <div class="col-11 d-flex justify-content-center">
+                <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
             </div>
-            @* <div class="col-8"></div> *@
-            <div class="col-1">
-                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
-                    <i class="oi oi-warning" style="color: #555555"></i>
-                </button>
-                <button class="forumButtons" @onclick="@(() => savePost(_post))">
-                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                </button>
-            </div>
-        </div>
-                <div class="row" id="comments">
-                    <div class="col-12">
-                        <p>@_post.Content</p>
-                    </div>
-                </div>
-        <div class="row">
-            <div class="col-9 d-flex justify-content-center">
-                <input type="text" placeholder="Comment something..." @bind-value="_content">
-            </div>
-            <div class="col-3 d-flex justify-content-center">
-                <input type="submit" value="Submit" @onclick="createComment">
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <button class="buttons" @onclick="createComment">Post</button>
             </div>
         </div>
 
         @foreach (var variable in _post.CommentList)
         {
-            <div class="row" id="comments">
-                <div class="col-12">
+            <div class="row comments">
+                <div class="col-3">@String.Concat("@username")</div>
+            </div>
+            <div class="row comments" id="divideCom">
+                <div class="col-9">
                     <p>@variable.Content</p>
                 </div>
             </div>
@@ -89,6 +79,7 @@ else
 }
 
 @code {
+    private IList<Account> _listAcc = new List<Account>();
     private Account _account = new Account();
     private IList<Post> _list = new List<Post>();
     private string _content;
@@ -101,6 +92,7 @@ else
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _list = await ForumService.GetAllPosts();
+
         foreach (var VARIABLE in _list)
         {
             if (VARIABLE.PostId == Int32.Parse(Id))

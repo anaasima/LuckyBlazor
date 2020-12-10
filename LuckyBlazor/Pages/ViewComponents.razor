@@ -7,7 +7,6 @@
 @inject NavigationManager NavigationManager
 @inject IBuildService BuildService
 @inject IComponentService ComponentService
-<h3>ViewComponents</h3>
 @if (_components == null)
 {
     <p>
@@ -22,7 +21,7 @@ else if (!_components.Any())
 }
 else
 {
-    <table class="table">
+    <table class="table" id="styledTable">
         <thead>
         <tr>
             <th>Name</th>
@@ -30,6 +29,8 @@ else
             <th>Type</th>
             <th>Release Year</th>
             <th>Aditional Information</th>
+            <th>People's opinion</th>
+            <th>Rate</th>
         </tr>
         </thead>
         <tbody>
@@ -41,34 +42,27 @@ else
                 <td>@item.Type</td>
                 <td>@item.ReleaseYear</td>
                 <td>@item.AdditionalInformation</td>
-                <th>
-                    <button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 1))">
+                <td>
+                                    <label>@averageStarRatingComponents(item.Id)</label>
+                                </td>
+                <td>
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 1))">
                         1
                     </button>
-                </th>
-                <th>
-                    <button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 2))">
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 2))">
                         2
                     </button>
-                </th>
-                <th>
-                    <button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 3))">
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 3))">
                         3
                     </button>
-                </th>
-                <th>
-                    <button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 4))">
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 4))">
                         4
                     </button>
-                </th>
-                <th>
-                    <button class="btn btn-primary" @onclick="@(() => rateComponent(item.Id, 5))">
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 5))">
                         5
                     </button>
-                </th>
-                <th>
-                    <label>@averageStarRatingComponents(item.Id)</label>
-                </th>
+                </td>
+                
             </tr>
         }
         </tbody>
@@ -127,8 +121,8 @@ else
     private IList<Component> _components;
     private IList<Component> _componentsToShow; //TODO: this will later have filters
     private IList<Build> _preBuilds = new List<Build>();
-    private double _componentAverageRating;
-    private double _buildAverageRating;
+    private double _componentAverageRating = 0;
+    private double _buildAverageRating = 0;
     private IList<RatingComponent> _ratingComponents = new List<RatingComponent>();
     private IList<RatingBuild> _ratingBuilds = new List<RatingBuild>();
 
@@ -181,6 +175,10 @@ else
             }
         }
         _componentAverageRating = component.AverageRating();
+        if (!(_componentAverageRating>=0))
+        {
+            _componentAverageRating = 0;
+        }
         return _componentAverageRating;
 
     // double sum = 0;

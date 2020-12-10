@@ -1,32 +1,88 @@
 @page "/UserProfile/{username}"
 @using LuckyBlazor.Model
 @using LuckyBlazor.Model.Forum
+@using LuckyBlazor.Model.Forum.Report
+@using LuckyBlazor.Data.ForumService
 @inject IAccountService AccountService
-<h3>UserProfile</h3>
-<h6>@Username's posts are</h6>
-
-<table class="table">
-    <tbody>
-     @foreach (var variable in _posts)
-         {
-    <tr>
-        <td>@Username</td>
-        <td>@variable.Content</td>
-    </tr>
+@inject IForumService ForumService
+@inject NavigationManager NavigationManager
+<div class="container-fluid">
+    <div class="row" id="rowMain">
+        <div class="col-3" id="myPageUser">
+            <h3>@String.Concat("@")@Username</h3>
+        </div>
+    </div>
+    @foreach (var variable in _posts)
+    {
+        <div class="row">
+            <div class="col-2">
+                @String.Concat("@")@variable.Username
+                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
+                    <i class="oi oi-warning" style="color: #555555"></i>
+                </button>
+                <button class="forumButtons" @onclick="@(() => savePost(variable))">
+                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row" id="comments">
+            <div class="col-12">
+                <p>@variable.Content</p>
+            </div>
+        </div>
+        <div class="row" id="seeComments">
+            <div class="col-4">
+                <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+            </div>
+        </div>
     }
-    </tbody>
-</table>
+</div>
+@* <h6>@Username's posts are</h6> *@
+@* *@
+@* <table class="table"> *@
+@*     <tbody> *@
+@*      @foreach (var variable in _posts) *@
+@*          { *@
+@*     <tr> *@
+@*         <td>@Username</td> *@
+@*         <td>@variable.Content</td> *@
+@*     </tr> *@
+@*     } *@
+@*     </tbody> *@
+@* </table> *@
 
 
-@code {            
+@code {
     private Account _currentAccount;
     private IList<Post> _posts = new List<Post>();
+
     [Parameter]
     public string Username { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         _currentAccount = await AccountService.GetUserByUsername(Username);
         _posts = _currentAccount.PostList;
     }
+
+    private async Task reportPost(int postId)
+    {
+        Report newReport = new Report(_currentAccount.UserId, postId);
+        await ForumService.ReportPost(newReport);
+    }
+
+    private async Task savePost(Post post)
+    {
+        await ForumService.SavePosts(post, _currentAccount.UserId);
+    }
+
+    private void GoToPostPage(int postId)
+    {
+        Id = String.Concat(postId);
+        NavigationManager.NavigateTo("/PostPage/" + Id);
+    }
+
 }
