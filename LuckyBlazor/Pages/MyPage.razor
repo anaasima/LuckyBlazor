@@ -27,8 +27,19 @@
                 <div class="col-2">
                     @String.Concat("@")@variable.Username
                     <button class="forumButtons" id="reportButton" @onclick="@(() => deletePost(variable.PostId))">
-                                            <i class="oi oi-trash" style="color: #555555"></i>
-                                        </button>
+                        <i class="oi oi-trash" style="color: #555555"></i>
+                    </button>
+                    <button class="forumButtons"><i class="oi oi-wrench" style="color:#555555"></i></button>
+                </div>
+                <div class="col-2 ml-auto">
+                    <a href="#openModal" onclick="@(() => openEditedPost(variable))">Edit post...</a>
+                    
+                    <div id="openModal" class="modalDialog">
+                        <div>	<a href="#close" title="Close" class="close">X</a>
+                                    	<input type="text" id="lname" name="lname" @bind-value="_editContent"><br><br>
+                              <input type="submit" value="Submit">
+                      </div>
+                    </div>
                 </div>
             </div>
                 <div class="row" id="comments">
@@ -49,6 +60,7 @@
     private Account _account = new Account();
     private IList<Post> _posts = new List<Post>();
     private string myUsername;
+    private string _editContent;
     
     [Parameter]
     public string Id { get; set; }
@@ -99,4 +111,10 @@
             }
         }
     }
+
+    private void openEditedPost(Post post)
+    {
+        _editContent = post.Content;
+    }
+    
 }

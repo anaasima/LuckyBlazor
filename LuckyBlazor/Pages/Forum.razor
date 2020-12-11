@@ -9,29 +9,31 @@
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Model.Forum.Report
 <div class="container-fluid">
-        <div class="row">
-            <div class="col-11 d-flex justify-content-center">
-                <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
-            </div>
-            <div class="col-1 d-flex justify-content-center align-items-center">
-                <button class="buttons" @onclick="postOnForum">Post</button>
-            </div>
+    <div class="row">
+        <div class="col-11 d-flex justify-content-center">
+            <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
         </div>
+        <div class="col-1 d-flex justify-content-center align-items-center">
+            <button class="buttons" @onclick="postOnForum">Post</button>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-6">
         @foreach (var variable in _posts)
         {
             <div class="row">
  
-            <div class="col-3">
+                <div class="col-3">
                            
-            <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
-            <AuthorizeView>
-                    <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
-                        <i class="oi oi-warning" style="color: #555555"></i>
-                    </button>
-                    <button class="forumButtons" @onclick="@(() => savePost(variable))">
-                        <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                    </button>
-                </AuthorizeView>
+                    <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
+                    <AuthorizeView>
+                        <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
+                            <i class="oi oi-warning" style="color: #555555"></i>
+                        </button>
+                        <button class="forumButtons" @onclick="@(() => savePost(variable))">
+                            <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                        </button>
+                    </AuthorizeView>
                     <AuthorizeView Policy="Moderator">
                         <button class="forumButtons" @onclick="@(() => deletePost(variable.PostId))">
                             <i class="oi oi-trash" style="color: #555555"></i>
@@ -44,6 +46,12 @@
                     <p>@variable.Content</p>
                 </div>
             </div>
+            <div class="row">
+            <div class="1-col">
+                <button class="forumButtons"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
+                <button class="forumButtons"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
+            </div>
+            </div>
             <div class="row" id="seeComments">
                 <div class="col-4">
                     <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
@@ -51,11 +59,26 @@
             </div>
         }
     </div>
+        <div class="col-6">
+            <table class="table">
+                <tbody>
+                @foreach (var variable in followedAccounts)
+                {
+                    <tr>
+                        <th scope="row">@variable.Name</th>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
 
 @code {
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
     private Account _account = new Account();
+    private IList<Account> followedAccounts = new List<Account>();
 
     [Parameter]
     public string Id { get; set; }
@@ -64,6 +87,7 @@
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _posts = await ForumService.GetAllPosts();
+        // followedAccounts = await AccountServ
 
         foreach (var VARIABLE in _posts)
         {
