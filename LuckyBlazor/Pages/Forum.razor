@@ -8,41 +8,49 @@
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Model.Forum.Report
-
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-11 d-flex justify-content-center">
-            <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
-        </div>
-        <div class="col-1 d-flex justify-content-center align-items-center">
-            <button class="buttons" @onclick="postOnForum">Post</button>
-        </div>
-    </div>
-    @foreach (var variable in _posts)
-    {
         <div class="row">
-            <div class="col-2">
-                <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
-            <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
-                    <i class="oi oi-warning" style="color: #555555"></i>
-                </button>
-                <button class="forumButtons" @onclick="@(() => savePost(variable))">
-                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                </button>
+            <div class="col-11 d-flex justify-content-center">
+                <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <button class="buttons" @onclick="postOnForum">Post</button>
             </div>
         </div>
-        <div class="row comments">
-            <div class="col-12">
-                <p>@variable.Content</p>
+        @foreach (var variable in _posts)
+        {
+            <div class="row">
+ 
+            <div class="col-3">
+                           
+            <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
+            <AuthorizeView>
+                    <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
+                        <i class="oi oi-warning" style="color: #555555"></i>
+                    </button>
+                    <button class="forumButtons" @onclick="@(() => savePost(variable))">
+                        <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                    </button>
+                </AuthorizeView>
+                    <AuthorizeView Policy="Moderator">
+                        <button class="forumButtons" @onclick="@(() => deletePost(variable.PostId))">
+                            <i class="oi oi-trash" style="color: #555555"></i>
+                        </button>
+                    </AuthorizeView>
+                </div>
             </div>
-        </div>
-        <div class="row" id="seeComments">
-            <div class="col-4">
-                <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+            <div class="row comments">
+                <div class="col-12">
+                    <p>@variable.Content</p>
+                </div>
             </div>
-        </div>
-    }
-</div>
+            <div class="row" id="seeComments">
+                <div class="col-4">
+                    <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                </div>
+            </div>
+        }
+    </div>
 
 @code {
     private IList<Post> _posts = new List<Post>();
@@ -91,6 +99,11 @@
     private async Task savePost(Post post)
     {
         await ForumService.SavePosts(post, _account.UserId);
+    }
+
+    private async Task deletePost(int postId )
+    {
+        await ForumService.DeletePost(postId);
     }
 
 }

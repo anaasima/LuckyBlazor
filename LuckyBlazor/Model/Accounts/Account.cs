@@ -26,6 +26,8 @@ namespace LuckyBlazor.Model
         public IList<Post> PostList { get; set; }
         [JsonPropertyName("savedPosts")]
         public IList<Post> SavedPosts { get; set; }
+        [JsonPropertyName("followedAccounts")]
+        public IList<Account> followedAcounts { get; set; }
         public Account(string username, string password)
         {
             Username = username;

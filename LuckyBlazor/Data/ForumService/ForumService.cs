@@ -28,7 +28,7 @@ namespace LuckyBlazor.Data.ForumService
         public async Task<IList<Post>> GetPostsByUserId(int userId)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/posts?userId=" + userId;
+            string uri = "http://localhost:8080/posts/" + userId;
             string message = await httpClient.GetStringAsync(uri);
             IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message);
             return result;

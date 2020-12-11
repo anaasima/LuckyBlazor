@@ -33,6 +33,11 @@ namespace LuckyBlazor
             services.AddScoped<IBuildService, BuildService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IForumService, ForumService>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Moderator", a => a.RequireAuthenticatedUser().RequireClaim("Username", "ADMIN"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

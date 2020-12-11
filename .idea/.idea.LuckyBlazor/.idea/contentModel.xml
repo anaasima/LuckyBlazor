@@ -74,17 +74,17 @@
           <e p="AddNewComponent.razor" t="Include" />
           <e p="CreateBuild.razor" t="Include" />
           <e p="EditBuild.razor" t="Include" />
+          <e p="EditProfile.razor" t="Include" />
           <e p="Forum.razor" t="Include" />
           <e p="MainPage.razor" t="Include" />
           <e p="MyBuilds.razor" t="Include" />
-          <e p="mypage" t="Include">
-            <e p="EditProfile.razor" t="Include" />
-          </e>
           <e p="MyPage.razor" t="Include" />
           <e p="PostPage.razor" t="Include" />
           <e p="RegisterAccount.razor" t="Include" />
+          <e p="SavedPosts.razor" t="Include" />
           <e p="UserProfile.razor" t="Include" />
           <e p="ViewComponents.razor" t="Include" />
+          <e p="ViewReports.razor" t="Include" />
           <e p="WelcomingPage.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />

@@ -1,0 +1,63 @@
+@page "/SavedPosts"
+@using LuckyBlazor.Model
+@using LuckyBlazor.Authentication
+@using LuckyBlazor.Data.ForumService
+@using LuckyBlazor.Model.Forum
+@using LuckyBlazor.Model.Forum.Report
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IForumService ForumService
+@inject NavigationManager NavigationManager
+<div class="container-fluid">
+@foreach (var variable in _posts)
+        {
+            <div class="row">
+                <div class="col-3">
+                           
+            <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
+                    <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
+                        <i class="oi oi-warning" style="color: #555555"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row comments">
+                <div class="col-12">
+                    <p>@variable.Content</p>
+                </div>
+            </div>
+            <div class="row" id="seeComments">
+                <div class="col-4">
+                    <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                </div>
+            </div>
+        }
+    </div>
+@code {
+    private Account _account;
+    private IList<Post> _posts = new List<Post>();
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        _posts = await ForumService.GetSavedPosts(_account.UserId);
+    }
+    
+    private void GoToUserProfile(string username)
+    {
+        NavigationManager.NavigateTo("/UserProfile/" + username);
+    }
+    
+    private async Task reportPost(int postId)
+    {
+        Report newReport = new Report(_account.UserId, postId);
+        await ForumService.ReportPost(newReport);
+    }
+
+    private void GoToPostPage(int postId)
+    {
+        Id = String.Concat(postId);
+        NavigationManager.NavigateTo("/PostPage/" + Id);
+    }
+
+}

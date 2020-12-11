@@ -82,5 +82,13 @@ namespace LuckyBlazor.Data.AccountsService
             return result;
         }
 
+        public async Task<Account> GetUserById(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = "http://localhost:8080/accounts?Id=" + id;
+            string message = await httpClient.GetStringAsync(uri);
+            Account result = JsonSerializer.Deserialize<Account>(message);
+            return result;
+        }
     }
 }

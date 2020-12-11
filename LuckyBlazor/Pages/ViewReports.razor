@@ -1,0 +1,72 @@
+@page "/ViewReports"
+@using LuckyBlazor.Data.ForumService
+@using LuckyBlazor.Model
+@using LuckyBlazor.Model.Forum.Report
+@using LuckyBlazor.Authentication
+@inject IForumService ForumService
+@inject IAccountService AccountService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+<div class="container-fluid">
+    <div class="row" id="reports">
+        <div class="col-12 justify-content-center align-items-center">
+            <h3>Reports</h3>
+        </div>
+    </div>
+    <table>
+        <tbody>
+        @foreach (var variable in _reports)
+        {
+            <tr>
+                <td><a href="" @onclick="@(() => GoToUserProfile(_username))"><label>@getUserById(variable.userId)</label></a></td>
+                <td><a href="" @onclick="@(() => GoToPostPage(@variable.postId))">@variable.postId</a>
+                <td><button class="forumButtons" @onclick="@(() => deleteReport(variable.id))">
+                                            <i class="oi oi-trash" style="color: #555555"></i>
+                                        </button></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+</div>
+
+
+@code {
+    private IList<Report> _reports = new List<Report>();
+    private Account _account;
+    private string _username;
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        _reports = await ForumService.GetReports();
+    }
+
+    private async Task<string> getUserById(int id)
+    {
+        Account newAccount = new Account();
+        newAccount = await AccountService.GetUserById(id);
+        _username = newAccount.Username;
+        return newAccount.Username;
+    }
+    
+    private void GoToUserProfile(string username)
+    {
+        NavigationManager.NavigateTo("/UserProfile/" + username);
+    }
+
+    
+    private void GoToPostPage(int postId)
+    {
+        Id = String.Concat(postId);
+        NavigationManager.NavigateTo("/PostPage/" + Id);
+    }
+
+    private async Task deleteReport(int reportId)
+    {
+        await ForumService.DeleteReport(reportId);
+    }
+
+}

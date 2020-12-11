@@ -12,6 +12,7 @@ namespace LuckyBlazor.Data.AccountsService
 
         Task<string> EditAccount(Account account);
         Task<Account> GetUserByUsername(string username);
+        Task<Account> GetUserById(int id);
 
     }
 }

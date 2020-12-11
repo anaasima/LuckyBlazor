@@ -42,12 +42,19 @@ else
         <div class="row">
             <div class="col-2">
                 <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
-                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
-                    <i class="oi oi-warning" style="color: #555555"></i>
-                </button>
-                <button class="forumButtons" @onclick="@(() => savePost(_post))">
-                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                </button>
+                <AuthorizeView>
+                    <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
+                        <i class="oi oi-warning" style="color: #555555"></i>
+                    </button>
+                    <button class="forumButtons" @onclick="@(() => savePost(_post))">
+                        <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                    </button>
+                </AuthorizeView>
+                <AuthorizeView Policy="Moderator">
+                    <button class="forumButtons" @onclick="@(() => deletePost(Id))">
+                        <i class="oi oi-trash" style="color: #555555"></i>
+                    </button>
+                </AuthorizeView>
             </div>
         </div>
         <div class="row" id="comments">
@@ -124,5 +131,8 @@ else
     {
         await ForumService.SavePosts(post, _account.UserId);
     }
-
+    private async Task deletePost(string Id )
+    {
+        await ForumService.DeletePost(Int32.Parse(Id));
+    }
 }
