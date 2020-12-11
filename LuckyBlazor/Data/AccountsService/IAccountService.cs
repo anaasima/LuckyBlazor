@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Dynamic;
 using System.Threading.Tasks;
 using LuckyBlazor.Model;
 
@@ -14,5 +16,10 @@ namespace LuckyBlazor.Data.AccountsService
         Task<Account> GetUserByUsername(string username);
         Task<Account> GetUserById(int id);
 
+        Task FollowAccount(int userId, int userToFollow);
+
+        Task UnfollowAccount(int userId, int userToUnfollow);
+
+        Task<IList<Account>> GetFollowedAccounts(int userId);
     }
 }

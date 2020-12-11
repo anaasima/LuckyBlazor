@@ -19,5 +19,9 @@ namespace LuckyBlazor.Data.ForumService
         Task ReportPost(Report report);
         Task DeleteReport(int id);
         Task<IList<Report>> GetReports();
+
+        Task EditPost(Post post);
+
+        Task<IList<RatingPost>> GetAllPostRatings(int id);
     }
 }

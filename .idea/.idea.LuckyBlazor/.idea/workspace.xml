@@ -23,22 +23,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="design ONCE AGAIN">
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/SavedPosts.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/Comment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/mypage/EditProfile.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/EditProfile.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/IForumService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/IForumService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MainPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MainPage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +58,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -80,13 +82,8 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/Rating.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingPost.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Report/Report.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/IForumService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingComponent.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingBuild.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" />
@@ -102,17 +99,22 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Startup.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Comments/Comment.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Posts/Post.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Accounts/Account.cs" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/SavedPosts.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/IAccountService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/IBuildService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/IComponentService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/IForumService.cs" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" />
       </list>
     </option>
   </component>
@@ -495,11 +497,11 @@
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state x="663" y="174" key="MultipleFileMergeDialog/0.0.2048.824@0.0.2048.824" timestamp="1607362182215" />
-    <state x="911" y="105" key="RiderGenerateDialog" timestamp="1607520540334">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="1215" y="105" key="RiderGenerateDialog" timestamp="1607691611055">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state x="911" y="105" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1607520540334" />
-    <state x="1215" y="105" key="RiderGenerateDialog/0.0.2048.824@0.0.2048.824" timestamp="1607002707161" />
+    <state x="1215" y="105" key="RiderGenerateDialog/0.0.2048.824@0.0.2048.824" timestamp="1607691611055" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1607677372919">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

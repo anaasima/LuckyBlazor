@@ -124,11 +124,33 @@ namespace LuckyBlazor.Data.ForumService
             IList<Report> result = JsonSerializer.Deserialize<IList<Report>>(message) ;
             return result;
         }
-        
+
+        public async Task EditPost(Post post)
+        {
+            HttpClient httpClient = new HttpClient();
+            string postSerialized = JsonSerializer.Serialize(post);
+            StringContent content = new StringContent(
+                postSerialized,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage responseMessage = await httpClient.PatchAsync("http://localhost:8080/posts", content);
+            Console.WriteLine(responseMessage.StatusCode.ToString());
+        }
+
+        public async Task<IList<RatingPost>> GetAllPostRatings(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = "http://localhost:8080/postRating/" + id; 
+            string message = await httpClient.GetStringAsync(uri);
+            IList<RatingPost> result = JsonSerializer.Deserialize<IList<RatingPost>>(message) ;
+            return result;
+        }
+
         public async Task<IList<Post>> GetSavedPosts(int userId)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = $"http://localhost:8080/savedPosts?UserId={userId}";
+            string uri = $"http://localhost:8080/savedPosts/{userId}";
             string message = await httpClient.GetStringAsync(uri);
             IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message);
             return result;
