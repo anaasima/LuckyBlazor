@@ -48,5 +48,23 @@ namespace LuckyBlazor.Data
                 await client.PatchAsync("http://localhost:8080/componentRating", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
+
+        public async Task<IList<RatingComponent>> GetAllComponentRatings(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = "http://localhost:8080/componentRatings/" + id;
+            string message = await httpClient.GetStringAsync(uri);
+            IList<RatingComponent> result = JsonSerializer.Deserialize<IList<RatingComponent>>(message);
+            return result;
+        }
+
+        public async Task<IList<Component>> GetFilteredList(string type)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = "http://localhost:8080/component?Type=" + type;
+            string message = await httpClient.GetStringAsync(uri);
+            IList<Component> result = JsonSerializer.Deserialize<IList<Component>>(message) ;
+            return result;
+        }
     }
 }

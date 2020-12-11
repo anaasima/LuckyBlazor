@@ -4,12 +4,13 @@ html, body {
     /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     /*font-family: Garamond, serif;*/
     font-family: Optima, sans-serif;
+    /*background-image: url(background.gif);*/
 
 }
-/*.plsWork*/
-/*{*/
-/*    background-image: url(background.gif);*/
-/*}*/
+#plsWork
+{
+    background-image: url(background.gif);
+}
 a, .btn-link {
     color: #0366d6;
 }

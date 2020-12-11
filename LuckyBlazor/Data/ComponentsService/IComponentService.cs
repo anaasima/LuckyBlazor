@@ -11,5 +11,9 @@ namespace LuckyBlazor.Data
 
         Task AddNewComponentAsync(Component component);
         Task RateComponent(RatingComponent ratingComponent);
+
+        Task<IList<RatingComponent>> GetAllComponentRatings(int id);
+
+        Task<IList<Component>> GetFilteredList(string type);
     }
 }
