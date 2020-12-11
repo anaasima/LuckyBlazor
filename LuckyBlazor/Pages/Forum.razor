@@ -8,6 +8,7 @@
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Model.Forum.Report
+@using LuckyBlazor.Model.Rating
 <div class="container-fluid">
     <div class="row">
         <div class="col-11 d-flex justify-content-center">
@@ -22,9 +23,9 @@
         @foreach (var variable in _posts)
         {
             <div class="row">
- 
+
                 <div class="col-3">
-                           
+
                     <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
                     <AuthorizeView>
                         <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
@@ -47,10 +48,15 @@
                 </div>
             </div>
             <div class="row">
-            <div class="1-col">
-                <button class="forumButtons"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
-                <button class="forumButtons"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
-            </div>
+                <div class="1-col">
+                    <button class="forumButtons" @onclick="@(() => like(variable.PostId))"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
+                    <button class="forumButtons" @onclick="@(() => dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
+                </div>
+                <div class="2-col">
+                <div class="col-2">
+                                    <label>@getLikes(variable.PostId)</label>
+                                </div>
+                </div>
             </div>
             <div class="row" id="seeComments">
                 <div class="col-4">
@@ -58,7 +64,7 @@
                 </div>
             </div>
         }
-    </div>
+            </div>
         <div class="col-6">
             <table class="table">
                 <tbody>
@@ -79,6 +85,8 @@
     private string _postContent;
     private Account _account = new Account();
     private IList<Account> followedAccounts = new List<Account>();
+    private IList<RatingPost> _rating = new List<RatingPost>();
+    private int _likes=0;
 
     [Parameter]
     public string Id { get; set; }
@@ -87,7 +95,7 @@
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _posts = await ForumService.GetAllPosts();
-        // followedAccounts = await AccountServ
+        followedAccounts = await AccountService.GetFollowedAccounts(_account.UserId);
 
         foreach (var VARIABLE in _posts)
         {
@@ -130,4 +138,32 @@
         await ForumService.DeletePost(postId);
     }
 
+    private async Task like(int postId)
+    {
+        RatingPost ratingPost = new RatingPost(_account.UserId, postId, 1);
+        await ForumService.RatePost(ratingPost);
+    }
+
+    private async Task dislike(int postId)
+    {
+        RatingPost ratingPost = new RatingPost(_account.UserId, postId, -1);
+        await ForumService.RatePost(ratingPost);
+    }
+    private int getLikes(int postId)
+    {
+        int sum = 0;
+        foreach (var VARIABLE in _posts)
+        {
+            if (VARIABLE.PostId == postId)
+            {
+                _rating = VARIABLE.RatingPosts;
+                foreach (var variable in _rating)
+                {
+                    sum += variable.score;
+                }
+            }
+        }
+        _likes = sum;
+        return _likes;
+    }
 }

@@ -3,6 +3,7 @@
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Data.ForumService
 @using LuckyBlazor.Model.Forum
+@using LuckyBlazor.Model.Rating
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IForumService ForumService
@@ -36,18 +37,18 @@
                     
                     <div id="openModal" class="modalDialog">
                         <div>	<a href="#close" title="Close" class="close">X</a>
-                                    	<input type="text" id="lname" name="lname" @bind-value="_editContent"><br><br>
-                              <input type="submit" value="Submit">
-                      </div>
+                            <input type="text" id="lname" name="lname" @bind-value="_editContent"><br><br>
+                            <button class="buttons" @onclick="@(() => editPost(variable))">Post</button>
+                        </div>
                     </div>
                 </div>
             </div>
-                <div class="row" id="comments">
-                    <div class="col-12">
-                        <p>@variable.Content</p>
-                    </div>
+            <div class="row" id="comments">
+                <div class="col-12">
+                    <p>@variable.Content</p>
                 </div>
-                <div class="row" id="seeComments">
+            </div>
+            <div class="row" id="seeComments">
                     <div class="col-4">
                         <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
                     </div>
@@ -61,6 +62,8 @@
     private IList<Post> _posts = new List<Post>();
     private string myUsername;
     private string _editContent;
+    private IList<RatingPost> _rating = new List<RatingPost>();
+    private int _likes=0;
     
     [Parameter]
     public string Id { get; set; }
@@ -115,6 +118,31 @@
     private void openEditedPost(Post post)
     {
         _editContent = post.Content;
+    }
+
+    private async Task editPost(Post post)
+    {
+        Post editPost = post;
+        editPost.Content = _editContent;
+        await ForumService.EditPost(post);
+    }
+
+    private int getLikes(int postId)
+    {
+       int sum = 0;
+        foreach (var VARIABLE in _posts)
+        {
+            if (VARIABLE.PostId == postId)
+            {
+                _rating = VARIABLE.RatingPosts;
+                foreach (var variable in _rating)
+                {
+                    sum += variable.score;
+                }
+            }
+        }
+        _likes = sum;
+        return _likes;
     }
     
 }
