@@ -23,37 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="final design">
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Logout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/AddNewComponent.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/AddNewComponent.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/EditProfile.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/EditProfile.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MainPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MainPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyBuilds.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyBuilds.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/RegisterAccount.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/RegisterAccount.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/SavedPosts.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/SavedPosts.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/NavMenu.razor" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.RazorComponent.input.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,11 +93,11 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" />
         <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/AddNewComponent.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
       </list>
     </option>
   </component>
@@ -226,6 +198,7 @@
       <workItem from="1607501385588" duration="19401000" />
       <workItem from="1607677228601" duration="8441000" />
       <workItem from="1607775303687" duration="41036000" />
+      <workItem from="1607850421928" duration="925000" />
     </task>
     <task id="LOCAL-00001" summary="Ana">
       <created>1603890769954</created>
@@ -374,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607821454682</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="final design">
+      <created>1607850444119</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607850444119</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,39 +402,39 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607295298676" />
-    <state width="938" height="348" key="GridCell.Tab.0.bottom" timestamp="1607822024415">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="746" height="89" key="GridCell.Tab.0.bottom" timestamp="1607851781586">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607785084365" />
+    <state width="746" height="89" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607851781586" />
     <state width="1493" height="611" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="270" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="938" height="348" key="GridCell.Tab.0.center" timestamp="1607822024415">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="746" height="89" key="GridCell.Tab.0.center" timestamp="1607851781585">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
-    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607785084365" />
+    <state width="746" height="89" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="270" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="938" height="348" key="GridCell.Tab.0.left" timestamp="1607822024415">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="746" height="89" key="GridCell.Tab.0.left" timestamp="1607851781585">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
-    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607785084364" />
+    <state width="746" height="89" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="270" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="938" height="348" key="GridCell.Tab.0.right" timestamp="1607822024415">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="746" height="89" key="GridCell.Tab.0.right" timestamp="1607851781585">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
-    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607785084365" />
+    <state width="746" height="89" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
     <state width="2005" height="270" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
@@ -544,11 +524,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1607505877822" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1607821457522">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1607850478790">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2371" y="167" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607644356630" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607821457522" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607850478790" />
     <state x="-1559" y="508" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607338241225" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606904201827" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1607453937330" />
