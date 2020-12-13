@@ -22,10 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="final design">
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="catalin comp, ana work">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +85,6 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/SavedPosts.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Logout.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MainPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/RegisterAccount.razor" />
@@ -88,16 +92,17 @@
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/WelcomingPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyBuilds.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/AddNewComponent.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/PostPage.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
-        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
         <option value="$PROJECT_DIR$/LuckyBlazor/Shared/TopMenu.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/MyPage.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/ViewComponents.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/_Host.cshtml" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/EditBuild.razor" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/LuckyBlazor/Pages/UserProfile.razor" />
       </list>
     </option>
   </component>
@@ -395,49 +400,50 @@
     <MESSAGE value="design ONCE AGAIN" />
     <MESSAGE value="design igen" />
     <MESSAGE value="final design" />
-    <option name="LAST_COMMIT_MESSAGE" value="final design" />
+    <MESSAGE value="catalin comp, ana work" />
+    <option name="LAST_COMMIT_MESSAGE" value="catalin comp, ana work" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607295298676">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607295298676" />
-    <state width="746" height="89" key="GridCell.Tab.0.bottom" timestamp="1607851781586">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2005" height="263" key="GridCell.Tab.0.bottom" timestamp="1607869556662">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
     <state width="746" height="89" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607851781586" />
     <state width="1493" height="611" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.bottom/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
-    <state width="2005" height="270" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="746" height="89" key="GridCell.Tab.0.center" timestamp="1607851781585">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2005" height="263" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1607869556662" />
+    <state width="2005" height="263" key="GridCell.Tab.0.center" timestamp="1607869556662">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
     <state width="746" height="89" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.center/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
-    <state width="2005" height="270" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="746" height="89" key="GridCell.Tab.0.left" timestamp="1607851781585">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2005" height="263" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1607869556662" />
+    <state width="2005" height="263" key="GridCell.Tab.0.left" timestamp="1607869556662">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
     <state width="746" height="89" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.left/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
-    <state width="2005" height="270" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
-    <state width="746" height="89" key="GridCell.Tab.0.right" timestamp="1607851781585">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="2005" height="263" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1607869556662" />
+    <state width="2005" height="263" key="GridCell.Tab.0.right" timestamp="1607869556662">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607788797537" />
     <state width="938" height="348" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607822024415" />
     <state width="746" height="89" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607851781585" />
     <state width="1493" height="611" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607356281797" />
     <state width="2005" height="79" key="GridCell.Tab.0.right/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1607354574945" />
-    <state width="2005" height="270" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1607599920741" />
+    <state width="2005" height="263" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1607869556662" />
     <state width="1493" height="288" key="GridCell.Tab.1.bottom" timestamp="1607079039272">
       <screen x="-1920" y="376" width="1536" height="824" />
     </state>
@@ -524,14 +530,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1607505877822" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1607850478790">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="481" y="132" key="Vcs.Push.Dialog.v2" timestamp="1607861763479">
+      <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state x="2371" y="167" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607644356630" />
     <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607850478790" />
     <state x="-1559" y="508" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607338241225" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606904201827" />
-    <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1607453937330" />
+    <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1607861763479" />
     <state x="2653" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607021814185">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -566,12 +572,6 @@
           <line>3</line>
           <properties documentPath="C:\Users\eatcl\RiderProjects\LuckyBlazor\LuckyBlazor\Pages\MainPage.razor" initialLine="3" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>

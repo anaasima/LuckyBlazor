@@ -637,20 +637,20 @@ a:hover {
     text-align: center;
 }
 
-#x1, #x2, #x3, #x4, #x5, #x6 td {
-    background-color: white;
-    color: black;
-}
+/*#x1, #x2, #x3, #x4, #x5, #x6 td {*/
+/*    !*background-color: white;*!*/
+/*    color: black;*/
+/*}*/
 
-#x1, #x2, #x3, #x4, #x5, #x6 caption {
-    font-size: 1em;
-    margin: .5em 0 .75em;
-}
+/*#x1, #x2, #x3, #x4, #x5, #x6 caption {*/
+/*    font-size: 1em;*/
+/*    margin: .5em 0 .75em;*/
+/*}*/
 
-#x1, #x2, #x3, #x4, #x5, #x6 tr {
-    /*background-color: black;*/
-    padding: .35em;
-}
+/*#x1, #x2, #x3, #x4, #x5, #x6 tr {*/
+/*    !*background-color: black;*!*/
+/*    padding: .35em;*/
+/*}*/
 
 /*#x1, #x2, #x3, #x4, #x5, #x6 th{*/
 /*    background-color: black;*/
@@ -683,20 +683,20 @@ tables th {
 
 .styledTable
 {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
-    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);!important;
+    text-align: center;!important;
 }
 .styledTable tr:nth-child(even)
 {
-    background-color:#f2f2f2;
+    background-color:#f2f2f2;!important;
 }
 .styledTable tr:hover
 {
-    background-color: #ddd;
+    background-color: #ddd;!important;
 }
 .styledTable th{
-    color:white;
-    background-color: #403f3f;
+    color:white;!important;
+    background-color: #403f3f;!important;
 }
 /*THIS IS WHERE IT ENDS!!!!!!!!!!*/
 @media (max-width: 767.98px) {

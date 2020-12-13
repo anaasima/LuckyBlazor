@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row" id="rowMain">
                 <div class="col-3" id="myPageUser">
-                    <h3>@String.Concat("@")@myUsername</h3>
+                    <h3>@String.Concat("@")@_account.Username</h3>
                 </div>
                 <div class="col-3 justify-content-center align-content-center" id="myPageUser">
                     <button class="myPageButtons" @onclick="GoToEditProfile">Edit profile</button>
@@ -39,15 +39,15 @@
 
 
                         <!-- Trigger/Open The Modal -->
-                        <button id="myBtn" @onclick="ClickButton">Edit post...</button>
+                        <button id="myBtn" @onclick="@(() => ClickButton(@variable.PostId))">Edit post...</button>
 
                         <!-- The Modal -->
-                        <div id="myModal" class="modal">
+                        <div id="@variable.PostId" class="modal">
 
                             <!-- Modal content -->
                             <div class="modal-content">
-                                <span class="close" @onclick="ClickSpan">&times;</span>
-                                <label style="display: none">@openContent(@variable.PostId)</label>
+                                <span class="close" @onclick="@(() => ClickSpan(@variable.PostId))">&times;</span>
+                                @* <label style="display: none">@openContent(@variable.PostId)</label> *@
                                 <input id="postContent" type="text" placeholder="Post something..." @bind-value="@variable.Content">
                                 <button type="button" @onclick="@(() => editPost(@variable.Content, @variable.PostId))" class="loginButtons">Create</button>
                             </div>
@@ -74,7 +74,6 @@
 @code {
     private Account _account = new Account();
     private IList<Post> _posts = new List<Post>();
-    private string myUsername;
     private string _editContent = "";
     private IList<RatingPost> _rating = new List<RatingPost>();
     private int _likes = 0;
@@ -88,7 +87,6 @@
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-        myUsername = _account.Username;
         userId = String.Concat(_account.UserId);
 
         Console.WriteLine(_account.Username);
@@ -189,13 +187,13 @@
         }
         return _editContent;
     }
-    private async Task ClickButton()
+    private async Task ClickButton(int id)
     {
-        await JsRuntime.InvokeVoidAsync("clickButton");
+        await JsRuntime.InvokeVoidAsync("clickButton", String.Concat(id));
     }
 
-    private async Task ClickSpan()
+    private async Task ClickSpan(int id)
     {
-        await JsRuntime.InvokeVoidAsync("clickSpan");
+        await JsRuntime.InvokeVoidAsync("clickSpan", String.Concat(id));
     }
 }

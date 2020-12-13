@@ -62,14 +62,14 @@
 
     
     // When the user clicks the button, open the modal 
-    function clickButton()
+    function clickButton(id)
      {
-      document.getElementById("myModal").style.display = "block";
+      document.getElementById(id).style.display = "block";
     }
     
     // When the user clicks on <span> (x), close the modal
-    function clickSpan() {
-      document.getElementById("myModal").style.display = "none";
+    function clickSpan(id) {
+      document.getElementById(id).style.display = "none";
     }
     
     </script>
@@ -85,6 +85,33 @@
         window.alert("Power supply has been exceeded")
         }
     </script>
+    <script>
+    function sendMotherboardAlert()
+    {
+        window.alert("Choose a motherboard first!");
+        }
+        function allComponents()
+        {
+            window.alert("Please select components of all types");
+            }
+            function chosenComponent(content)
+            {
+                window.alert(content);
+                }
+    </script>
+    <script>
+    function beginner()
+    {
+        document.getElementById("beginner").style.display="block";
+        document.getElementById("advanced").style.display="none";
+        }    
+        function advanced()
+             {
+                 document.getElementById("beginner").style.display="none";
+                 document.getElementById("advanced").style.display="block";
+                 }
+    </script>
+    
 </head>
 <body>
 <app>

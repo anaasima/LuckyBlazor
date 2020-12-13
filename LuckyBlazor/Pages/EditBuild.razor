@@ -22,7 +22,7 @@
                 </select> <span></span>
             </div>
 
-            <table id="x1">
+            <table class="styledTable" id="x1">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -41,16 +41,16 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddMotherboard(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                            <button id="rateBut" @onclick="@(() => AddMotherboard(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
 
-            <table id="x2">
+            <table class="styledTable" id="x2">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -69,9 +69,9 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddCPU(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                            <button  id="rateBut" @onclick="@(() => AddCPU(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
 
                     </tr>
@@ -79,7 +79,7 @@
                 </tbody>
             </table>
 
-            <table id="x3">
+            <table class="styledTable" id="x3">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -98,9 +98,9 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddGPU(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                            <button  id="rateBut" @onclick="@(() => AddGPU(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
 
                     </tr>
@@ -108,7 +108,7 @@
                 </tbody>
             </table>
 
-            <table id="x4">
+            <table class="styledTable" id="x4">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -127,16 +127,16 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddRAM(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                             <button  id="rateBut" @onclick="@(() => AddRAM(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
 
-            <table id="x5">
+            <table class="styledTable" id="x5">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -155,16 +155,16 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddSupply(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                              <button  id="rateBut" @onclick="@(() => AddSupply(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
 
-            <table id="x6">
+            <table class="styledTable" id="x6">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -183,16 +183,16 @@
                         <td>@variable.Brand</td>
                         <td>@variable.AdditionalInformation</td>
                         <td>
-                            <button @onclick="@(() => AddStorage(variable.Id))">
-                                <i class="oi oi-plus" style="color: pink"></i>
-                            </button>
+                            <button  id="rateBut" @onclick="@(() => AddStorage(variable.Id))">
+                                                        <i class="oi oi-plus" style="color: white"></i>
+                                                    </button>
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
 
-            <button class="btn btn-primary" @onclick="FinishBuild">Finish build</button>
+             <button class="btn btn-primary myPageButtons" style="margin-right: 10px" @onclick="FinishBuild">Finish</button>
         </div>
     </div>
 </div>
@@ -202,7 +202,7 @@
         <div class="col-lg-12">
             <p>Your build</p>
             <input type="text" placeholder="Post something..." @bind-value="_name"><br><br>
-            <table class="table">
+            <table class="table styledTable">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -224,8 +224,8 @@
                 }
                 </tbody>
             </table>
-            <button class="btn btn-primary" @onclick="createBuild">Save build</button>
-            <button class="btn btn-primary" @onclick="reset">Reset build</button>
+          <button class="myPageButtons" @onclick="createBuild">Save build</button>
+                         <button class="myPageButtons" @onclick="reset">Reset build</button>
 
 
         </div>
@@ -255,6 +255,7 @@
     private string linkToTable6;
     private string defaultLink;
     private bool mB;
+    private bool sort = true;
     private bool gpuB;
     private bool cpuB;
     private bool ramB;
@@ -437,7 +438,7 @@
     }
 
     //it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
-public async Task AddMotherboard(int id)
+ public async Task AddMotherboard(int id)
     {
         foreach (var VARIABLE in motherBoardsToShow)
         {
@@ -447,6 +448,7 @@ public async Task AddMotherboard(int id)
                 {
                     motherboard = VARIABLE;
                     _myBuild.Add(motherboard);
+                    await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                 }
 
                 if (mB)
@@ -454,250 +456,288 @@ public async Task AddMotherboard(int id)
                     _myBuild.Remove(motherboard);
                     motherboard = VARIABLE;
                     _myBuild.Add(motherboard);
+                   await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                 }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+
                 Sort(VARIABLE);
-            }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
+                mB = true;
+                return;
             }
         }
     }
 
     public async Task AddCPU(int id)
     {
-        foreach (var VARIABLE in CPUsToShow)
+        if (motherboard != null)
         {
-            if (VARIABLE.Id == id)
+            foreach (var VARIABLE in CPUsToShow)
             {
-                if (!cpuB)
+                if (VARIABLE.Id == id)
                 {
-                    cpu = VARIABLE;
-                    _myBuild.Add(cpu);
+                    if (!cpuB)
+                    {
+                        cpu = VARIABLE;
+                        _myBuild.Add(cpu);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+                    if (cpuB)
+                    {
+                        _myBuild.Remove(cpu);
+                        cpu = VARIABLE;
+                        _myBuild.Add(cpu);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+
+                    Sort(VARIABLE);
+                    cpuB = true;
                 }
-                if (cpuB)
-                {
-                    _myBuild.Remove(cpu);
-                    cpu = VARIABLE;
-                    _myBuild.Add(cpu);
-                }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
-                Sort(VARIABLE);
-            
             }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
-            }
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("sendMotherboardAlert");
         }
     }
 
     public async Task AddGPU(int id)
     {
-        foreach (var VARIABLE in GPUsToShow)
+        if (motherboard != null)
         {
-            if (VARIABLE.Id == id)
+            foreach (var VARIABLE in GPUsToShow)
             {
-                if (!gpuB)
+                if (VARIABLE.Id == id)
                 {
-                    gpu = VARIABLE;
-                    _myBuild.Add(gpu);
+                    if (!gpuB)
+                    {
+                        gpu = VARIABLE;
+                        _myBuild.Add(gpu);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+                    if (gpuB)
+                    {
+                        _myBuild.Remove(gpu);
+                        gpu = VARIABLE;
+                        _myBuild.Add(gpu);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+
+                    Sort(VARIABLE);
+                    gpuB = true;
+                    return;
                 }
-                if (gpuB)
-                {
-                    _myBuild.Remove(gpu);
-                    gpu = VARIABLE;
-                    _myBuild.Add(gpu);
-                }
-                Console.WriteLine(id);
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
-                Sort(VARIABLE);
             }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
-            }
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("sendMotherboardAlert");
         }
     }
 
     public async Task AddRAM(int id)
     {
-        foreach (var VARIABLE in RAMsToShow)
+        if (motherboard != null)
         {
-            if (VARIABLE.Id == id)
+            foreach (var VARIABLE in RAMsToShow)
             {
-                if (!ramB)
+                if (VARIABLE.Id == id)
                 {
-                    ram = VARIABLE;
-                    _myBuild.Add(ram);
+                    if (!ramB)
+                    {
+                        ram = VARIABLE;
+                        _myBuild.Add(ram);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+                    if (ramB)
+                    {
+                        _myBuild.Remove(ram);
+                        ram = VARIABLE;
+                        _myBuild.Add(ram);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
+
+                    Sort(VARIABLE);
+                    ramB = true;
+                    return;
                 }
-                if (ramB)
-                {
-                    _myBuild.Remove(ram);
-                    ram = VARIABLE;
-                    _myBuild.Add(ram);
-                }
-                Sort(VARIABLE);
-                ramB = true;
-                Console.WriteLine(id);
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
-            }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
             }
         }
-      
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("sendMotherboardAlert");
+        }
     }
 
     public async Task AddStorage(int id)
     {
-        foreach (var VARIABLE in storagesToShow)
+        if (motherboard != null)
         {
-            if (VARIABLE.Id == id)
+            foreach (var VARIABLE in storagesToShow)
             {
-                if (!storageB)
+                if (VARIABLE.Id == id)
                 {
-                    storage = VARIABLE;
-                    _myBuild.Add(storage);
-                }
+                    if (!storageB)
+                    {
+                        storage = VARIABLE;
+                        _myBuild.Add(storage);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
 
-                if (storageB)
-                {
-                    _myBuild.Remove(storage);
-                    storage = VARIABLE;
-                    _myBuild.Add(storage);
-                }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                    if (storageB)
+                    {
+                        _myBuild.Remove(storage);
+                        storage = VARIABLE;
+                        _myBuild.Add(storage);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
 
-                Sort(VARIABLE);
+                    Sort(VARIABLE);
+                    storageB = true;
+                    return;
+                }
             }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
-            }
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("sendMotherboardAlert");
         }
     }
 
     public async Task AddSupply(int id)
     {
-        foreach (var VARIABLE in suppliesToShow)
+        if (motherboard != null)
         {
-            if (VARIABLE.Id == id)
+            foreach (var VARIABLE in suppliesToShow)
             {
-                if (!supplyB)
+                if (VARIABLE.Id == id)
                 {
-                    powerSupply = VARIABLE;
-                    _myBuild.Add(powerSupply);
-                }
+                    if (!supplyB)
+                    {
+                        powerSupply = VARIABLE;
+                        _myBuild.Add(powerSupply);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
 
-                if (supplyB)
-                {
-                    _myBuild.Remove(powerSupply);
-                    powerSupply = VARIABLE;
-                    _myBuild.Add(powerSupply);
-                }
-                await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
+                    if (supplyB)
+                    {
+                        _myBuild.Remove(powerSupply);
+                        powerSupply = VARIABLE;
+                        _myBuild.Add(powerSupply);
+                        await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
+                    }
 
-                Sort(VARIABLE);
+                    Sort(VARIABLE);
+                    supplyB = true;
+                    return;
+                }
             }
-            else
-            {
-                await JsRuntime.InvokeVoidAsync("makeBlack", String.Concat(VARIABLE.Id));
-            }
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("sendMotherboardAlert");
         }
     }
 
     public async Task FinishBuild()
     {
-        int sum = 0;
-        foreach (var VARIABLE in _myBuild)
+        if (motherboard != null && cpu != null && gpu != null && ram != null && storage != null && powerSupply != null)
         {
-            sum += VARIABLE.EnergyConsumption;
+            int sum = 0;
+            foreach (var VARIABLE in _myBuild)
+            {
+                sum += VARIABLE.EnergyConsumption;
+            }
+            if (sum > powerSupply.EnergyConsumption)
+                await JsRuntime.InvokeVoidAsync("sendAlert");
+            await JsRuntime.InvokeVoidAsync("show");
         }
-        if (sum > powerSupply.EnergyConsumption)
-            await JsRuntime.InvokeVoidAsync("sendAlert");
-        await JsRuntime.InvokeVoidAsync("show");
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("allComponents");
+        }
     }
     
     private void Sort(Component component)
     {
-        motherBoardsToShow = new List<Component>();
-        CPUsToShow = new List<Component>();
-        GPUsToShow = new List<Component>();
-        RAMsToShow = new List<Component>();
-        suppliesToShow = new List<Component>();
-        storagesToShow = new List<Component>();
-        
-        string typeOfComponent = component.SocketType;
-        
-        foreach (var motherBoard in _motherBoards.ToList())
+         if (sort)
         {
-            if (motherBoard.SocketType.Contains(typeOfComponent))
+            motherBoardsToShow = new List<Component>();
+            CPUsToShow = new List<Component>();
+            GPUsToShow = new List<Component>();
+            RAMsToShow = new List<Component>();
+            suppliesToShow = new List<Component>();
+            storagesToShow = new List<Component>();
+
+            string typeOfComponent = component.SocketType;
+
+
+            foreach (var motherBoard in _motherBoards.ToList())
             {
-                if(!motherBoardsToShow.Contains(motherBoard))
-                motherBoardsToShow.Add(motherBoard);
-            }
-        }
-        
-        foreach (var GPU in GPUs.ToList())
-        {
-            foreach (var motherBoard in motherBoardsToShow)
-            {
-                if (motherBoard.SocketType.Contains(GPU.SocketType))
+                if (motherBoard.SocketType.Contains(typeOfComponent))
                 {
-                    if(!GPUsToShow.Contains(GPU))
-                    GPUsToShow.Add(GPU);
+                    if (!motherBoardsToShow.Contains(motherBoard))
+                        motherBoardsToShow.Add(motherBoard);
                 }
             }
-        }
-        
-        foreach (var RAM in RAMs.ToList())
-        {
-            foreach (var motherBoard in motherBoardsToShow)
+
+            foreach (var GPU in GPUs.ToList())
             {
-                if (motherBoard.SocketType.Contains(RAM.SocketType))
+                foreach (var motherBoard in motherBoardsToShow)
                 {
-                    if(!RAMsToShow.Contains(RAM))
-                    RAMsToShow.Add(RAM);
+                    if (motherBoard.SocketType.Contains(GPU.SocketType))
+                    {
+                        if (!GPUsToShow.Contains(GPU))
+                            GPUsToShow.Add(GPU);
+                    }
                 }
             }
-        }
-        
-        foreach (var storage in storages.ToList())
-        {
-            foreach (var motherBoard in motherBoardsToShow)
+
+            foreach (var RAM in RAMs.ToList())
             {
-                if (motherBoard.SocketType.Contains(storage.SocketType))
+                foreach (var motherBoard in motherBoardsToShow)
                 {
-                    if(!storagesToShow.Contains(storage))
-                    storagesToShow.Add(storage);
+                    if (motherBoard.SocketType.Contains(RAM.SocketType))
+                    {
+                        if (!RAMsToShow.Contains(RAM))
+                            RAMsToShow.Add(RAM);
+                    }
                 }
             }
-        }
-        
-        foreach (var CPU in CPUs.ToList())
-        {
-            foreach (var motherBoard in motherBoardsToShow)
+
+            foreach (var storage in storages.ToList())
             {
-                if (motherBoard.SocketType.Contains(CPU.SocketType))
+                foreach (var motherBoard in motherBoardsToShow)
                 {
-                    if(!CPUsToShow.Contains(CPU))
-                    CPUsToShow.Add(CPU);
+                    if (motherBoard.SocketType.Contains(storage.SocketType))
+                    {
+                        if (!storagesToShow.Contains(storage))
+                            storagesToShow.Add(storage);
+                    }
                 }
             }
-        }
-        foreach (var supply in supplies.ToList())
-        {
-            foreach (var motherBoard in motherBoardsToShow)
+
+            foreach (var CPU in CPUs.ToList())
             {
-                if (motherBoard.SocketType.Contains(supply.SocketType))
+                foreach (var motherBoard in motherBoardsToShow)
                 {
-                    if(!suppliesToShow.Contains(supply))
-                    suppliesToShow.Add(supply);
+                    if (motherBoard.SocketType.Contains(CPU.SocketType))
+                    {
+                        if (!CPUsToShow.Contains(CPU))
+                            CPUsToShow.Add(CPU);
+                    }
                 }
             }
+            foreach (var supply in supplies.ToList())
+            {
+                foreach (var motherBoard in motherBoardsToShow)
+                {
+                    if (motherBoard.SocketType.Contains(supply.SocketType))
+                    {
+                        if (!suppliesToShow.Contains(supply))
+                            suppliesToShow.Add(supply);
+                    }
+                }
+            }
+            sort = false;
         }
      }
 

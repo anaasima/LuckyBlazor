@@ -16,8 +16,11 @@
         </div>
         <div class="col-1 d-flex justify-content-center align-items-center">
             <AuthorizeView>
-            <button class="myPageButtons" @onclick="follow" id="follow">Follow</button>
-            <button class="myPageButtons" style="display: none" @onclick="unfollow" id="unfollow">Unfollow</button>
+                <button class="myPageButtons" @onclick="follow" id="follow">Follow</button>
+                <button class="myPageButtons" style="display: none" @onclick="unfollow" id="unfollow">Unfollow</button>
+            </AuthorizeView>
+            <AuthorizeView>
+                <button class="myPageButtons" @onclick="delete">Delete</button>
             </AuthorizeView>
         </div>
     </div>
@@ -29,12 +32,12 @@
                     <div class="col-2">
                         @String.Concat("@")@variable.Username
                         <AuthorizeView>
-                        <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
-                            <i class="oi oi-warning" style="color: #555555"></i>
-                        </button>
-                        <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
-                            <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                        </button>
+                            <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
+                                <i class="oi oi-warning" style="color: #555555"></i>
+                            </button>
+                            <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
+                                <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                            </button>
                         </AuthorizeView>
                     </div>
             </div>
@@ -136,5 +139,11 @@
     {
         await AccountService.UnfollowAccount(_account.UserId, _currentAccount.UserId);
         await JsRuntime.InvokeVoidAsync("unfollow");
+    }
+
+    private async Task delete()
+    {
+        await AccountService.DeleteAccount(_currentAccount.UserId);
+        NavigationManager.NavigateTo("/Forum");
     }
 }
