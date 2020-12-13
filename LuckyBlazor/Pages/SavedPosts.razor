@@ -54,7 +54,7 @@
     
     private async Task reportPost(int postId)
     {
-        Report newReport = new Report(_account.UserId, postId);
+        Report newReport = new Report(_account.UserId, postId, _account.Username);
         await ForumService.ReportPost(newReport);
     }
 

@@ -44,8 +44,7 @@ namespace LuckyBlazor.Data.AccountsService
             string s = await responseInfo.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<Account>(s);
         }
-
-        //TODO put it on the page
+        
         public async Task DeleteAccount(int userId)
         {
             HttpClient client = new HttpClient();
@@ -85,7 +84,7 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task<Account> GetUserById(int id)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/accounts?Id=" + id;
+            string uri = "http://localhost:8080/accounts/" + id;
             string message = await httpClient.GetStringAsync(uri);
             Account result = JsonSerializer.Deserialize<Account>(message);
             return result;
@@ -106,15 +105,13 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task UnfollowAccount(int userId, int userToUnfollow)
         {
             HttpClient httpClient = new HttpClient();
-
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:8080/unfollowAccount/" + userId),
-                Content = new StringContent(String.Concat(userToUnfollow), Encoding.UTF8, "application/json")
-            };
-
-            await httpClient.SendAsync(request).ConfigureAwait(false);
+            StringContent content = new StringContent(
+                String.Concat(userToUnfollow),
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/unfollowAccount/" + userId, content);
+            Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
         public async Task<IList<Account>> GetFollowedAccounts(int userId)
@@ -122,6 +119,9 @@ namespace LuckyBlazor.Data.AccountsService
             HttpClient httpClient = new HttpClient();
             string uri = "http://localhost:8080/followedAccounts/" + userId;
             string message = await httpClient.GetStringAsync(uri);
+
+            Console.WriteLine(message);
+            
             IList<Account> result = JsonSerializer.Deserialize<IList<Account>>(message);
             return result;
         }

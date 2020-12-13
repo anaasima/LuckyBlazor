@@ -1,4 +1,4 @@
-@page "/UserProfile/{username}"
+@page "/UserProfile/{Username}"
 @using LuckyBlazor.Model
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Model.Forum.Report
@@ -80,17 +80,22 @@
 
     protected override async Task OnInitializedAsync()
     {
+        _currentAccount = await AccountService.GetUserByUsername(Username);
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         if (_account != null)
         {
             _list = await AccountService.GetFollowedAccounts(_account.UserId);
+
+            Console.WriteLine(_currentAccount.
+                Username);
+            
             if (_currentAccount.Username.Equals(_account.Username))
             {
                 NavigationManager.NavigateTo("/MyPage");
             }
             
         }
-        _currentAccount = await AccountService.GetUserByUsername(Username);
+
         _posts = _currentAccount.PostList;
         
         foreach (var VARIABLE in _list)
@@ -106,7 +111,7 @@
 
     private async Task reportPost(int postId)
     {
-        Report newReport = new Report(_currentAccount.UserId, postId);
+        Report newReport = new Report(_currentAccount.UserId, postId, _currentAccount.Username);
         await ForumService.ReportPost(newReport);
     }
 

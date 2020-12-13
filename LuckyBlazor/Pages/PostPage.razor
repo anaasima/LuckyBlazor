@@ -72,10 +72,10 @@ else
                 <button class="buttons" @onclick="createComment">Post</button>
             </div>
         </div>
-        @foreach (var variable in _post.CommentList)
+        @foreach (var variable in _comments)
         {
             <div class="row comments">
-                <div class="col-3"><label>@String.Concat("@")@getUserById(variable.UserId)</label></div>
+                <div class="col-3"><label>@String.Concat("@")@variable.Username</label></div>
             </div>
             <div class="row comments" id="divideCom">
                 <div class="col-9">
@@ -87,11 +87,11 @@ else
 }
 
 @code {
-    private IList<Account> _listAcc = new List<Account>();
     private Account _account = new Account();
     private IList<Post> _list = new List<Post>();
+    private IList<Comment> _comments = new List<Comment>();
     private string username;
-    private string _content;
+    private string _content = "";
     private Post _post = new Post();
 //TODO don't forget account by id
     [Parameter]
@@ -110,8 +110,16 @@ else
                 break;
             }
         }
+        _comments = _post.CommentList;
     }
-
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+        }
+    }
     private void GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
@@ -119,13 +127,15 @@ else
 
     public void createComment()
     {
-        Comment newComment = new Comment(_content, _account.UserId, Int32.Parse(Id));
+        Comment newComment = new Comment(_content, _account.UserId, Int32.Parse(Id), _account.Username);
         ForumService.CreateComment(newComment);
+        _comments.Add(newComment);
+        _content = "";
     }
 
     private async Task reportPost(int postId)
     {
-        Report newReport = new Report(_account.UserId, postId);
+        Report newReport = new Report(_account.UserId, postId, _account.Username);
         await ForumService.ReportPost(newReport);
     }
 
@@ -138,11 +148,4 @@ else
         await ForumService.DeletePost(Int32.Parse(Id));
     }
 
-    private async Task getUserById(int userId)
-    {
-        Account account = new Account();
-        account = await AccountService.GetUserById(userId);
-        Console.WriteLine(account.Name);
-        username = _account.Name;
-    }
 }

@@ -10,21 +10,21 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-@* <div class="container-fluid"> *@
-@*     <div class="row"></div> *@
-@*     <div class="col-3"> *@
-@*         <input type="radio" id="beginner" name="gender" value="beginner"> *@
-@*         <label for="beginner">Beginner</label> *@
-@*     </div> *@
-@*     <div class="col-3"> *@
-@*         <input type="radio" id="advanced" name="gender" value="advanced"> *@
-@*         <label for="advanced">Advanced</label><br> *@
-@*     </div> *@
-@*     <div class="col-3"> *@
-@*         <button @onclick="DisplayLevelOfSearch">See results</button> *@
-@*     </div> *@
-@* </div> *@
-@* @if (display) *@
+<div class="container-fluid">
+    <div class="row"></div>
+    <div class="col-3">
+        <input type="radio" id="beginner" name="gender" value="beginner">
+        <label for="beginner">Beginner</label>
+    </div>
+    <div class="col-3">
+        <input type="radio" id="advanced" name="gender" value="advanced">
+        <label for="advanced">Advanced</label><br>
+    </div>
+    <div class="col-3">
+        <button @onclick="DisplayLevelOfSearch">See results</button>
+    </div>
+</div>
+@* @if (checkAdvanced) *@
 @* { *@
     <div class="container-fluid" id="tablesField">
         <div class="row">
@@ -221,7 +221,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <p>Your build</p>
-                <input type="text" placeholder="Post something..." @bind-value="_name"><br><br>
+                <input type="text" placeholder="Name the build..." @bind-value="_name"><br><br>
                 <table class="table">
                     <thead>
                     <tr>
@@ -251,7 +251,11 @@
             </div>
         </div>
     </div>
-
+@* } *@
+@* else if (checkBeginner) *@
+@* { *@
+@*     <p>Predefined builds</p> *@
+@* } *@
 @code {
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();
@@ -340,16 +344,8 @@
 
     public async Task DisplayLevelOfSearch()
     {
-        await JsRuntime.InvokeVoidAsync("check", "beginner", checkBeginner);
-        await JsRuntime.InvokeVoidAsync("check", "advanced", checkAdvanced);
-        if (checkBeginner == true && checkAdvanced == false)
-        {
-            display = false;
-        }
-        else if (checkBeginner == false && checkAdvanced == true)
-        {
-            display = true;
-        }
+        await JsRuntime.InvokeVoidAsync("checkBeginner", "beginner", checkBeginner);
+        await JsRuntime.InvokeVoidAsync("checkBeginner", "advanced", checkAdvanced);
     }
 
     public void addPreBuild(Build build)

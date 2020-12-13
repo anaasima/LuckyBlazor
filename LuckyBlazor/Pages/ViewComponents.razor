@@ -219,7 +219,9 @@ else
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _components = new List<Component>();
         _componentsToShow = new List<Component>();
-        _preBuilds = await BuildService.GetAllBuildsAsync(4); //
+        Account _adminAccount = new Account();
+        _adminAccount = await AccountService.GetUserByUsername("ADMIN");
+        _preBuilds = await BuildService.GetAllBuildsAsync(_adminAccount.UserId); //
 
         _components = await ComponentService.GetAllComponentsAsync();
         foreach (var VARIABLE in _components)

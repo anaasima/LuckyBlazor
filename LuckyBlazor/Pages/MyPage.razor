@@ -48,8 +48,8 @@
                             <div class="modal-content">
                                 <span class="close" @onclick="ClickSpan">&times;</span>
                                 <label style="display: none">@openContent(@variable.PostId)</label>
-                                <input id="postContent" type="text" placeholder="Post something..." @bind-value="_editContent">
-                                <button type="button" @onclick="@(() => editPost(_editContent, @variable.PostId))" class="loginButtons">Create</button>
+                                <input id="postContent" type="text" placeholder="Post something..." @bind-value="@variable.Content">
+                                <button type="button" @onclick="@(() => editPost(@variable.Content, @variable.PostId))" class="loginButtons">Create</button>
                             </div>
 
                         </div>
@@ -75,7 +75,7 @@
     private Account _account = new Account();
     private IList<Post> _posts = new List<Post>();
     private string myUsername;
-    private string _editContent;
+    private string _editContent = "";
     private IList<RatingPost> _rating = new List<RatingPost>();
     private int _likes = 0;
 
@@ -175,9 +175,15 @@
     {
         foreach (var VARIABLE in _posts)
         {
+
+            Console.WriteLine("ID" + id);
+            
             if (VARIABLE.PostId == id)
             {
                 _editContent = VARIABLE.Content;
+
+                Console.WriteLine("EDIIIIIIIIIIIIIIIT" + _editContent);
+                
                 break;
             }
         }
