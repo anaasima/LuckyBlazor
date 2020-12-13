@@ -1,18 +1,15 @@
 @page "/EditProfile/{UserId}"
 @using LuckyBlazor.Model
 @inject IAccountService AccountService
-<h3>EditProfile</h3>
 
 <div class="loginForm">
-    <h3>Edit account</h3>
     <input type="text" placeholder="Name..." @bind-value="_name">
     <input type="text" placeholder="Username..." @bind-value="_username">
     <br>
     <input type="password" placeholder="Password.." @bind-value="_password">
     <br>
     <div style="color:red">@_errorMessage</div>
-    <br>
-    <input type="submit" value="Save" @onclick="UpdateAccount">
+    <button type="button" @onclick="UpdateAccount" class="loginButtons">Login</button>
     <p>Do you want to delete your account?</p>
     <a href="" @onclick="DeleteAccount">Delete account</a>
 

@@ -1,6 +1,7 @@
 @page "/CreateBuild"
 @using LuckyBlazor.Model
 @using System.ComponentModel
+@using System.Threading
 @using LuckyBlazor.Authentication
 @using Component = LuckyBlazor.Model.Component
 @inject IComponentService ComponentService
@@ -40,7 +41,7 @@
                     </select> <span></span>
                 </div>
 
-                <table id="x1">
+                <table class="styledTable" id="x1">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -59,8 +60,8 @@
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddMotherboard(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button id="rateBut" @onclick="@(() => AddMotherboard(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
                         </tr>
@@ -68,7 +69,7 @@
                     </tbody>
                 </table>
 
-                <table id="x2">
+                <table class="styledTable" id="x2">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -81,14 +82,14 @@
                     <tbody>
                     @foreach (var variable in CPUsToShow)
                     {
-                        <tr>
+                        <tr id="@variable.Id">
                             <td>@variable.Name</td>
                             <td>@variable.ReleaseYear</td>
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddCPU(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button  id="rateBut" @onclick="@(() => AddCPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
 
@@ -97,7 +98,7 @@
                     </tbody>
                 </table>
 
-                <table id="x3">
+                <table class="styledTable" id="x3">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -110,14 +111,14 @@
                     <tbody>
                     @foreach (var variable in GPUsToShow)
                     {
-                        <tr>
+                        <tr id="@variable.Id">
                             <td>@variable.Name</td>
                             <td>@variable.ReleaseYear</td>
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddGPU(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button  id="rateBut" @onclick="@(() => AddGPU(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
 
@@ -126,7 +127,7 @@
                     </tbody>
                 </table>
 
-                <table id="x4">
+                <table class="styledTable" id="x4">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -139,14 +140,14 @@
                     <tbody>
                     @foreach (var variable in RAMsToShow)
                     {
-                        <tr>
+                        <tr id="@variable.Id">
                             <td>@variable.Name</td>
                             <td>@variable.ReleaseYear</td>
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddRAM(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button  id="rateBut" @onclick="@(() => AddRAM(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
                         </tr>
@@ -154,7 +155,7 @@
                     </tbody>
                 </table>
 
-                <table id="x5">
+                <table class="styledTable" id="x5">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -167,14 +168,14 @@
                     <tbody>
                     @foreach (var variable in suppliesToShow)
                     {
-                        <tr>
+                        <tr id="@variable.Id">
                             <td>@variable.Name</td>
                             <td>@variable.ReleaseYear</td>
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddSupply(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button  id="rateBut" @onclick="@(() => AddSupply(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
                         </tr>
@@ -182,7 +183,7 @@
                     </tbody>
                 </table>
 
-                <table id="x6">
+                <table class="styledTable" id="x6">
                     <thead>
                     <tr class="head">
                         <th>Name</th>
@@ -195,14 +196,14 @@
                     <tbody>
                     @foreach (var variable in storagesToShow)
                     {
-                        <tr>
+                        <tr id="@variable.Id">
                             <td>@variable.Name</td>
                             <td>@variable.ReleaseYear</td>
                             <td>@variable.Brand</td>
                             <td>@variable.AdditionalInformation</td>
                             <td>
-                                <button class="forumButtons" @onclick="@(() => AddStorage(variable.Id))">
-                                    <i class="oi oi-plus" style="color: black"></i>
+                                <button  id="rateBut" @onclick="@(() => AddStorage(variable.Id))">
+                                    <i class="oi oi-plus" style="color: white"></i>
                                 </button>
                             </td>
                         </tr>
@@ -210,7 +211,8 @@
                     </tbody>
                 </table>
 
-                <button class="btn btn-primary" @onclick="FinishBuild">Finish build</button>
+                <button class="btn btn-primary myPageButtons" style="margin-right: 10px" @onclick="FinishBuild">Finish</button>
+                <button class="btn btn-primary myPageButtons" @onclick="resetBuild">Reset</button>
             </div>
         </div>
     </div>
@@ -242,51 +244,14 @@
                     }
                     </tbody>
                 </table>
-                <button class="btn btn-primary" @onclick="createBuild">Save build</button>
-                <button class="btn btn-primary" @onclick="reset">Reset build</button>
+                <button class="myPageButtons" @onclick="createBuild">Save build</button>
+                <button class="myPageButtons" @onclick="resetBuild">Reset build</button>
 
 
             </div>
         </div>
     </div>
-@* } *@
-@* else if (!display) *@
-@* { *@
-@*     @foreach (var variable in _preBuilds) *@
-@*     { *@
-@*         <label> @variable.Name </label> *@
-@* *@
-@*         <table class="table"> *@
-@*             <thead> *@
-@*             <tr> *@
-@*                 <th>Type</th> *@
-@*                 <th>Brand</th> *@
-@*                 <th>Name</th> *@
-@*                 <th>Release Year</th> *@
-@*                 <th>Aditional Information</th> *@
-@*                 <th><button class="btn btn-primary" @onclick="@(() => addPreBuild(variable))"> *@
-@*                     <i class="oi oi-plus"></i> *@
-@*                 </button></th> *@
-@*             </tr> *@
-@*             </thead> *@
-@* *@
-@*             <tbody> *@
-@* *@
-@*             @for (int i = 0; i < variable.ComponentList.Count; i++) *@
-@*             { *@
-@*                 <tr> *@
-@*                     <td>@variable.ComponentList[i].Type</td> *@
-@*                     <td>@variable.ComponentList[i].Brand</td> *@
-@*                     <td>@variable.ComponentList[i].Name</td> *@
-@*                     <td>@variable.ComponentList[i].ReleaseYear</td> *@
-@*                     <td>@variable.ComponentList[i].AdditionalInformation</td> *@
-@*                 </tr> *@
-@*             } *@
-@*             </tbody> *@
-@*         </table> *@
-@*     } *@
-@* *@
-@* } *@
+
 @code {
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();
@@ -656,6 +621,13 @@
                 }
             }
         }
+    }
+
+    private void resetBuild()
+    {
+        NavigationManager.NavigateTo("/");
+        Thread.Sleep(1);
+        NavigationManager.NavigateTo("/CreateBuild");
     }
 
 }

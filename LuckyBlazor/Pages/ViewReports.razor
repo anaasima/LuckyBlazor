@@ -18,8 +18,8 @@
         @foreach (var variable in _reports)
         {
             <tr>
-                <td><a href="" @onclick="@(() => GoToUserProfile(_username))"><label>@getUserById(variable.userId)</label></a></td>
-                <td><a href="" @onclick="@(() => GoToPostPage(@variable.postId))">@variable.postId</a>
+                <td><a href="" @onclick="@(() => GoToUserProfile(_username))"><label>@variable.userId</label></a></td>
+                <td><a href="" @onclick="@(() => GoToPostPage(@variable.postId))">@variable.postId</a></td>
                 <td><button class="forumButtons" @onclick="@(() => deleteReport(variable.id))">
                                             <i class="oi oi-trash" style="color: #555555"></i>
                                         </button></td>
@@ -49,6 +49,7 @@
         Account newAccount = new Account();
         newAccount = await AccountService.GetUserById(id);
         _username = newAccount.Username;
+        Console.WriteLine(newAccount.Username);
         return newAccount.Username;
     }
     

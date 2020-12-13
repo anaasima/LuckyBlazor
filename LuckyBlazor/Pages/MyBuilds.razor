@@ -1,9 +1,12 @@
 @page "/MyBuilds"
 @using LuckyBlazor.Model
 @using LuckyBlazor.Authentication
+@using LuckyBlazor.Data.ForumService
+@using LuckyBlazor.Model.Forum
 @inject IBuildService BuildService
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IForumService ForumService
 <div class="container-fluid">
 @foreach (var variable in _builds)
 {
@@ -15,14 +18,17 @@
         </div>
             <div class="col-1">
             <button class="forumButtons" @onclick="@(() => NavigateToEdit(String.Concat(@variable.Id)))">
-                <i class="oi oi-wrench" style="color: darkblue"></i>
+                <i class="oi oi-wrench" style="color: #555555"></i>
             </button>
-            <button class="forumButtons" @onclick="@(() => DeleteBuild(@variable.Id))">
-                <i class="oi oi-trash" style="color: #555555"></i>
-            </button>
+                <button class="forumButtons" @onclick="@(() => DeleteBuild(@variable.Id))">
+                    <i class="oi oi-trash" style="color: #555555"></i>
+                </button>
+                <button class="forumButtons" @onclick="@(() => PostBuild(@variable))">
+                    <i class="oi oi-data-transfer-upload" style="color: #555555"></i>
+                </button>
         </div>
     </div>
-    <table class="table" id="styledTable">
+    <table class="table styledTable">
         <thead>
         <tr>
             <th>Name</th>
@@ -81,4 +87,9 @@
         NavigationManager.NavigateTo("/EditBuild/" + String.Concat(id));
     }
 
+    private async Task PostBuild(Build build)
+    {
+        Post post = new Post(build.ToString(), _account.UserId);
+        await ForumService.CreatePost(post);
+    }
 }

@@ -1,9 +1,8 @@
 @page "/AddNewComponent"
 @using LuckyBlazor.Model
 @inject IComponentService ComponentService
-<h3>AddNewComponent</h3>
-<div class="loginForm">
-    <h3>Add new component</h3>
+<center><h3>Add component</h3></center>
+<div class="componentsForm">
     <input type="text" placeholder="Name..." @bind-value="_name">
     <input type="text" placeholder="Type..." @bind-value="_type">
     <br>
@@ -14,7 +13,7 @@
     <input type="text" placeholder="Additional Information..." @bind-value="_additionalInformation">
     <br>
     <div style="color:red">@_errorMessage</div>
-    <input type="submit" value="Save" @onclick="CreateComponent">
+    <button type="button" @onclick="CreateComponent" class="loginButtons">Create</button>
 
 </div>
 @code {

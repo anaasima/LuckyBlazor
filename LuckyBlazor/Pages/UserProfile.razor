@@ -3,38 +3,51 @@
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Model.Forum.Report
 @using LuckyBlazor.Data.ForumService
+@using LuckyBlazor.Authentication
 @inject IAccountService AccountService
 @inject IForumService ForumService
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IJSRuntime JsRuntime
 <div class="container-fluid">
     <div class="row" id="rowMain">
         <div class="col-3" id="myPageUser">
             <h3>@String.Concat("@")@Username</h3>
         </div>
+        <div class="col-1 d-flex justify-content-center align-items-center">
+            <AuthorizeView>
+            <button class="myPageButtons" @onclick="follow" id="follow">Follow</button>
+            <button class="myPageButtons" style="display: none" @onclick="unfollow" id="unfollow">Unfollow</button>
+            </AuthorizeView>
+        </div>
     </div>
     @foreach (var variable in _posts)
     {
-        <div class="row">
-            <div class="col-2">
-                @String.Concat("@")@variable.Username
-                <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
-                    <i class="oi oi-warning" style="color: #555555"></i>
-                </button>
-                <button class="forumButtons" @onclick="@(() => savePost(variable))">
-                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                </button>
+        <div class="forumForm">
+            <div class="row">
+                <AuthorizeView>
+                    <div class="col-2">
+                        @String.Concat("@")@variable.Username
+                        <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
+                            <i class="oi oi-warning" style="color: #555555"></i>
+                        </button>
+                        <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
+                            <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                        </button>
+                    </div>
+                </AuthorizeView>
             </div>
-        </div>
         <div class="row" id="comments">
             <div class="col-12">
                 <p>@variable.Content</p>
             </div>
         </div>
-        <div class="row" id="seeComments">
-            <div class="col-4">
-                <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+            <div class="row" id="seeComments">
+                <div class="col-4">
+                    <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                </div>
             </div>
-        </div>
+            </div>
     }
 </div>
 @* <h6>@Username's posts are</h6> *@
@@ -54,7 +67,9 @@
 
 @code {
     private Account _currentAccount;
+    private Account _account;
     private IList<Post> _posts = new List<Post>();
+    private IList<Account> _list = new List<Account>();
 
     [Parameter]
     public string Username { get; set; }
@@ -64,8 +79,22 @@
 
     protected override async Task OnInitializedAsync()
     {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _currentAccount = await AccountService.GetUserByUsername(Username);
         _posts = _currentAccount.PostList;
+        _list = await AccountService.GetFollowedAccounts(_account.UserId);
+        foreach (var VARIABLE in _list)
+        {
+            if (VARIABLE.Username.Equals(_currentAccount.Username))
+            {
+                await JsRuntime.InvokeVoidAsync("follow");
+                break;
+            }
+        }
+        if (_currentAccount.Username.Equals(_account.Username))
+        {
+            NavigationManager.NavigateTo("/MyPage");
+        }
     }
 
     private async Task reportPost(int postId)
@@ -85,4 +114,15 @@
         NavigationManager.NavigateTo("/PostPage/" + Id);
     }
 
+    private async Task follow()
+    {
+        await AccountService.FollowAccount(_account.UserId, _currentAccount.UserId);
+        await JsRuntime.InvokeVoidAsync("follow");
+    }
+
+    private async Task unfollow()
+    {
+        await AccountService.UnfollowAccount(_account.UserId, _currentAccount.UserId);
+        await JsRuntime.InvokeVoidAsync("unfollow");
+    }
 }

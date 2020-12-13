@@ -112,7 +112,7 @@ namespace LuckyBlazor.Data.ForumService
         public async Task DeleteReport(int id)
         {
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage responseMessage = await httpClient.DeleteAsync($"http://localhost:8080/reports?Id={id}");
+            HttpResponseMessage responseMessage = await httpClient.DeleteAsync($"http://localhost:8080/reports/{id}");
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
@@ -152,6 +152,9 @@ namespace LuckyBlazor.Data.ForumService
             HttpClient httpClient = new HttpClient();
             string uri = $"http://localhost:8080/savedPosts/{userId}";
             string message = await httpClient.GetStringAsync(uri);
+
+            Console.WriteLine(message);
+            
             IList<Post> result = JsonSerializer.Deserialize<IList<Post>>(message);
             return result;
         }

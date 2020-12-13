@@ -4,9 +4,12 @@
 @using LuckyBlazor.Data.ForumService
 @using LuckyBlazor.Model.Forum
 @using LuckyBlazor.Model.Rating
+@using System.Reflection.Metadata
+@using Microsoft.Extensions.Configuration
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IForumService ForumService
+@inject IJSRuntime JsRuntime
 <AuthorizeView>
     <Authorized>
         <div class="container-fluid">
@@ -16,60 +19,72 @@
                 </div>
                 <div class="col-3 justify-content-center align-content-center" id="myPageUser">
                     <button class="myPageButtons" @onclick="GoToEditProfile">Edit profile</button>
-                    <button class="myPageButtons" @onclick="@(() => GoToSavedPosts(userId))">Saved posts</button>
+                    <button class="myPageButtons" @onclick="@(() => GoToSavedPosts())">Saved posts</button>
                 </div>
             </div>
 
-        @* <button class="buttons" @onclick="GoToMyBuilds">My Builds</button> *@
-        @* <div class="container-fluid"> *@
-        @foreach (var variable in _posts)
-        {
-            <div class="row">
-                <div class="col-2">
-                    @String.Concat("@")@variable.Username
-                    <button class="forumButtons" id="reportButton" @onclick="@(() => deletePost(variable.PostId))">
-                        <i class="oi oi-trash" style="color: #555555"></i>
-                    </button>
-                    <button class="forumButtons"><i class="oi oi-wrench" style="color:#555555"></i></button>
-                </div>
-                <div class="col-2 ml-auto">
-                    <a href="#openModal" onclick="@(() => openEditedPost(variable))">Edit post...</a>
-                    
-                    <div id="openModal" class="modalDialog">
-                        <div>	<a href="#close" title="Close" class="close">X</a>
-                            <input type="text" id="lname" name="lname" @bind-value="_editContent"><br><br>
-                            <button class="buttons" @onclick="@(() => editPost(variable))">Post</button>
+            @* <button class="buttons" @onclick="GoToMyBuilds">My Builds</button> *@
+            @* <div class="container-fluid"> *@
+            @foreach (var variable in _posts)
+            {
+                <div class="forumForm">
+                <div class="row">
+                    <div class="col-2">
+                        @String.Concat("@")@variable.Username
+                        <button class="forumButtons" id="background" @onclick="@(() => deletePost(variable.PostId))">
+                            <i class="oi oi-trash" style="color: #555555"></i>
+                        </button>
+                    </div>
+                    <div class="col-2 ml-auto">
+
+
+                        <!-- Trigger/Open The Modal -->
+                        <button id="myBtn" @onclick="ClickButton">Edit post...</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close" @onclick="ClickSpan">&times;</span>
+                                <label style="display: none">@openContent(@variable.PostId)</label>
+                                <input id="postContent" type="text" placeholder="Post something..." @bind-value="_editContent">
+                                <button type="button" @onclick="@(() => editPost(_editContent, @variable.PostId))" class="loginButtons">Create</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row" id="comments">
-                <div class="col-12">
-                    <p>@variable.Content</p>
-                </div>
-            </div>
-            <div class="row" id="seeComments">
-                    <div class="col-4">
-                        <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                <div class="row" id="comments">
+                    <div class="col-12" style="text-align: justify">
+                        <p>@variable.Content</p>
                     </div>
                 </div>
-        }
+                    <div class="row" id="seeComments">
+                        <div class="col-4">
+                            <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                        </div>
+                    </div>
+                    </div>
+            }
         </div>
     </Authorized>
 </AuthorizeView>
+
 @code {
     private Account _account = new Account();
     private IList<Post> _posts = new List<Post>();
     private string myUsername;
     private string _editContent;
     private IList<RatingPost> _rating = new List<RatingPost>();
-    private int _likes=0;
-    
+    private int _likes = 0;
+
     [Parameter]
     public string Id { get; set; }
+
     [Parameter]
     public string userId { get; set; }
-    
+
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
@@ -77,11 +92,17 @@
         userId = String.Concat(_account.UserId);
 
         Console.WriteLine(_account.Username);
-        
-        
+
+
         _posts = await ForumService.GetPostsByUserId(_account.UserId);
     }
-
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        }
+    }
     private void GoToEditProfile()
     {
         NavigationManager.NavigateTo("/EditProfile/" + _account.UserId);
@@ -98,10 +119,11 @@
         NavigationManager.NavigateTo("/PostPage/" + Id);
     }
 
-    private void GoToSavedPosts(string userId)
+    private void GoToSavedPosts()
     {
-        NavigationManager.NavigateTo("/SavedPosts/" + userId);
+        NavigationManager.NavigateTo("/SavedPosts");
     }
+
     private async Task deletePost(int postId)
     {
         await ForumService.DeletePost(postId);
@@ -115,21 +137,25 @@
         }
     }
 
-    private void openEditedPost(Post post)
+    private async Task editPost(string content, int id)
     {
-        _editContent = post.Content;
-    }
-
-    private async Task editPost(Post post)
-    {
-        Post editPost = post;
-        editPost.Content = _editContent;
+        Post post = new Post();
+        foreach (var VARIABLE in _posts)
+        {
+            if (VARIABLE.PostId == id)
+            {
+                post = VARIABLE;
+                break;
+            }
+        }
+        post.Content = content;
         await ForumService.EditPost(post);
+        _editContent = "";
     }
 
     private int getLikes(int postId)
     {
-       int sum = 0;
+        int sum = 0;
         foreach (var VARIABLE in _posts)
         {
             if (VARIABLE.PostId == postId)
@@ -144,5 +170,26 @@
         _likes = sum;
         return _likes;
     }
-    
+
+    private String openContent(int id)
+    {
+        foreach (var VARIABLE in _posts)
+        {
+            if (VARIABLE.PostId == id)
+            {
+                _editContent = VARIABLE.Content;
+                break;
+            }
+        }
+        return _editContent;
+    }
+    private async Task ClickButton()
+    {
+        await JsRuntime.InvokeVoidAsync("clickButton");
+    }
+
+    private async Task ClickSpan()
+    {
+        await JsRuntime.InvokeVoidAsync("clickSpan");
+    }
 }

@@ -346,6 +346,7 @@
                 {
                     Console.WriteLine("DSA");
                     cpu = VARIABLE;
+                    _myBuild.Add(cpu);
                 }
             }
         }
@@ -359,6 +360,7 @@
                 {
                     Console.WriteLine("DSA" + VARIABLE.Id);
                     motherboard = VARIABLE;
+                    _myBuild.Add(motherboard);
                 }
             }
         }
@@ -371,6 +373,7 @@
                 {
                     Console.WriteLine("DSA");
                     ram = VARIABLE;
+                    _myBuild.Add(ram);
                 }
             }
         }
@@ -383,6 +386,8 @@
                 {
                     Console.WriteLine("DSA");
                     powerSupply = VARIABLE;
+                    Console.WriteLine("ddddd" + powerSupply.Name);
+                    _myBuild.Add(powerSupply);
                 }
             }
         }
@@ -396,10 +401,10 @@
                     Console.WriteLine("DSA");
                     storage = VARIABLE;
                     Console.WriteLine(storage.Name + "fgerrfggf");
+                    _myBuild.Add(storage);
                 }
             }
         }
-        // await this.OnAfterRenderAsync(true);
     }
     // protected override async Task OnAfterRenderAsync(bool firstRender)
     // {
@@ -452,7 +457,6 @@ public async Task AddMotherboard(int id)
                 }
                 await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
                 Sort(VARIABLE);
-                mB = true;
             }
             else
             {
@@ -480,7 +484,6 @@ public async Task AddMotherboard(int id)
                 }
                 await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
                 Sort(VARIABLE);
-                cpuB = true;
             
             }
             else
@@ -510,7 +513,6 @@ public async Task AddMotherboard(int id)
                 Console.WriteLine(id);
                 await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
                 Sort(VARIABLE);
-                gpuB = true;
             }
             else
             {
@@ -570,7 +572,6 @@ public async Task AddMotherboard(int id)
                 await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
 
                 Sort(VARIABLE);
-                storageB = true;
             }
             else
             {
@@ -600,7 +601,6 @@ public async Task AddMotherboard(int id)
                 await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(id));
 
                 Sort(VARIABLE);
-                supplyB = true;
             }
             else
             {

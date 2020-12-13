@@ -7,6 +7,7 @@
 @inject NavigationManager NavigationManager
 @inject IBuildService BuildService
 @inject IComponentService ComponentService
+@inject IJSRuntime JsRuntime
 @if (_components == null)
 {
     <p>
@@ -21,93 +22,168 @@ else if (!_components.Any())
 }
 else
 {
-    <table class="table" id="styledTable">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Type</th>
-            <th>Release Year</th>
-            <th>Aditional Information</th>
-            <th>People's opinion</th>
-            <th>Rate</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in _componentsToShow)
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <button class="components" @onclick="showMotherboards"><b>See motherboards</b></button>
+            </div>
+            <div class="col-2">
+                <button class="components" @onclick="showCpu"><b>See CPUs</b></button>
+            </div>
+            <div class="col-2">
+                <button class="components" @onclick="showGpu"><b>See GPUs</b></button>
+            </div>
+            <div class="col-2">
+                <button class="components" @onclick="showRam"><b>See RAMs</b></button>
+            </div>
+            <div class="col-2">
+                <button class="components" @onclick="showSupply"><b>See power supplies</b></button>
+            </div>
+            <div class="col-2">
+                <button class="components" @onclick="showStorage"><b>See storages</b></button>
+            </div>
+        </div>
+        <div class="row">
+                    <div class="col-12">
+                        <center><h3>Predefined builds</h3></center>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table styledTable">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Type</th>
+                        <th>Release Year</th>
+                        <th>Aditional Information</th>
+                        <th>People's opinion</th>
+                        <th>Rate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in _componentsToShow)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Brand</td>
+                            <td>@item.Type</td>
+                            <td>@item.ReleaseYear</td>
+                            <td>@item.AdditionalInformation</td>
+                            <td>
+                                <label>@averageStarRatingComponents(item.Id)</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 1))">
+                                    1
+                                </button>
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 2))">
+                                    2
+                                </button>
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 3))">
+                                    3
+                                </button>
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 4))">
+                                    4
+                                </button>
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 5))">
+                                    5
+                                </button>
+                            </td>
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <center><h3>Predefined builds</h3></center>
+            </div>
+        </div>
+        @foreach (var variable in _preBuilds)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Brand</td>
-                <td>@item.Type</td>
-                <td>@item.ReleaseYear</td>
-                <td>@item.AdditionalInformation</td>
-                <td>
-                                    <label>@averageStarRatingComponents(item.Id)</label>
-                                </td>
-                <td>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 1))">
-                        1
-                    </button>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 2))">
-                        2
-                    </button>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 3))">
-                        3
-                    </button>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 4))">
-                        4
-                    </button>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 5))">
-                        5
-                    </button>
-                </td>
-                
-            </tr>
+            <div class="row">
+                <div class="col-12">
+                    <label><b>@variable.Name</b></label>
+                    <br>
+                    <label>People's opinion: @averageStarRatingBuilds(variable.Id) stars out of 5</label>
+                    <br>
+                    <label style="font-size: 22px;">How do you rate it?</label>
+                     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 1))">
+                                                        1
+                                                    </button>
+                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 2))">
+                                                        2
+                                                    </button>
+        
+                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 3))">
+                                                        3
+                                                    </button>
+        
+                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 4))">
+                                                        4
+                                                    </button>
+                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 5))">
+                                                        5
+                                                    </button>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Release Year</th>
+                            <th>Aditional Information</th>
+                            @* <th> *@
+                            @*     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 1))"> *@
+                            @*         1 *@
+                            @*     </button> *@
+                            @* </th> *@
+                            @* <th> *@
+                            @*     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 2))"> *@
+                            @*         2 *@
+                            @*     </button> *@
+                            @* </th> *@
+                            @* <th> *@
+                            @*     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 3))"> *@
+                            @*         3 *@
+                            @*     </button> *@
+                            @* </th> *@
+                            @* <th> *@
+                            @*     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 4))"> *@
+                            @*         4 *@
+                            @*     </button> *@
+                            @* </th> *@
+                            @* <th> *@
+                            @*     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 5))"> *@
+                            @*         5 *@
+                            @*     </button> *@
+                            @* </th> *@
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        @for (int i = 0; i < variable.ComponentList.Count; i++)
+                        {
+                            <tr>
+                                <td>@variable.ComponentList[i].Type</td>
+                                <td>@variable.ComponentList[i].Brand</td>
+                                <td>@variable.ComponentList[i].Name</td>
+                                <td>@variable.ComponentList[i].ReleaseYear</td>
+                                <td>@variable.ComponentList[i].AdditionalInformation</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         }
-        </tbody>
-    </table>
-@*     <h3>Predefined builds</h3> *@
-@*     @foreach (var variable in _preBuilds) *@
-@*     { *@
-@*         <label> @variable.Name </label> *@
-@* *@
-@*         <table class="table"> *@
-@*             <thead> *@
-@*             <tr> *@
-@*                 <th>Type</th> *@
-@*                 <th>Brand</th> *@
-@*                 <th>Name</th> *@
-@*                 <th>Release Year</th> *@
-@*                 <th>Aditional Information</th> *@
-@*                 <th><button class="btn btn-primary" @onclick="@(() => rateBuild(variable.Id, 1))">1 *@
-@*                                 </button></th> *@
-@*                                 <th><button class="btn btn-primary" @onclick="@(() => rateBuild(variable.Id, 2))">2 *@
-@*                                 </button></th> *@
-@*                                 <th><button class="btn btn-primary" @onclick="@(() => rateBuild(variable.Id, 3))">3 *@
-@*                                 </button></th> *@
-@*                                 <th><button class="btn btn-primary" @onclick="@(() => rateBuild(variable.Id, 4))">4 *@
-@*                                 </button></th> *@
-@*                                 <th><button class="btn btn-primary" @onclick="@(() => rateBuild(variable.Id, 5))">5 *@
-@*                                 </button></th> *@
-@*                                 <th @bind-value="_buildAverageRating"></th> *@
-@*             </tr> *@
-@*             </thead> *@
-@* *@
-@*             <tbody> *@
-@* *@
-@*             @for (int i = 0; i < variable.ComponentList.Count; i++) *@
-@*             { *@
-@*                 <tr> *@
-@*                     <td>@variable.ComponentList[i].Type</td> *@
-@*                     <td>@variable.ComponentList[i].Brand</td> *@
-@*                     <td>@variable.ComponentList[i].Name</td> *@
-@*                     <td>@variable.ComponentList[i].ReleaseYear</td> *@
-@*                     <td>@variable.ComponentList[i].AdditionalInformation</td> *@
-@*                 </tr> *@
-@*             } *@
-@*             </tbody> *@
-@*         </table> *@
+    </div>
 }
 
 
@@ -121,6 +197,12 @@ else
     private IList<Component> _components;
     private IList<Component> _componentsToShow; //TODO: this will later have filters
     private IList<Build> _preBuilds = new List<Build>();
+    private IList<Component> _motherboards = new List<Component>();
+    private IList<Component> _cpus = new List<Component>();
+    private IList<Component> _rams = new List<Component>();
+    private IList<Component> _gpus = new List<Component>();
+    private IList<Component> _supplies = new List<Component>();
+    private IList<Component> _storage = new List<Component>();
     private double _componentAverageRating = 0;
     private double _buildAverageRating = 0;
     private IList<RatingComponent> _ratingComponents = new List<RatingComponent>();
@@ -133,10 +215,33 @@ else
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _components = new List<Component>();
         _componentsToShow = new List<Component>();
-    // _preBuilds = await BuildService.GetAllBuildsAsync(45);//TODO don't forget to put id from admin
-
+        _preBuilds = await BuildService.GetAllBuildsAsync(4); //
 
         _components = await ComponentService.GetAllComponentsAsync();
+        foreach (var VARIABLE in _components)
+        {
+            switch (VARIABLE.Type)
+            {
+                case "CPU":
+                    _cpus.Add(VARIABLE);
+                    break;
+                case "GPU":
+                    _gpus.Add(VARIABLE);
+                    break;
+                case "RAM":
+                    _gpus.Add(VARIABLE);
+                    break;
+                case "Storage":
+                    _storage.Add(VARIABLE);
+                    break;
+                case "Power supply":
+                    _supplies.Add(VARIABLE);
+                    break;
+                case "Motherboard":
+                    _motherboards.Add(VARIABLE);
+                    break;
+            }
+        }
         _componentsToShow = _components;
     }
 
@@ -145,7 +250,7 @@ else
         if (firstRender)
         {
             _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-            // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
     }
 
@@ -175,7 +280,7 @@ else
             }
         }
         _componentAverageRating = component.AverageRating();
-        if (!(_componentAverageRating>=0))
+        if (!(_componentAverageRating >= 0))
         {
             _componentAverageRating = 0;
         }
@@ -200,23 +305,48 @@ else
     // _componentAverageRating = sum/_ratingComponents.Count;
     }
 
-    private void averageStarRatingBuilds(int buildId)
+    private double averageStarRatingBuilds(int buildId)
     {
-        Build build = new Build();
-        double sum = 0;
+        Build component = new Build();
         foreach (var VARIABLE in _preBuilds)
         {
             if (VARIABLE.Id == buildId)
             {
-                build = VARIABLE;
+                component = VARIABLE;
+                break;
             }
         }
-        _ratingBuilds = build.RatingBuilds;
-        foreach (var VARIABLE in _ratingBuilds)
+        _buildAverageRating = component.AverageRating();
+        if (!(_buildAverageRating >= 0))
         {
-            sum += VARIABLE.score;
+            _buildAverageRating = 0;
         }
-        _buildAverageRating = sum / _ratingBuilds.Count;
+        return _buildAverageRating;
     }
 
+    private void showMotherboards()
+    {
+        _componentsToShow = _motherboards;
+    }
+
+    private void showCpu()
+    {
+        _componentsToShow = _cpus;
+    }
+    private void showGpu()
+    {
+        _componentsToShow = _gpus;
+    }
+    private void showRam()
+    {
+        _componentsToShow = _rams;
+    }
+    private void showStorage()
+    {
+        _componentsToShow = _storage;
+    }
+    private void showSupply()
+    {
+        _componentsToShow = _supplies;
+    }
 }

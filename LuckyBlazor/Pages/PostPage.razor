@@ -26,14 +26,16 @@ else if (!_post.CommentList.Any())
                 <p>@_post.Content</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-11 d-flex justify-content-center">
-                <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
+        <AuthorizeView>
+            <div class="row">
+                <div class="col-11 d-flex justify-content-center">
+                    <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center">
+                    <button class="buttons" @onclick="createComment">Post</button>
+                </div>
             </div>
-            <div class="col-1 d-flex justify-content-center align-items-center">
-                <button class="buttons" @onclick="createComment">Post</button>
-            </div>
-        </div>
+        </AuthorizeView>
     </div>
 }
 else
@@ -70,11 +72,10 @@ else
                 <button class="buttons" @onclick="createComment">Post</button>
             </div>
         </div>
-
         @foreach (var variable in _post.CommentList)
         {
             <div class="row comments">
-                <div class="col-3">@String.Concat("@username")</div>
+                <div class="col-3"><label>@String.Concat("@")@getUserById(variable.UserId)</label></div>
             </div>
             <div class="row comments" id="divideCom">
                 <div class="col-9">
@@ -89,9 +90,10 @@ else
     private IList<Account> _listAcc = new List<Account>();
     private Account _account = new Account();
     private IList<Post> _list = new List<Post>();
+    private string username;
     private string _content;
     private Post _post = new Post();
-
+//TODO don't forget account by id
     [Parameter]
     public string Id { get; set; }
 
@@ -134,5 +136,13 @@ else
     private async Task deletePost(string Id )
     {
         await ForumService.DeletePost(Int32.Parse(Id));
+    }
+
+    private async Task getUserById(int userId)
+    {
+        Account account = new Account();
+        account = await AccountService.GetUserById(userId);
+        Console.WriteLine(account.Name);
+        username = _account.Name;
     }
 }

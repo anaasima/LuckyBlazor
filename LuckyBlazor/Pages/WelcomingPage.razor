@@ -8,21 +8,23 @@
     <NotAuthorized>
         <div class="loginForm">
             <input type="text" placeholder="Username" @bind-value="_username">
-        	<br>
-            <input type="password" placeholder="Password" @bind-value="_password">
             <br>
-            <div style="color:red">@_errorMessage</div>
             <br>
-            <input type="submit" value="Login" @onclick="PerformLogin">
+            <input  type="password" placeholder="Password" @bind-value="_password">
+            <br>
+            <div  style="color:red">@_errorMessage</div>
+            <br>
+            <button type="button" @onclick="PerformLogin" class="loginButtons">Login</button>
+            <br>
             <br>
             <div>
-            <a href="" @onclick="GoToRegisterPage">Don't have an account? Click here to register!
-            </a>
-            <br>
-            <a href="" @onclick="GoToViewComponents">Continue as guest
-            </a>
+                <a href="" @onclick="GoToRegisterPage">Don't have an account? Click here to register!
+                </a>
+                <br>
+                <a href="" @onclick="GoToViewComponents">Continue as guest
+                </a>
             </div>
-            </div>
+        </div>
     </NotAuthorized>
     <Authorized>
         <a href="" @onclick="PerformLogout">

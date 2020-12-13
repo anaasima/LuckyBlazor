@@ -9,8 +9,10 @@
 @using LuckyBlazor.Authentication
 @using LuckyBlazor.Model.Forum.Report
 @using LuckyBlazor.Model.Rating
+@using System.Diagnostics.Eventing.Reader
 <div class="container-fluid">
-    <div class="row">
+    <AuthorizeView>
+    <div class="row" id="allignMain">
         <div class="col-11 d-flex justify-content-center">
             <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
         </div>
@@ -18,67 +20,80 @@
             <button class="buttons" @onclick="postOnForum">Post</button>
         </div>
     </div>
+    </AuthorizeView>
     <div class="row">
-    <div class="col-6">
-        @foreach (var variable in _posts)
+        <div class="col-9">
+            @foreach (var variable in _posts)
+            {
+                <div class="forumForm">
+                    <div class="row">
+
+                        <div class="col-9">
+
+                            <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
+                            <AuthorizeView>
+                                <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
+                                    <i class="oi oi-warning" style="color: #555555"></i>
+                                </button>
+                                <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
+                                    <i class="oi oi-data-transfer-download" style="color: #555555"></i>
+                                </button>
+                            </AuthorizeView>
+                            <AuthorizeView Policy="Moderator">
+                                <button class="forumButtons" id="background" @onclick="@(() => deletePost(variable.PostId))">
+                                    <i class="oi oi-trash" style="color: #555555"></i>
+                                </button>
+                            </AuthorizeView>
+                        </div>
+                    </div>
+                    <div class="row comments">
+                        <div class="col-12" style="text-align: justify">
+                            <p>@variable.Content</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <AuthorizeView>
+                            <div class="1-col">
+                                <button class="forumButtons margin" id="background" @onclick="@(() => like(variable.PostId))"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
+                                <button class="forumButtons margin" id="background" @onclick="@(() => dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
+                            </div>
+                        </AuthorizeView>
+                        <div class="2-col">
+                            <div class="col-3">
+                                <label>@getLikes(variable.PostId)likes</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="seeComments">
+                        <div class="col-4">
+                            <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        @if (followedAccounts == null || !followedAccounts.Any())
         {
-            <div class="row">
-
-                <div class="col-3">
-
-                    <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
-                    <AuthorizeView>
-                        <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(variable.PostId))">
-                            <i class="oi oi-warning" style="color: #555555"></i>
-                        </button>
-                        <button class="forumButtons" @onclick="@(() => savePost(variable))">
-                            <i class="oi oi-data-transfer-download" style="color: #555555"></i>
-                        </button>
-                    </AuthorizeView>
-                    <AuthorizeView Policy="Moderator">
-                        <button class="forumButtons" @onclick="@(() => deletePost(variable.PostId))">
-                            <i class="oi oi-trash" style="color: #555555"></i>
-                        </button>
-                    </AuthorizeView>
-                </div>
-            </div>
-            <div class="row comments">
-                <div class="col-12">
-                    <p>@variable.Content</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="1-col">
-                    <button class="forumButtons" @onclick="@(() => like(variable.PostId))"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
-                    <button class="forumButtons" @onclick="@(() => dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
-                </div>
-                <div class="2-col">
-                <div class="col-2">
-                                    <label>@getLikes(variable.PostId)</label>
-                                </div>
-                </div>
-            </div>
-            <div class="row" id="seeComments">
-                <div class="col-4">
-                    <a href="" @onclick="@(() => GoToPostPage(variable.PostId))">See comments</a>
-                </div>
+            <p>You don't follow any account</p>
+        }
+        else
+        {
+            <div class="col-3 justify-content-end">
+                <table class="table" style="text-align: center">
+                    <tbody>
+                    @foreach (var variable in followedAccounts)
+                    {
+                        <tr>
+                            <th scope="row">@variable.Name</th>
+                            <th scope="row"><a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a></th>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         }
-            </div>
-        <div class="col-6">
-            <table class="table">
-                <tbody>
-                @foreach (var variable in followedAccounts)
-                {
-                    <tr>
-                        <th scope="row">@variable.Name</th>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        </div>
-        </div>
     </div>
+</div>
 
 @code {
     private IList<Post> _posts = new List<Post>();
@@ -95,24 +110,33 @@
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         _posts = await ForumService.GetAllPosts();
-        followedAccounts = await AccountService.GetFollowedAccounts(_account.UserId);
-
+        if (_account != null)
+        {
+            followedAccounts = await AccountService.GetFollowedAccounts(_account.UserId);
+        }
         foreach (var VARIABLE in _posts)
         {
             Console.WriteLine(VARIABLE);
         }
         
     }
-
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+        }
+    }
     private void GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
     }
 
-    private void postOnForum()
+    private async Task postOnForum()
     {
         Post post = new Post(_postContent, _account.UserId);
-        ForumService.CreatePost(post);
+        await ForumService.CreatePost(post);
         _postContent = "";
     }
 

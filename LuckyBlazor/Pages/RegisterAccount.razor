@@ -10,15 +10,19 @@ display: none !important;
 </style>
 
 <div class="loginForm">
-    <h3>Create a new account</h3>
+    <h3>Create account...</h3>
     <input type="text" placeholder="Name..." @bind-value="_name">
+    <br>
     <input type="text" placeholder="Username..." @bind-value="_username">
     <br>
     <input type="password" placeholder="Password.." @bind-value="_password">
     <br>
     <div style="color:red">@_errorMessage</div>
     <br>
-    <input type="submit" value="Login" @onclick="CreateAccount">
+    <button type="button" @onclick="CreateAccount" class="loginButtons">Create</button>
+    <br>
+    <a href="" @onclick="GoToLogIn">Already have an account? Go here!
+                    </a>
 
 </div>
 
@@ -50,7 +54,7 @@ display: none !important;
             _username = "";
             _name = "";
             _password = "";
-            NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/Login");
         }
         catch (Exception e)
         {
@@ -58,4 +62,8 @@ display: none !important;
         }
     }
 
+    private void GoToLogIn()
+    {
+        NavigationManager.NavigateTo("/Login");
+    }
 }

@@ -1,0 +1,25 @@
+@page "/Logout"
+@using LuckyBlazor.Model
+@using LuckyBlazor.Authentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+@code {
+    private Account _account;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
+    }
+
+}

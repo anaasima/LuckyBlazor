@@ -32,5 +32,30 @@ namespace LuckyBlazor.Model
             UserId = userId;
             Name = name;
         }
+        public double AverageRating()
+        {
+            double sum = 0;
+            foreach (var VARIABLE in RatingBuilds)
+            {
+                sum += VARIABLE.score;
+            }
+
+            double avg = sum / RatingBuilds.Count;
+            return avg;
         }
+
+        public override string ToString()
+        {
+            string str = "This is my new build! \n" +
+                         $"Name - {Name}, \n" +
+                         "Components( ";
+            foreach (var VARIABLE in ComponentList)
+            {
+                str += $"{VARIABLE.Name}, ";
+            }
+
+            str += "\n). What do you think?";
+            return str;
+        }
+    }
 }
