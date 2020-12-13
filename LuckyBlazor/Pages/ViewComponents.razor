@@ -59,7 +59,7 @@ else
                         <th>Release Year</th>
                         <th>Aditional Information</th>
                         <th>People's opinion</th>
-                        <th>Rate</th>
+                        <AuthorizeView><th>Rate</th></AuthorizeView>
                     </tr>
                     </thead>
                     <tbody>
@@ -74,6 +74,7 @@ else
                             <td>
                                 <label>@averageStarRatingComponents(item.Id)</label>
                             </td>
+                            <AuthorizeView>
                             <td>
                                 <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 1))">
                                     1
@@ -91,6 +92,7 @@ else
                                     5
                                 </button>
                             </td>
+                            </AuthorizeView>
 
                         </tr>
                     }
@@ -112,24 +114,26 @@ else
                     <br>
                     <label>People's opinion: @averageStarRatingBuilds(variable.Id) stars out of 5</label>
                     <br>
-                    <label style="font-size: 22px;">How do you rate it?</label>
-                     <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 1))">
-                                                        1
-                                                    </button>
-                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 2))">
-                                                        2
-                                                    </button>
+                    <AuthorizeView>
+                        <label style="font-size: 22px;">How do you rate it?</label>
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 1))">
+                            1
+                        </button>
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 2))">
+                            2
+                        </button>
         
-                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 3))">
-                                                        3
-                                                    </button>
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 3))">
+                            3
+                        </button>
         
-                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 4))">
-                                                        4
-                                                    </button>
-                                                    <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 5))">
-                                                        5
-                                                    </button>
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 4))">
+                            4
+                        </button>
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 5))">
+                            5
+                        </button>
+                    </AuthorizeView>
                     <table class="table">
                         <thead>
                         <tr>

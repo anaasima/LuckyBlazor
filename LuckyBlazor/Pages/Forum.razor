@@ -58,11 +58,9 @@
                                 <button class="forumButtons margin" id="background" @onclick="@(() => dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
                             </div>
                         </AuthorizeView>
-                        <div class="2-col">
-                            <div class="col-3">
-                                <label>@getLikes(variable.PostId)likes</label>
+                        <div class="col-3">
+                            <label>@getLikes(variable.PostId) likes</label>
                             </div>
-                        </div>
                     </div>
                     <div class="row" id="seeComments">
                         <div class="col-4">

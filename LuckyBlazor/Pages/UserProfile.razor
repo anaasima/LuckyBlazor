@@ -25,17 +25,18 @@
     {
         <div class="forumForm">
             <div class="row">
-                <AuthorizeView>
+            
                     <div class="col-2">
                         @String.Concat("@")@variable.Username
+                        <AuthorizeView>
                         <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
                             <i class="oi oi-warning" style="color: #555555"></i>
                         </button>
                         <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
                             <i class="oi oi-data-transfer-download" style="color: #555555"></i>
                         </button>
+                        </AuthorizeView>
                     </div>
-                </AuthorizeView>
             </div>
         <div class="row" id="comments">
             <div class="col-12">
@@ -80,9 +81,18 @@
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
+        if (_account != null)
+        {
+            _list = await AccountService.GetFollowedAccounts(_account.UserId);
+            if (_currentAccount.Username.Equals(_account.Username))
+            {
+                NavigationManager.NavigateTo("/MyPage");
+            }
+            
+        }
         _currentAccount = await AccountService.GetUserByUsername(Username);
         _posts = _currentAccount.PostList;
-        _list = await AccountService.GetFollowedAccounts(_account.UserId);
+        
         foreach (var VARIABLE in _list)
         {
             if (VARIABLE.Username.Equals(_currentAccount.Username))
@@ -91,10 +101,7 @@
                 break;
             }
         }
-        if (_currentAccount.Username.Equals(_account.Username))
-        {
-            NavigationManager.NavigateTo("/MyPage");
-        }
+       
     }
 
     private async Task reportPost(int postId)
