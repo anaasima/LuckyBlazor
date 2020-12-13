@@ -25,7 +25,7 @@
 
     private string _errorMessage;
 
-    private void CreateComponent()
+    private async Task CreateComponent()
     {
         try
         {
@@ -34,7 +34,7 @@
                 return;
             }
             Component newComponent = new Component(_name, _type, _releaseYear, _brand, _additionalInformation);
-            ComponentService.AddNewComponentAsync(newComponent);
+            await ComponentService.AddNewComponentAsync(newComponent);
             Console.WriteLine(newComponent);
             _name = "";
             _type = "";

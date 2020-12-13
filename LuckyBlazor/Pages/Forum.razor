@@ -17,7 +17,7 @@
             <input id="postContent" type="text" placeholder="Post something..." @bind-value="_postContent">
         </div>
         <div class="col-1 d-flex justify-content-center align-items-center">
-            <button class="buttons" @onclick="postOnForum">Post</button>
+            <button class="buttons" @onclick="PostOnForum">Post</button>
         </div>
     </div>
     </AuthorizeView>
@@ -32,15 +32,15 @@
 
                             <a href="" @onclick="@(() => GoToUserProfile(@variable.Username))">@String.Concat("@")@variable.Username</a>
                             <AuthorizeView>
-                                <button class="forumButtons" id="background" @onclick="@(() => reportPost(variable.PostId))">
+                                <button class="forumButtons" id="background" @onclick="@(() => ReportPost(variable.PostId))">
                                     <i class="oi oi-warning" style="color: #555555"></i>
                                 </button>
-                                <button class="forumButtons" id="background" @onclick="@(() => savePost(variable))">
+                                <button class="forumButtons" id="background" @onclick="@(() => SavePost(variable))">
                                     <i class="oi oi-data-transfer-download" style="color: #555555"></i>
                                 </button>
                             </AuthorizeView>
                             <AuthorizeView Policy="Moderator">
-                                <button class="forumButtons" id="background" @onclick="@(() => deletePost(variable.PostId))">
+                                <button class="forumButtons" id="background" @onclick="@(() => DeletePost(variable.PostId))">
                                     <i class="oi oi-trash" style="color: #555555"></i>
                                 </button>
                             </AuthorizeView>
@@ -54,12 +54,12 @@
                     <div class="row">
                         <AuthorizeView>
                             <div class="1-col">
-                                <button class="forumButtons margin" id="background" @onclick="@(() => like(variable.PostId))"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
-                                <button class="forumButtons margin" id="background" @onclick="@(() => dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
+                                <button class="forumButtons margin" id="background" @onclick="@(() => Like(variable.PostId))"><i class="oi oi-thumb-up" style="color: #555555"></i></button>
+                                <button class="forumButtons margin" id="background" @onclick="@(() => Dislike(variable.PostId))"><i class="oi oi-thumb-down" style="color: #555555"></i></button>
                             </div>
                         </AuthorizeView>
                         <div class="col-3">
-                            <label>@getLikes(variable.PostId) likes</label>
+                            <label>@GetLikes(variable.PostId) likes</label>
                             </div>
                     </div>
                     <div class="row" id="seeComments">
@@ -70,7 +70,7 @@
                 </div>
             }
         </div>
-        @if (followedAccounts == null || !followedAccounts.Any())
+        @if (_followedAccounts == null || !_followedAccounts.Any())
         {
             <p>You don't follow any account</p>
         }
@@ -79,7 +79,7 @@
             <div class="col-3 justify-content-end">
                 <table class="table" style="text-align: center">
                     <tbody>
-                    @foreach (var variable in followedAccounts)
+                    @foreach (var variable in _followedAccounts)
                     {
                         <tr>
                             <th scope="row">@variable.Name</th>
@@ -97,7 +97,7 @@
     private IList<Post> _posts = new List<Post>();
     private string _postContent;
     private Account _account = new Account();
-    private IList<Account> followedAccounts = new List<Account>();
+    private IList<Account> _followedAccounts = new List<Account>();
     private IList<RatingPost> _rating = new List<RatingPost>();
     private int _likes=0;
 
@@ -110,7 +110,7 @@
         _posts = await ForumService.GetAllPosts();
         if (_account != null)
         {
-            followedAccounts = await AccountService.GetFollowedAccounts(_account.UserId);
+            _followedAccounts = await AccountService.GetFollowedAccounts(_account.UserId);
         }
         foreach (var VARIABLE in _posts)
         {
@@ -123,55 +123,54 @@
         if (firstRender)
         {
             _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
     }
-    private void GoToUserProfile(string username)
+    private async Task GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
     }
 
-    private async Task postOnForum()
+    private async Task PostOnForum()
     {
         Post post = new Post(_postContent, _account.UserId);
         await ForumService.CreatePost(post);
         _postContent = "";
     }
 
-    private void GoToPostPage(int postId)
+    private async Task GoToPostPage(int postId)
     {
         Id = String.Concat(postId);
         NavigationManager.NavigateTo("/PostPage/" + Id);
     }
 
-    private async Task reportPost(int postId)
+    private async Task ReportPost(int postId)
     {
         Report newReport = new Report(_account.UserId, postId, _account.Username);
         await ForumService.ReportPost(newReport);
     }
 
-    private async Task savePost(Post post)
+    private async Task SavePost(Post post)
     {
         await ForumService.SavePosts(post, _account.UserId);
     }
 
-    private async Task deletePost(int postId )
+    private async Task DeletePost(int postId )
     {
         await ForumService.DeletePost(postId);
     }
 
-    private async Task like(int postId)
+    private async Task Like(int postId)
     {
         RatingPost ratingPost = new RatingPost(_account.UserId, postId, 1);
         await ForumService.RatePost(ratingPost);
     }
 
-    private async Task dislike(int postId)
+    private async Task Dislike(int postId)
     {
         RatingPost ratingPost = new RatingPost(_account.UserId, postId, -1);
         await ForumService.RatePost(ratingPost);
     }
-    private int getLikes(int postId)
+    private async Task<int> GetLikes(int postId)
     {
         int sum = 0;
         foreach (var VARIABLE in _posts)

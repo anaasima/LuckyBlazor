@@ -1,15 +1,6 @@
 @page "/"
 @inject NavigationManager NavigationManager
 @inherits LayoutComponentBase
-@* <div class="main plsWork"> *@
-@*     <div class="topmenu"> *@
-@*         <TopMenu/> *@
-@*     </div> *@
-@* *@
-@*     <div class="content px-4"> *@
-@*         @Body *@
-@*     </div> *@
-@* </div> *@
 <div class="centered">
     <h1><b>COMPUTADOR</b></h1>
     <h4 style="color:#ff8800">Your Tech builder</h4>
@@ -29,17 +20,17 @@
 
 @code {
 
-    public void NavigateToLogin()
+    private void NavigateToLogin()
     {
         NavigationManager.NavigateTo("/Login");
     }
 
-    public void NavigateToForum()
+    private void NavigateToForum()
     {
         NavigationManager.NavigateTo("/Forum");
     }
 
-    public void NavigateToViewBuildsComponents()
+    private void NavigateToViewBuildsComponents()
     {
         NavigationManager.NavigateTo("/ViewComponents");
     }

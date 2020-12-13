@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Channels;
 using System.Threading.Tasks;
 using LuckyBlazor.Model;
 using LuckyBlazor.Model.Forum;
@@ -47,7 +46,7 @@ namespace LuckyBlazor.Data.ForumService
                 ("http://localhost:8080/posts", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
-//TODO remember get with body
+
         public async Task RatePost(RatingPost ratingPost)
         {
             HttpClient httpClient = new HttpClient();
@@ -137,16 +136,6 @@ namespace LuckyBlazor.Data.ForumService
             HttpResponseMessage responseMessage = await httpClient.PatchAsync("http://localhost:8080/posts", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
-
-        public async Task<IList<RatingPost>> GetAllPostRatings(int id)
-        {
-            HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/postRating/" + id; 
-            string message = await httpClient.GetStringAsync(uri);
-            IList<RatingPost> result = JsonSerializer.Deserialize<IList<RatingPost>>(message) ;
-            return result;
-        }
-
         public async Task<IList<Post>> GetSavedPosts(int userId)
         {
             HttpClient httpClient = new HttpClient();

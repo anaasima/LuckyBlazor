@@ -32,7 +32,7 @@ else if (!_post.CommentList.Any())
                     <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
                 </div>
                 <div class="col-1 d-flex justify-content-center align-items-center">
-                    <button class="buttons" @onclick="createComment">Post</button>
+                    <button class="buttons" @onclick="CreateComment">Post</button>
                 </div>
             </div>
         </AuthorizeView>
@@ -45,15 +45,15 @@ else
             <div class="col-2">
                 <a href="" @onclick="@(() => GoToUserProfile(_post.Username))">@String.Concat("@")@_post.Username</a>
                 <AuthorizeView>
-                    <button class="forumButtons" id="reportButton" @onclick="@(() => reportPost(_post.PostId))">
+                    <button class="forumButtons" id="reportButton" @onclick="@(() => ReportPost(_post.PostId))">
                         <i class="oi oi-warning" style="color: #555555"></i>
                     </button>
-                    <button class="forumButtons" @onclick="@(() => savePost(_post))">
+                    <button class="forumButtons" @onclick="@(() => SavePost(_post))">
                         <i class="oi oi-data-transfer-download" style="color: #555555"></i>
                     </button>
                 </AuthorizeView>
                 <AuthorizeView Policy="Moderator">
-                    <button class="forumButtons" @onclick="@(() => deletePost(Id))">
+                    <button class="forumButtons" @onclick="@(() => DeletePost(Id))">
                         <i class="oi oi-trash" style="color: #555555"></i>
                     </button>
                 </AuthorizeView>
@@ -69,7 +69,7 @@ else
                 <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
             </div>
             <div class="col-1 d-flex justify-content-center align-items-center">
-                <button class="buttons" @onclick="createComment">Post</button>
+                <button class="buttons" @onclick="CreateComment">Post</button>
             </div>
         </div>
         @foreach (var variable in _comments)
@@ -90,10 +90,9 @@ else
     private Account _account = new Account();
     private IList<Post> _list = new List<Post>();
     private IList<Comment> _comments = new List<Comment>();
-    private string username;
+    private string _username;
     private string _content = "";
     private Post _post = new Post();
-//TODO don't forget account by id
     [Parameter]
     public string Id { get; set; }
 
@@ -117,7 +116,6 @@ else
         if (firstRender)
         {
             _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
     }
     private void GoToUserProfile(string username)
@@ -125,25 +123,25 @@ else
         NavigationManager.NavigateTo("/UserProfile/" + username);
     }
 
-    public void createComment()
+    private async Task CreateComment()
     {
         Comment newComment = new Comment(_content, _account.UserId, Int32.Parse(Id), _account.Username);
-        ForumService.CreateComment(newComment);
+        await ForumService.CreateComment(newComment);
         _comments.Add(newComment);
         _content = "";
     }
 
-    private async Task reportPost(int postId)
+    private async Task ReportPost(int postId)
     {
         Report newReport = new Report(_account.UserId, postId, _account.Username);
         await ForumService.ReportPost(newReport);
     }
 
-    private async Task savePost(Post post)
+    private async Task SavePost(Post post)
     {
         await ForumService.SavePosts(post, _account.UserId);
     }
-    private async Task deletePost(string Id )
+    private async Task DeletePost(string Id )
     {
         await ForumService.DeletePost(Int32.Parse(Id));
     }

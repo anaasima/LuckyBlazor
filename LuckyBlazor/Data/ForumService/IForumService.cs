@@ -22,6 +22,5 @@ namespace LuckyBlazor.Data.ForumService
 
         Task EditPost(Post post);
 
-        Task<IList<RatingPost>> GetAllPostRatings(int id);
     }
 }

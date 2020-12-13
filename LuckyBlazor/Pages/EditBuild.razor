@@ -12,13 +12,13 @@
         <div class="col-lg-12">
             <div class="selection">
                 <select id="select-programme" onchange="location = this.value;">
-                    <option value="@defaultLink" selected>Types of components</option>
-                    <option value=@linkToTable1>Motherboards</option>
-                    <option value="@linkToTable2">CPUs</option>
-                    <option value="@linkToTable3">GPUs</option>
-                    <option value="@linkToTable4">RAMs</option>
-                    <option value="@linkToTable5">Power supply</option>
-                    <option value="@linkToTable6">Storage</option>
+                    <option value="@_defaultLink" selected>Types of components</option>
+                    <option value=@_linkToTable1>Motherboards</option>
+                    <option value="@_linkToTable2">CPUs</option>
+                    <option value="@_linkToTable3">GPUs</option>
+                    <option value="@_linkToTable4">RAMs</option>
+                    <option value="@_linkToTable5">Power supply</option>
+                    <option value="@_linkToTable6">Storage</option>
                 </select> <span></span>
             </div>
 
@@ -33,7 +33,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in motherBoardsToShow)
+                @foreach (var variable in _motherBoardsToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -61,7 +61,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in CPUsToShow)
+                @foreach (var variable in _CPUsToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -90,7 +90,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in GPUsToShow)
+                @foreach (var variable in _GPUsToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -119,7 +119,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in RAMsToShow)
+                @foreach (var variable in _RAMsToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -147,7 +147,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in suppliesToShow)
+                @foreach (var variable in _suppliesToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -175,7 +175,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var variable in storagesToShow)
+                @foreach (var variable in _storagesToShow)
                 {
                     <tr id="@variable.Id">
                         <td>@variable.Name</td>
@@ -224,8 +224,8 @@
                 }
                 </tbody>
             </table>
-          <button class="myPageButtons" @onclick="createBuild">Save build</button>
-                         <button class="myPageButtons" @onclick="reset">Reset build</button>
+          <button class="myPageButtons" @onclick="CreateBuild">Save build</button>
+                         <button class="myPageButtons" @onclick="Reset">Reset build</button>
 
 
         </div>
@@ -236,37 +236,37 @@
     private IList<Component> _components = new List<Component>();
     private IList<Component> _myBuild = new List<Component>();
     private IList<Component> _motherBoards = new List<Component>();
-    private IList<Component> GPUs = new List<Component>();
-    private IList<Component> CPUs = new List<Component>();
-    private IList<Component> RAMs = new List<Component>();
-    private IList<Component> supplies = new List<Component>();
-    private IList<Component> storages = new List<Component>();
-    private IList<Component> motherBoardsToShow = new List<Component>();
-    private IList<Component> GPUsToShow = new List<Component>();
-    private IList<Component> CPUsToShow = new List<Component>();
-    private IList<Component> RAMsToShow = new List<Component>();
-    private IList<Component> suppliesToShow = new List<Component>();
-    private IList<Component> storagesToShow = new List<Component>();
-    private string linkToTable1;
-    private string linkToTable2;
-    private string linkToTable3;
-    private string linkToTable4;
-    private string linkToTable5;
-    private string linkToTable6;
-    private string defaultLink;
-    private bool mB;
-    private bool sort = true;
-    private bool gpuB;
-    private bool cpuB;
-    private bool ramB;
-    private bool storageB;
-    private bool supplyB;
-    public Component motherboard = new Component();
-    public Component gpu;
-    public Component cpu;
-    public Component ram;
-    public Component powerSupply;
-    public Component storage;
+    private IList<Component> _GPUs = new List<Component>();
+    private IList<Component> _CPUs = new List<Component>();
+    private IList<Component> _RAMs = new List<Component>();
+    private IList<Component> _supplies = new List<Component>();
+    private IList<Component> _storages = new List<Component>();
+    private IList<Component> _motherBoardsToShow = new List<Component>();
+    private IList<Component> _GPUsToShow = new List<Component>();
+    private IList<Component> _CPUsToShow = new List<Component>();
+    private IList<Component> _RAMsToShow = new List<Component>();
+    private IList<Component> _suppliesToShow = new List<Component>();
+    private IList<Component> _storagesToShow = new List<Component>();
+    private string _linkToTable1;
+    private string _linkToTable2;
+    private string _linkToTable3;
+    private string _linkToTable4;
+    private string _linkToTable5;
+    private string _linkToTable6;
+    private string _defaultLink;
+    private bool _mB;
+    private bool _sort = true;
+    private bool _gpuB;
+    private bool _cpuB;
+    private bool _ramB;
+    private bool _storageB;
+    private bool _supplyB;
+    public Component _motherboard = new Component();
+    public Component _gpu;
+    public Component _cpu;
+    public Component _ram;
+    public Component _powerSupply;
+    public Component _storage;
     private string _name;
     private Account _account = new Account();
     private IList<Build> _allBuilds = new List<Build>();
@@ -277,13 +277,13 @@
     protected override async Task OnInitializedAsync()
     {
         _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-        linkToTable1 = $"EditBuild/{Id}#x1";
-        linkToTable2 = $"EditBuild/{Id}#x2";
-        linkToTable3 = $"EditBuild/{Id}#x3";
-        linkToTable4 = $"EditBuild/{Id}#x4";
-        linkToTable5 = $"EditBuild/{Id}#x5";
-        linkToTable6 = $"EditBuild/{Id}#x6";
-        defaultLink = $"EditBuild/{Id}";
+        _linkToTable1 = $"EditBuild/{Id}#x1";
+        _linkToTable2 = $"EditBuild/{Id}#x2";
+        _linkToTable3 = $"EditBuild/{Id}#x3";
+        _linkToTable4 = $"EditBuild/{Id}#x4";
+        _linkToTable5 = $"EditBuild/{Id}#x5";
+        _linkToTable6 = $"EditBuild/{Id}#x6";
+        _defaultLink = $"EditBuild/{Id}";
         _components = await ComponentService.GetAllComponentsAsync();
         _allBuilds = await BuildService.GetAllBuildsAsync(_account.UserId);
 
@@ -304,55 +304,55 @@
             switch (_components[i].Type)
             {
                 case "GPU":
-                    GPUs.Add(_components[i]);
+                    _GPUs.Add(_components[i]);
                     break;
                 case "Motherboard":
                     _motherBoards.Add(_components[i]);
                     break;
                 case "CPU":
-                    CPUs.Add(_components[i]);
+                    _CPUs.Add(_components[i]);
                     break;
                 case "RAM":
-                    RAMs.Add(_components[i]);
+                    _RAMs.Add(_components[i]);
                     break;
                 case "Power supply":
-                    supplies.Add(_components[i]);
+                    _supplies.Add(_components[i]);
                     break;
                 case "Storage":
-                    storages.Add(_components[i]);
+                    _storages.Add(_components[i]);
                     break;
             }
         }
         
-        GPUsToShow = GPUs;
-        foreach (var VARIABLE in GPUsToShow)
+        _GPUsToShow = _GPUs;
+        foreach (var VARIABLE in _GPUsToShow)
         {
             for (int i = 0; i < _build.ComponentList.Count; i++)
             {
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA11 " + VARIABLE.Id);
-                    gpu = VARIABLE;
+                    _gpu = VARIABLE;
                 }
             }
         }
         
-        GPUsToShow = GPUs;
-        CPUsToShow = CPUs;
-        foreach (var VARIABLE in CPUsToShow)
+        _GPUsToShow = _GPUs;
+        _CPUsToShow = _CPUs;
+        foreach (var VARIABLE in _CPUsToShow)
         {
             for (int i = 0; i < _build.ComponentList.Count; i++)
             {
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA");
-                    cpu = VARIABLE;
-                    _myBuild.Add(cpu);
+                    _cpu = VARIABLE;
+                    _myBuild.Add(_cpu);
                 }
             }
         }
-        motherBoardsToShow = _motherBoards;
-        foreach (var VARIABLE in motherBoardsToShow)
+        _motherBoardsToShow = _motherBoards;
+        foreach (var VARIABLE in _motherBoardsToShow)
         {
             Console.WriteLine("AAAAAAAAAAA");
             for (int i = 0; i < _build.ComponentList.Count; i++)
@@ -360,107 +360,89 @@
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA" + VARIABLE.Id);
-                    motherboard = VARIABLE;
-                    _myBuild.Add(motherboard);
+                    _motherboard = VARIABLE;
+                    _myBuild.Add(_motherboard);
                 }
             }
         }
-        RAMsToShow = RAMs;
-        foreach (var VARIABLE in RAMsToShow)
+        _RAMsToShow = _RAMs;
+        foreach (var VARIABLE in _RAMsToShow)
         {
             for (int i = 0; i < _build.ComponentList.Count; i++)
             {
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA");
-                    ram = VARIABLE;
-                    _myBuild.Add(ram);
+                    _ram = VARIABLE;
+                    _myBuild.Add(_ram);
                 }
             }
         }
-        suppliesToShow = supplies;
-        foreach (var VARIABLE in suppliesToShow)
+        _suppliesToShow = _supplies;
+        foreach (var VARIABLE in _suppliesToShow)
         {
             for (int i = 0; i < _build.ComponentList.Count; i++)
             {
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA");
-                    powerSupply = VARIABLE;
-                    Console.WriteLine("ddddd" + powerSupply.Name);
-                    _myBuild.Add(powerSupply);
+                    _powerSupply = VARIABLE;
+                    Console.WriteLine("ddddd" + _powerSupply.Name);
+                    _myBuild.Add(_powerSupply);
                 }
             }
         }
-        storagesToShow = storages;
-        foreach (var VARIABLE in storagesToShow)
+        _storagesToShow = _storages;
+        foreach (var VARIABLE in _storagesToShow)
         {
             for (int i = 0; i < _build.ComponentList.Count; i++)
             {
                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
                 {
                     Console.WriteLine("DSA");
-                    storage = VARIABLE;
-                    Console.WriteLine(storage.Name + "fgerrfggf");
-                    _myBuild.Add(storage);
+                    _storage = VARIABLE;
+                    Console.WriteLine(_storage.Name + "fgerrfggf");
+                    _myBuild.Add(_storage);
                 }
             }
         }
     }
-    // protected override async Task OnAfterRenderAsync(bool firstRender)
-    // {
-    //     if (firstRender)
-    //     {
-    //         foreach (var VARIABLE in GPUsToShow)
-    //         {
-    //             for (int i = 0; i < _build.ComponentList.Count; i++)
-    //             {
-    //                 if (_build.ComponentList[i].Id == (VARIABLE).Id)
-    //                 {
-    //                     Console.WriteLine("DSA11 " + VARIABLE.Id);
-    //                     gpu = VARIABLE;
-    //                     await JsRuntime.InvokeVoidAsync("makeGreen", String.Concat(VARIABLE.Id));
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-     public void createBuild()
+   
+     private async Task CreateBuild()
      {
          _build.Name = _name;
          _build.ComponentList = _myBuild;
-         BuildService.EditBuild(_build);
+         await BuildService.EditBuild(_build);
      }
 
-    public async Task reset()
+    private async Task Reset()
     {
        NavigationManager.NavigateTo("/MyPage");
     }
 
-    //it should be a separate method for each because we need to make sure that a build does not end up havin gtwo motherboards or two power supplies UGHHHHH
- public async Task AddMotherboard(int id)
+     private async Task AddMotherboard(int id)
     {
-        foreach (var VARIABLE in motherBoardsToShow)
+        foreach (var VARIABLE in _motherBoardsToShow)
         {
             if (VARIABLE.Id == id)
             {
-                if (!mB)
+                if (!_mB)
                 {
-                    motherboard = VARIABLE;
-                    _myBuild.Add(motherboard);
+                    _motherboard = VARIABLE;
+                    _myBuild.Add(_motherboard);
                     await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                 }
 
-                if (mB)
+                if (_mB)
                 {
-                    _myBuild.Remove(motherboard);
-                    motherboard = VARIABLE;
-                    _myBuild.Add(motherboard);
+                    _myBuild.Remove(_motherboard);
+                    _motherboard = VARIABLE;
+                    _myBuild.Add(_motherboard);
                    await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                 }
 
                 Sort(VARIABLE);
-                mB = true;
+                _mB = true;
                 return;
             }
         }
@@ -468,28 +450,28 @@
 
     public async Task AddCPU(int id)
     {
-        if (motherboard != null)
+        if (_motherboard != null)
         {
-            foreach (var VARIABLE in CPUsToShow)
+            foreach (var VARIABLE in _CPUsToShow)
             {
                 if (VARIABLE.Id == id)
                 {
-                    if (!cpuB)
+                    if (!_cpuB)
                     {
-                        cpu = VARIABLE;
-                        _myBuild.Add(cpu);
+                        _cpu = VARIABLE;
+                        _myBuild.Add(_cpu);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
-                    if (cpuB)
+                    if (_cpuB)
                     {
-                        _myBuild.Remove(cpu);
-                        cpu = VARIABLE;
-                        _myBuild.Add(cpu);
+                        _myBuild.Remove(_cpu);
+                        _cpu = VARIABLE;
+                        _myBuild.Add(_cpu);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
                     Sort(VARIABLE);
-                    cpuB = true;
+                    _cpuB = true;
                 }
             }
         }
@@ -501,28 +483,28 @@
 
     public async Task AddGPU(int id)
     {
-        if (motherboard != null)
+        if (_motherboard != null)
         {
-            foreach (var VARIABLE in GPUsToShow)
+            foreach (var VARIABLE in _GPUsToShow)
             {
                 if (VARIABLE.Id == id)
                 {
-                    if (!gpuB)
+                    if (!_gpuB)
                     {
-                        gpu = VARIABLE;
-                        _myBuild.Add(gpu);
+                        _gpu = VARIABLE;
+                        _myBuild.Add(_gpu);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
-                    if (gpuB)
+                    if (_gpuB)
                     {
-                        _myBuild.Remove(gpu);
-                        gpu = VARIABLE;
-                        _myBuild.Add(gpu);
+                        _myBuild.Remove(_gpu);
+                        _gpu = VARIABLE;
+                        _myBuild.Add(_gpu);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
                     Sort(VARIABLE);
-                    gpuB = true;
+                    _gpuB = true;
                     return;
                 }
             }
@@ -535,28 +517,28 @@
 
     public async Task AddRAM(int id)
     {
-        if (motherboard != null)
+        if (_motherboard != null)
         {
-            foreach (var VARIABLE in RAMsToShow)
+            foreach (var VARIABLE in _RAMsToShow)
             {
                 if (VARIABLE.Id == id)
                 {
-                    if (!ramB)
+                    if (!_ramB)
                     {
-                        ram = VARIABLE;
-                        _myBuild.Add(ram);
+                        _ram = VARIABLE;
+                        _myBuild.Add(_ram);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
-                    if (ramB)
+                    if (_ramB)
                     {
-                        _myBuild.Remove(ram);
-                        ram = VARIABLE;
-                        _myBuild.Add(ram);
+                        _myBuild.Remove(_ram);
+                        _ram = VARIABLE;
+                        _myBuild.Add(_ram);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
                     Sort(VARIABLE);
-                    ramB = true;
+                    _ramB = true;
                     return;
                 }
             }
@@ -569,29 +551,29 @@
 
     public async Task AddStorage(int id)
     {
-        if (motherboard != null)
+        if (_motherboard != null)
         {
-            foreach (var VARIABLE in storagesToShow)
+            foreach (var VARIABLE in _storagesToShow)
             {
                 if (VARIABLE.Id == id)
                 {
-                    if (!storageB)
+                    if (!_storageB)
                     {
-                        storage = VARIABLE;
-                        _myBuild.Add(storage);
+                        _storage = VARIABLE;
+                        _myBuild.Add(_storage);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
-                    if (storageB)
+                    if (_storageB)
                     {
-                        _myBuild.Remove(storage);
-                        storage = VARIABLE;
-                        _myBuild.Add(storage);
+                        _myBuild.Remove(_storage);
+                        _storage = VARIABLE;
+                        _myBuild.Add(_storage);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
                     Sort(VARIABLE);
-                    storageB = true;
+                    _storageB = true;
                     return;
                 }
             }
@@ -602,31 +584,31 @@
         }
     }
 
-    public async Task AddSupply(int id)
+    private async Task AddSupply(int id)
     {
-        if (motherboard != null)
+        if (_motherboard != null)
         {
-            foreach (var VARIABLE in suppliesToShow)
+            foreach (var VARIABLE in _suppliesToShow)
             {
                 if (VARIABLE.Id == id)
                 {
-                    if (!supplyB)
+                    if (!_supplyB)
                     {
-                        powerSupply = VARIABLE;
-                        _myBuild.Add(powerSupply);
+                        _powerSupply = VARIABLE;
+                        _myBuild.Add(_powerSupply);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
-                    if (supplyB)
+                    if (_supplyB)
                     {
-                        _myBuild.Remove(powerSupply);
-                        powerSupply = VARIABLE;
-                        _myBuild.Add(powerSupply);
+                        _myBuild.Remove(_powerSupply);
+                        _powerSupply = VARIABLE;
+                        _myBuild.Add(_powerSupply);
                         await JsRuntime.InvokeVoidAsync("chosenComponent", VARIABLE.Name);
                     }
 
                     Sort(VARIABLE);
-                    supplyB = true;
+                    _supplyB = true;
                     return;
                 }
             }
@@ -637,16 +619,16 @@
         }
     }
 
-    public async Task FinishBuild()
+    private async Task FinishBuild()
     {
-        if (motherboard != null && cpu != null && gpu != null && ram != null && storage != null && powerSupply != null)
+        if (_motherboard != null && _cpu != null && _gpu != null && _ram != null && _storage != null && _powerSupply != null)
         {
             int sum = 0;
             foreach (var VARIABLE in _myBuild)
             {
                 sum += VARIABLE.EnergyConsumption;
             }
-            if (sum > powerSupply.EnergyConsumption)
+            if (sum > _powerSupply.EnergyConsumption)
                 await JsRuntime.InvokeVoidAsync("sendAlert");
             await JsRuntime.InvokeVoidAsync("show");
         }
@@ -658,14 +640,14 @@
     
     private void Sort(Component component)
     {
-         if (sort)
+         if (_sort)
         {
-            motherBoardsToShow = new List<Component>();
-            CPUsToShow = new List<Component>();
-            GPUsToShow = new List<Component>();
-            RAMsToShow = new List<Component>();
-            suppliesToShow = new List<Component>();
-            storagesToShow = new List<Component>();
+            _motherBoardsToShow = new List<Component>();
+            _CPUsToShow = new List<Component>();
+            _GPUsToShow = new List<Component>();
+            _RAMsToShow = new List<Component>();
+            _suppliesToShow = new List<Component>();
+            _storagesToShow = new List<Component>();
 
             string typeOfComponent = component.SocketType;
 
@@ -674,70 +656,70 @@
             {
                 if (motherBoard.SocketType.Contains(typeOfComponent))
                 {
-                    if (!motherBoardsToShow.Contains(motherBoard))
-                        motherBoardsToShow.Add(motherBoard);
+                    if (!_motherBoardsToShow.Contains(motherBoard))
+                        _motherBoardsToShow.Add(motherBoard);
                 }
             }
 
-            foreach (var GPU in GPUs.ToList())
+            foreach (var GPU in _GPUs.ToList())
             {
-                foreach (var motherBoard in motherBoardsToShow)
+                foreach (var motherBoard in _motherBoardsToShow)
                 {
                     if (motherBoard.SocketType.Contains(GPU.SocketType))
                     {
-                        if (!GPUsToShow.Contains(GPU))
-                            GPUsToShow.Add(GPU);
+                        if (!_GPUsToShow.Contains(GPU))
+                            _GPUsToShow.Add(GPU);
                     }
                 }
             }
 
-            foreach (var RAM in RAMs.ToList())
+            foreach (var RAM in _RAMs.ToList())
             {
-                foreach (var motherBoard in motherBoardsToShow)
+                foreach (var motherBoard in _motherBoardsToShow)
                 {
                     if (motherBoard.SocketType.Contains(RAM.SocketType))
                     {
-                        if (!RAMsToShow.Contains(RAM))
-                            RAMsToShow.Add(RAM);
+                        if (!_RAMsToShow.Contains(RAM))
+                            _RAMsToShow.Add(RAM);
                     }
                 }
             }
 
-            foreach (var storage in storages.ToList())
+            foreach (var storage in _storages.ToList())
             {
-                foreach (var motherBoard in motherBoardsToShow)
+                foreach (var motherBoard in _motherBoardsToShow)
                 {
                     if (motherBoard.SocketType.Contains(storage.SocketType))
                     {
-                        if (!storagesToShow.Contains(storage))
-                            storagesToShow.Add(storage);
+                        if (!_storagesToShow.Contains(storage))
+                            _storagesToShow.Add(storage);
                     }
                 }
             }
 
-            foreach (var CPU in CPUs.ToList())
+            foreach (var CPU in _CPUs.ToList())
             {
-                foreach (var motherBoard in motherBoardsToShow)
+                foreach (var motherBoard in _motherBoardsToShow)
                 {
                     if (motherBoard.SocketType.Contains(CPU.SocketType))
                     {
-                        if (!CPUsToShow.Contains(CPU))
-                            CPUsToShow.Add(CPU);
+                        if (!_CPUsToShow.Contains(CPU))
+                            _CPUsToShow.Add(CPU);
                     }
                 }
             }
-            foreach (var supply in supplies.ToList())
+            foreach (var supply in _supplies.ToList())
             {
-                foreach (var motherBoard in motherBoardsToShow)
+                foreach (var motherBoard in _motherBoardsToShow)
                 {
                     if (motherBoard.SocketType.Contains(supply.SocketType))
                     {
-                        if (!suppliesToShow.Contains(supply))
-                            suppliesToShow.Add(supply);
+                        if (!_suppliesToShow.Contains(supply))
+                            _suppliesToShow.Add(supply);
                     }
                 }
             }
-            sort = false;
+            _sort = false;
         }
      }
 

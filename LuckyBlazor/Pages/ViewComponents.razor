@@ -25,22 +25,22 @@ else
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                <button class="components" @onclick="showMotherboards"><b>See motherboards</b></button>
+                <button class="components" @onclick="ShowMotherboards"><b>See motherboards</b></button>
             </div>
             <div class="col-2">
-                <button class="components" @onclick="showCpu"><b>See CPUs</b></button>
+                <button class="components" @onclick="ShowCpu"><b>See CPUs</b></button>
             </div>
             <div class="col-2">
-                <button class="components" @onclick="showGpu"><b>See GPUs</b></button>
+                <button class="components" @onclick="ShowGpu"><b>See GPUs</b></button>
             </div>
             <div class="col-2">
-                <button class="components" @onclick="showRam"><b>See RAMs</b></button>
+                <button class="components" @onclick="ShowRam"><b>See RAMs</b></button>
             </div>
             <div class="col-2">
-                <button class="components" @onclick="showSupply"><b>See power supplies</b></button>
+                <button class="components" @onclick="ShowSupply"><b>See power supplies</b></button>
             </div>
             <div class="col-2">
-                <button class="components" @onclick="showStorage"><b>See storages</b></button>
+                <button class="components" @onclick="ShowStorage"><b>See storages</b></button>
             </div>
         </div>
         <div class="row">
@@ -72,23 +72,23 @@ else
                             <td>@item.ReleaseYear</td>
                             <td>@item.AdditionalInformation</td>
                             <td>
-                                <label>@averageStarRatingComponents(item.Id)</label>
+                                <label>@AverageStarRatingComponents(item.Id)</label>
                             </td>
                             <AuthorizeView>
                             <td>
-                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 1))">
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateComponent(item.Id, 1))">
                                     1
                                 </button>
-                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 2))">
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateComponent(item.Id, 2))">
                                     2
                                 </button>
-                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 3))">
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateComponent(item.Id, 3))">
                                     3
                                 </button>
-                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 4))">
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateComponent(item.Id, 4))">
                                     4
                                 </button>
-                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateComponent(item.Id, 5))">
+                                <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateComponent(item.Id, 5))">
                                     5
                                 </button>
                             </td>
@@ -112,25 +112,25 @@ else
                 <div class="col-12">
                     <label><b>@variable.Name</b></label>
                     <br>
-                    <label>People's opinion: @averageStarRatingBuilds(variable.Id) stars out of 5</label>
+                    <label>People's opinion: @AverageStarRatingBuilds(variable.Id) stars out of 5</label>
                     <br>
                     <AuthorizeView>
                         <label style="font-size: 22px;">How do you rate it?</label>
-                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 1))">
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateBuild(variable.Id, 1))">
                             1
                         </button>
-                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 2))">
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateBuild(variable.Id, 2))">
                             2
                         </button>
         
-                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 3))">
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateBuild(variable.Id, 3))">
                             3
                         </button>
         
-                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 4))">
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateBuild(variable.Id, 4))">
                             4
                         </button>
-                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => rateBuild(variable.Id, 5))">
+                        <button class="btn btn-primary" id="rateBut" @onclick="@(() => RateBuild(variable.Id, 5))">
                             5
                         </button>
                     </AuthorizeView>
@@ -184,10 +184,6 @@ else
     private IList<Component> _storage = new List<Component>();
     private double _componentAverageRating = 0;
     private double _buildAverageRating = 0;
-    private IList<RatingComponent> _ratingComponents = new List<RatingComponent>();
-    private IList<RatingBuild> _ratingBuilds = new List<RatingBuild>();
-
-    //TODO: reminder for filters
 
     protected override async Task OnInitializedAsync()
     {
@@ -231,25 +227,24 @@ else
         if (firstRender)
         {
             _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
-    // NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
         }
     }
 
-    private async Task rateComponent(int componentId, int score)
+    private async Task RateComponent(int componentId, int score)
     {
         RatingComponent ratingComponent = new RatingComponent(componentId, _account.UserId, score);
         await ComponentService.RateComponent(ratingComponent);
-        averageStarRatingComponents(componentId);
+        AverageStarRatingComponents(componentId);
     }
 
-    private async Task rateBuild(int buildId, int score)
+    private async Task RateBuild(int buildId, int score)
     {
         RatingBuild ratingBuild = new RatingBuild(buildId, _account.UserId, score);
         await BuildService.LeaveRating(ratingBuild);
-        averageStarRatingBuilds(buildId);
+        AverageStarRatingBuilds(buildId);
     }
 
-    private double averageStarRatingComponents(int componentId)
+    private double AverageStarRatingComponents(int componentId)
     {
         Component component = new Component();
         foreach (var VARIABLE in _components)
@@ -266,27 +261,9 @@ else
             _componentAverageRating = 0;
         }
         return _componentAverageRating;
-
-    // double sum = 0;
-    // foreach (var VARIABLE in _components)
-    // {
-    //     if (VARIABLE.Id == componentId)
-    //     {
-    //         Console.WriteLine(VARIABLE.RatingComponents.Count);
-    //         _ratingComponents = VARIABLE.RatingComponents;
-    //         break;
-    //     }
-    // }
-    // foreach (var VARIABLE in _ratingComponents)
-    // {
-    //     Console.WriteLine(VARIABLE.score);
-    //     Console.WriteLine(VARIABLE.componentId);
-    //     sum += VARIABLE.score;
-    // }
-    // _componentAverageRating = sum/_ratingComponents.Count;
     }
 
-    private double averageStarRatingBuilds(int buildId)
+    private double AverageStarRatingBuilds(int buildId)
     {
         Build component = new Build();
         foreach (var VARIABLE in _preBuilds)
@@ -305,28 +282,28 @@ else
         return _buildAverageRating;
     }
 
-    private void showMotherboards()
+    private void ShowMotherboards()
     {
         _componentsToShow = _motherboards;
     }
 
-    private void showCpu()
+    private void ShowCpu()
     {
         _componentsToShow = _cpus;
     }
-    private void showGpu()
+    private void ShowGpu()
     {
         _componentsToShow = _gpus;
     }
-    private void showRam()
+    private void ShowRam()
     {
         _componentsToShow = _rams;
     }
-    private void showStorage()
+    private void ShowStorage()
     {
         _componentsToShow = _storage;
     }
-    private void showSupply()
+    private void ShowSupply()
     {
         _componentsToShow = _supplies;
     }

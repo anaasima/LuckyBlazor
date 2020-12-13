@@ -12,7 +12,5 @@ namespace LuckyBlazor.Data.BuildService
         Task EditBuild(Build build);
         Task DeleteBuild(int id);
         Task LeaveRating(RatingBuild ratingBuild);
-
-        Task<IList<RatingBuild>> GetAllBuildRatings(int id);
     }
 }

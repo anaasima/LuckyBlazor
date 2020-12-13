@@ -20,7 +20,7 @@
             <tr>
                 <td>Who reported: <a href="" @onclick="@(() => GoToUserProfile(variable.Username))">@String.Concat("@")@variable.Username</a></td>
                 <td>Go to report: <a href="" @onclick="@(() => GoToPostPage(@variable.postId))">@variable.postId</a></td>
-                <td><button class="forumButtons" @onclick="@(() => deleteReport(variable.id))">
+                <td><button class="forumButtons" @onclick="@(() => DeleteReport(variable.id))">
                                             <i class="oi oi-trash" style="color: #555555"></i>
                                         </button></td>
             </tr>
@@ -34,11 +34,10 @@
 @code {
     private IList<Report> _reports = new List<Report>();
     private Account _account;
-    // private string _username;
     [Parameter]
     public string Id { get; set; }
     [Parameter]
-    public string username { get; set; }
+    public string Username { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,18 +45,10 @@
         _reports = await ForumService.GetReports();
     }
 
-    private async Task<string> getUserById(int id)
-    {
-        Account newAccount = new Account();
-        newAccount = await AccountService.GetUserById(id);
-        Console.WriteLine(newAccount.Username);
-        return newAccount.Username;
-    }
-    
     private void GoToUserProfile(string Username)
     {
-        username = Username;
-        NavigationManager.NavigateTo("/UserProfile/" + username);
+        this.Username = Username;
+        NavigationManager.NavigateTo("/UserProfile/" + this.Username);
     }
 
     
@@ -67,7 +58,7 @@
         NavigationManager.NavigateTo("/PostPage/" + Id);
     }
 
-    private async Task deleteReport(int reportId)
+    private async Task DeleteReport(int reportId)
     {
         await ForumService.DeleteReport(reportId);
         foreach (var VARIABLE in _reports)

@@ -66,14 +66,5 @@ namespace LuckyBlazor.Data.BuildService
             HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/buildRating", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
-
-        public async Task<IList<RatingBuild>> GetAllBuildRatings(int id)
-        {
-            HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/buildRatings/" + id;
-            string message = await httpClient.GetStringAsync(uri);
-            IList<RatingBuild> result = JsonSerializer.Deserialize<IList<RatingBuild>>(message);
-            return result;
-        }
     }
 }
