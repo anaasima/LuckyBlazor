@@ -49,7 +49,7 @@
                                 <span class="close" @onclick="@(() => ClickSpan(@variable.PostId))">&times;</span>
                                 @* <label style="display: none">@openContent(@variable.PostId)</label> *@
                                 <input id="postContent" type="text" placeholder="Post something..." @bind-value="@variable.Content">
-                                <button type="button" @onclick="@(() => EditPost(@variable.Content, @variable.PostId))" class="loginButtons">Create</button>
+                                <button type="button" @onclick="@(() => EditPost(@variable.Content, @variable.PostId))" class="loginButtons">Edit</button>
                             </div>
 
                         </div>

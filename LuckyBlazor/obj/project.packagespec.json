@@ -1,15 +1,19 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
+    "projectUniqueName": "C:\\Users\\ajurj\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
     "projectName": "LuckyBlazor",
-    "projectPath": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
-    "outputPath": "C:\\Users\\eatcl\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\obj\\",
+    "projectPath": "C:\\Users\\ajurj\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\LuckyBlazor.csproj",
+    "outputPath": "C:\\Users\\ajurj\\RiderProjects\\LuckyBlazor\\LuckyBlazor\\obj\\",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
@@ -43,7 +47,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
     }
   }
 }

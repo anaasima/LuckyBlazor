@@ -170,7 +170,7 @@
         RatingPost ratingPost = new RatingPost(_account.UserId, postId, -1);
         await ForumService.RatePost(ratingPost);
     }
-    private async Task<int> GetLikes(int postId)
+    private int GetLikes(int postId)
     {
         int sum = 0;
         foreach (var VARIABLE in _posts)
@@ -180,6 +180,7 @@
                 _rating = VARIABLE.RatingPosts;
                 foreach (var variable in _rating)
                 {
+                    Console.WriteLine(variable.score);
                     sum += variable.score;
                 }
             }

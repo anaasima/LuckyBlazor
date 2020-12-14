@@ -19,7 +19,7 @@
                 <button class="myPageButtons" @onclick="Follow" id="follow">Follow</button>
                 <button class="myPageButtons" style="display: none" @onclick="Unfollow" id="unfollow">Unfollow</button>
             </AuthorizeView>
-            <AuthorizeView>
+            <AuthorizeView Policy="Moderator">
                 <button class="myPageButtons" @onclick="Delete">Delete</button>
             </AuthorizeView>
         </div>
@@ -124,6 +124,7 @@
     private async Task Unfollow()
     {
         await AccountService.UnfollowAccount(_account.UserId, _currentAccount.UserId);
+        Console.WriteLine(_account.Username);
         await JsRuntime.InvokeVoidAsync("unfollow");
     }
 

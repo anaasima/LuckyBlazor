@@ -26,16 +26,21 @@ else if (!_post.CommentList.Any())
                 <p>@_post.Content</p>
             </div>
         </div>
-        <AuthorizeView>
-            <div class="row">
-                <div class="col-11 d-flex justify-content-center">
+        <div class="row">
+            <div class="col-11 d-flex justify-content-center">
+                <AuthorizeView>
                     <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
-                </div>
-                <div class="col-1 d-flex justify-content-center align-items-center">
-                    <button class="buttons" @onclick="CreateComment">Post</button>
-                </div>
+                </AuthorizeView>
+
             </div>
-        </AuthorizeView>
+
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <AuthorizeView>
+
+                    <button class="buttons" @onclick="CreateComment">Post</button>
+                </AuthorizeView>
+            </div>
+        </div>
     </div>
 }
 else
@@ -64,6 +69,7 @@ else
                 <p>@_post.Content</p>
             </div>
         </div>
+        <AuthorizeView>
         <div class="row">
             <div class="col-11 d-flex justify-content-center">
                 <input id="postContent" type="text" placeholder="Comment something..." @bind-value="_content">
@@ -72,10 +78,13 @@ else
                 <button class="buttons" @onclick="CreateComment">Post</button>
             </div>
         </div>
+        </AuthorizeView>
         @foreach (var variable in _comments)
         {
             <div class="row comments">
-                <div class="col-3"><label>@String.Concat("@")@variable.Username</label></div>
+                <div class="col-3">
+                    <label>@String.Concat("@")@variable.Username</label>
+                </div>
             </div>
             <div class="row comments" id="divideCom">
                 <div class="col-9">
@@ -93,6 +102,7 @@ else
     private string _username;
     private string _content = "";
     private Post _post = new Post();
+
     [Parameter]
     public string Id { get; set; }
 
@@ -110,7 +120,12 @@ else
             }
         }
         _comments = _post.CommentList;
+        foreach (var VARIABLE in _comments)
+        {
+            Console.WriteLine(VARIABLE.Username);
+        }
     }
+
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
@@ -118,6 +133,7 @@ else
             _account = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).CachedUser;
         }
     }
+
     private void GoToUserProfile(string username)
     {
         NavigationManager.NavigateTo("/UserProfile/" + username);
@@ -141,7 +157,8 @@ else
     {
         await ForumService.SavePosts(post, _account.UserId);
     }
-    private async Task DeletePost(string Id )
+
+    private async Task DeletePost(string Id)
     {
         await ForumService.DeletePost(Int32.Parse(Id));
     }
