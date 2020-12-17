@@ -19,8 +19,8 @@
         {
             <tr>
                 <td>Who reported: <a href="" @onclick="@(() => GoToUserProfile(variable.Username))">@String.Concat("@")@variable.Username</a></td>
-                <td>Go to report: <a href="" @onclick="@(() => GoToPostPage(@variable.postId))">@variable.postId</a></td>
-                <td><button class="forumButtons" @onclick="@(() => DeleteReport(variable.id))">
+                <td>Go to report: <a href="" @onclick="@(() => GoToPostPage(@variable.PostId))">@variable.PostId</a></td>
+                <td><button class="forumButtons" @onclick="@(() => DeleteReport(variable.Id))">
                                             <i class="oi oi-trash" style="color: #555555"></i>
                                         </button></td>
             </tr>
@@ -63,7 +63,7 @@
         await ForumService.DeleteReport(reportId);
         foreach (var VARIABLE in _reports)
         {
-            if (VARIABLE.id == reportId)
+            if (VARIABLE.Id == reportId)
             {
                 _reports.Remove(VARIABLE);
                 break;

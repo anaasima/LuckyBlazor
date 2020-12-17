@@ -14,7 +14,7 @@ namespace LuckyBlazor.Data
         public async Task<IList<Component>> GetAllComponentsAsync()
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/components"; 
+            string uri = "https://localhost:8080/components"; 
             string message = await httpClient.GetStringAsync(uri);
 
             Console.WriteLine(message);
@@ -34,7 +34,7 @@ namespace LuckyBlazor.Data
                 );
 
             HttpResponseMessage responseMessage =
-                await httpClient.PostAsync("http://localhost:8080/components", content);
+                await httpClient.PostAsync("https://localhost:8080/components", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
@@ -48,7 +48,7 @@ namespace LuckyBlazor.Data
                 "application/json"
                 );
             HttpResponseMessage responseMessage =
-                await client.PatchAsync("http://localhost:8080/componentRating", content);
+                await client.PatchAsync("https://localhost:8080/componentRating", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
     }

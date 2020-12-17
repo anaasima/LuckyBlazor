@@ -43,7 +43,7 @@ namespace LuckyBlazor.Model
             double sum = 0;
             foreach (var VARIABLE in RatingComponents)
             {
-                sum += VARIABLE.score;
+                sum += VARIABLE.Score;
             }
 
             double avg = sum / RatingComponents.Count;

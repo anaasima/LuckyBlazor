@@ -15,7 +15,7 @@ namespace LuckyBlazor.Data.BuildService
         public async Task<IList<Build>> GetAllBuildsAsync(int userId)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/builds?UserId=" + $"{userId}";
+            string uri = "https://localhost:8080/builds?UserId=" + $"{userId}";
             string message = await httpClient.GetStringAsync(uri);
             IList<Build> result = JsonSerializer.Deserialize<IList<Build>>(message);
             return result;
@@ -31,7 +31,7 @@ namespace LuckyBlazor.Data.BuildService
                 "application/json"
                 );
             HttpResponseMessage responseMessage = 
-                await httpClient.PostAsync("http://localhost:8080/builds", content);
+                await httpClient.PostAsync("https://localhost:8080/builds", content);
         }
 
         public async Task EditBuild(Build build)
@@ -43,14 +43,14 @@ namespace LuckyBlazor.Data.BuildService
                 Encoding.UTF8,
                 "application/json"
                 );
-            HttpResponseMessage responseMessage = await httpClient.PatchAsync("http://localhost:8080/builds", content);
+            HttpResponseMessage responseMessage = await httpClient.PatchAsync("https://localhost:8080/builds", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
         public async Task DeleteBuild(int id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage responseMessage = await client.DeleteAsync("http://localhost:8080/builds/" + id);
+            HttpResponseMessage responseMessage = await client.DeleteAsync("https://localhost:8080/builds/" + id);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
@@ -63,7 +63,7 @@ namespace LuckyBlazor.Data.BuildService
                 Encoding.UTF8,
                 "application/json"
                 );
-            HttpResponseMessage responseMessage = await client.PatchAsync("http://localhost:8080/buildRating", content);
+            HttpResponseMessage responseMessage = await client.PatchAsync("https://localhost:8080/buildRating", content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
     }

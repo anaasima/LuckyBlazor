@@ -17,7 +17,7 @@ namespace LuckyBlazor.Data.AccountsService
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:8080/register"),
+                RequestUri = new Uri("https://localhost:8080/register"),
                 Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
             };
 
@@ -35,7 +35,7 @@ namespace LuckyBlazor.Data.AccountsService
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:8080/login"),
+                RequestUri = new Uri("https://localhost:8080/login"),
                 Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
             };
 
@@ -59,7 +59,7 @@ namespace LuckyBlazor.Data.AccountsService
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:8080/update"),
+                RequestUri = new Uri("https://localhost:8080/update"),
                 Content = new StringContent(accountSerialized, Encoding.UTF8, "application/json")
             };
 
@@ -72,7 +72,7 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task<Account> GetUserByUsername(string username)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/accounts?Username=" + username;
+            string uri = "https://localhost:8080/accounts?Username=" + username;
             string message = await httpClient.GetStringAsync(uri);
 
             Console.WriteLine("ASDASDASD" + message);
@@ -84,7 +84,7 @@ namespace LuckyBlazor.Data.AccountsService
         public async Task<Account> GetUserById(int id)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/accounts/" + id;
+            string uri = "https://localhost:8080/accounts/" + id;
             string message = await httpClient.GetStringAsync(uri);
             Account result = JsonSerializer.Deserialize<Account>(message);
             return result;
@@ -98,7 +98,7 @@ namespace LuckyBlazor.Data.AccountsService
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/followAccount/" + userId, content);
+            HttpResponseMessage responseMessage = await httpClient.PostAsync("https://localhost:8080/followAccount/" + userId, content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
@@ -110,14 +110,14 @@ namespace LuckyBlazor.Data.AccountsService
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage responseMessage = await httpClient.PostAsync("http://localhost:8080/unfollowAccount/" + userId, content);
+            HttpResponseMessage responseMessage = await httpClient.PostAsync("https://localhost:8080/unfollowAccount/" + userId, content);
             Console.WriteLine(responseMessage.StatusCode.ToString());
         }
 
         public async Task<IList<Account>> GetFollowedAccounts(int userId)
         {
             HttpClient httpClient = new HttpClient();
-            string uri = "http://localhost:8080/followedAccounts/" + userId;
+            string uri = "https://localhost:8080/followedAccounts/" + userId;
             string message = await httpClient.GetStringAsync(uri);
 
             Console.WriteLine(message);

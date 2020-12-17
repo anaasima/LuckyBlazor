@@ -6,11 +6,11 @@ namespace LuckyBlazor.Model.Forum.Report
     public class Report
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [JsonPropertyName("userId")]
-        public int userId { get; set; }
+        public int UserId { get; set; }
         [JsonPropertyName("postId")]
-        public int postId { get; set; }
+        public int PostId { get; set; }
         [JsonPropertyName("username")]
         public String Username { get; set; }
 
@@ -21,8 +21,8 @@ namespace LuckyBlazor.Model.Forum.Report
         
         public Report(int userId, int postId, string username)
         {
-            this.userId = userId;
-            this.postId = postId;
+            this.UserId = userId;
+            this.PostId = postId;
             Username = username;
         }
     }

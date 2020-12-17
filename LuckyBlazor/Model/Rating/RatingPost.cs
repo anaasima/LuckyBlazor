@@ -5,13 +5,13 @@ namespace LuckyBlazor.Model.Rating
     public class RatingPost
     {
         [JsonPropertyName("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [JsonPropertyName("userId")]
-        public int userId { get; set; }
+        public int UserId { get; set; }
         [JsonPropertyName("postId")]
-        public int postId { get; set; }
+        public int PostId { get; set; }
         [JsonPropertyName("score")]
-        public int score { get; set; }
+        public int Score { get; set; }
 
         public RatingPost()
         {
@@ -20,9 +20,9 @@ namespace LuckyBlazor.Model.Rating
 
         public RatingPost(int userId, int postId, int score)
         {
-            this.userId = userId;
-            this.postId = postId;
-            this.score = score;
+            this.UserId = userId;
+            this.PostId = postId;
+            this.Score = score;
         }
     }
 }
