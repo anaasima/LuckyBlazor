@@ -22,33 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="some changes once again">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="d32b3af8-b677-4f55-985a-493d85285f36" name="Default Changelist" comment="sep3 12">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LuckyBlazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/AccountsService/AccountService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/BuildService/BuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ComponentsService/ComponentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Data/ForumService/ForumService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Builds/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Components/Component.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Components/Component.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Report/Report.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Forum/Report/Report.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingBuild.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingBuild.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingPost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Model/Rating/RatingPost.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/CreateBuild.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/Forum.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/Pages/ViewReports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/LuckyBlazor.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/LuckyBlazor.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LuckyBlazor/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +204,8 @@
       <workItem from="1608067901072" duration="1074000" />
       <workItem from="1608114529407" duration="2546000" />
       <workItem from="1608163929871" duration="38000" />
-      <workItem from="1608214837544" duration="280000" />
+      <workItem from="1608214837544" duration="346000" />
+      <workItem from="1609948383863" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="Ana">
       <created>1603890769954</created>
@@ -385,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607850444119</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="sep3 12">
+      <created>1608215144408</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608215144408</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +410,8 @@
     <MESSAGE value="design igen" />
     <MESSAGE value="final design" />
     <MESSAGE value="catalin comp, ana work" />
-    <option name="LAST_COMMIT_MESSAGE" value="catalin comp, ana work" />
+    <MESSAGE value="sep3 12" />
+    <option name="LAST_COMMIT_MESSAGE" value="sep3 12" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607295298676">
@@ -572,11 +556,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1607505877822" />
-    <state x="481" y="132" key="Vcs.Push.Dialog.v2" timestamp="1607861763479">
-      <screen x="0" y="0" width="2048" height="824" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1608215148280">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2371" y="167" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607644356630" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607850478790" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608215148280" />
     <state x="-1559" y="508" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@-1920.376.1536.824" timestamp="1607338241225" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824/-1920.376.1536.824@0.0.2048.824" timestamp="1606904201827" />
     <state x="481" y="132" key="Vcs.Push.Dialog.v2/0.0.2048.824@0.0.2048.824" timestamp="1607861763479" />
